@@ -19,6 +19,16 @@
   background-color: white;
   color: darkgray;
 }
+.p-btn-clear {
+  text-transform: uppercase;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  font-size: 12;
+  margin: 30px 20px 0 0;
+  width: 265px;
+  height: 65px;
+}
 /* GENERAL END */
 
 /* LANDING */
@@ -46,6 +56,42 @@
   padding: 30% 0 30% 0;
 }
 /* LANDING END */
+
+/* DASHBOARD */
+.dashboard-main {
+  background-color: #585A56;
+  width: auto;
+  margin: 50px;
+  color: white;
+  padding: 25px;
+}
+.dashboard-main-info{
+  display: flex;
+  justify-content: center;
+}
+.dashboard-main-info-l {
+  max-width: 500px;
+  line-height: 2;
+}
+.cause-donation {
+  background-color: rgba(62, 62, 60);
+  padding: 25px;
+  width: 400px;
+  color: gray;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.cause-donation span {
+  float: right;
+}
+.lux-fee {
+  color: yellow;
+}
+.d-tot-amt {
+  color: white;
+  font-weight: bold;
+}
+/* DASHBOARD END */
 
 /* PROJECT CARD */
 .p-card1 {
