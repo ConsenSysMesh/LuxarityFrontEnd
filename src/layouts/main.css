@@ -1,0 +1,95 @@
+/* GENERAL  */
+.p-btn-dark, .p-btn-light {
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  margin: 30px 20px 0 0;
+  width: 265px;
+  height: 65px;
+  letter-spacing: 2px;
+}
+.p-btn-dark {
+  background-color: darkgray;
+  color: white;
+}
+.p-btn2-light {
+  background-color: white;
+  color: darkgray;
+}
+/* GENERAL END */
+/* NAVBAR */
+.nav {
+  text-transform: uppercase;
+}
+.nav .nav-heading {
+  font-size: 1.5em;
+  letter-spacing: 5px;
+}
+.nav .nav-anchor a{
+  color: gray;
+  font-size: 1.1em;
+}
+/* NAVBAR END*/
+
+/* PROJECT CARD */
+.p-card1 {
+  background-color: rgb(207,219,210);
+  height: 680px;
+  background-image: url('./img/foo.jpg');
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  background-position: right top;
+}
+.p-card2 {
+  background-color: rgb(229,217,207);
+  height: 680px;
+  background-image: url('./img/foo.jpg');
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  background-position: left top;
+}
+.p-card-box1 {
+  position: relative;
+  left: 15%;
+  top: 50px;
+  width: 45%;
+}
+.p-card-box2 {
+  position: relative;
+  left: 45%;
+  top: 50px;
+  width: 45%;
+}
+.card-content {
+  background-color: white;
+  padding: 50px;
+}
+.card-title, .card-sub-title {
+  text-transform: uppercase;
+}
+.card-title {
+  font-weight: 400;
+  font-size: 30px;
+}
+.card-sub-title {
+  color: green;
+  margin: 0;
+}
+.card-text {
+  line-height: 2;
+  font-size: 15px;
+  padding-bottom: 50px;
+}
+.pledge {
+  margin-top: 25px;
+  font-size: 30px;
+  font-weight: 600;
+}
+.pledge-sub {
+  font-size: 20px;
+  color: gray;
+}
+/* PROJECT CARD END */
