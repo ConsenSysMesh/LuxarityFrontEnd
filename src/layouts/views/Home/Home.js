@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import logo from '../../img/logo.png'
+//components
+import Wrapper from '../../components/wrapper/Wrapper'
 
 class Home extends Component {
   render() {
     return (
-      <main className="container">
-        <div className="pure-g">
+      <Wrapper>
+        <div className="pure-g" style={{backgroundColor: 'grey', paddingTop: '3%'}}>
           <div className="pure-u-1-1 header">
             <img src={logo} alt="drizzle-logo" />
             <h1>Luxarity Be Up On It</h1>
@@ -14,7 +16,7 @@ class Home extends Component {
             <br/><br/>
           </div>
         </div>
-      </main>
+      </Wrapper>
     )
   }
 }
