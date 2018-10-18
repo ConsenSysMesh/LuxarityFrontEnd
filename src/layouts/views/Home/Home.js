@@ -3,7 +3,6 @@ import logo from '../../img/logo.png'
 import Grid from '@material-ui/core/Grid'
 //components
 import Wrapper from '../../components/wrapper/Wrapper'
-import LuxarityIsMoreCard from '../../components/sections/LuxarityIsMoreCard'
 
 class Home extends Component {
   render() {
@@ -26,8 +25,6 @@ class Home extends Component {
               </Grid>
             </Grid>
           </div>
-
-          <LuxarityIsMoreCard />
         </div>
       </Wrapper>
     )
