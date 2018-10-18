@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import logo from '../../img/logo.png'
+import Grid from '@material-ui/core/Grid'
+
 //components
 import Wrapper from '../../components/wrapper/Wrapper'
 
@@ -7,13 +9,22 @@ class Home extends Component {
   render() {
     return (
       <Wrapper>
-        <div className="pure-g" style={{backgroundColor: 'grey', paddingTop: '3%'}}>
-          <div className="pure-u-1-1 header">
-            <img src={logo} alt="drizzle-logo" />
-            <h1>Luxarity Be Up On It</h1>
-            <p>Examples of how to get started with Drizzle in various situations.</p>
+        <div>
+          <div className="landing-splash">
+            <h1 className="splash-heading">Pop up hero splash</h1>
+            <button className="p-btn-dark">Enter pin</button>
+          </div>
 
-            <br/><br/>
+          <div className="landing-content">
+            <Grid container>
+              <Grid item xs={12} sm={6}>
+                <img src={require('../../img/foo1.png')} />
+              </Grid>
+              <Grid item xs={12} sm={6} className="landing-content-info">
+                <h3 className="splash-heading">Pop up hero splash</h3>
+                <button className="p-btn-dark">Enter pin</button>
+              </Grid>
+            </Grid>
           </div>
         </div>
       </Wrapper>
