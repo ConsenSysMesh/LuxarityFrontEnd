@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from '../../img/logo.png'
 import Grid from '@material-ui/core/Grid'
 //components
 import Wrapper from '../../components/wrapper/Wrapper'
@@ -17,7 +16,7 @@ class Home extends Component {
           <div className="landing-content">
             <Grid container>
               <Grid item xs={12} sm={6}>
-                <img src={require('../../img/foo1.png')} />
+                <img src={require('../../img/foo1.png')} alt="Luxarity Fashion"/>
               </Grid>
               <Grid item xs={12} sm={6} className="landing-content-info">
                 <h3 className="splash-heading">Pop up hero splash</h3>

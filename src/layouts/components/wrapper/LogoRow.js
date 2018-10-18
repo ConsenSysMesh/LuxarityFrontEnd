@@ -1,7 +1,6 @@
 //import react
 import React from 'react';
 //css
-import { Row } from 'react-grid-system';
 import { Link } from 'react-router-dom'; //v4
 //logo
 import logoSVG from '../../img/luxlogo.svg';

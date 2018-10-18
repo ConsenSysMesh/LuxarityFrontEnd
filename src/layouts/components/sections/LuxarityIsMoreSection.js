@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 //componets
 import { Row, Col } from 'react-grid-system';
 
-class LuxarityIsMoreCard extends Component {
+class LuxarityIsMoreSection extends Component {
 
   render() {
     return(
@@ -48,4 +48,4 @@ class LuxarityIsMoreCard extends Component {
   }
 }
 
-export default LuxarityIsMoreCard
+export default LuxarityIsMoreSection

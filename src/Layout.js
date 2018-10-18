@@ -7,7 +7,10 @@ import { Route, Switch } from 'react-router-dom'; //v4
 import App from './App'
 //routes (views)
 import HomeContainer from './layouts/views/Home/HomeContainer'
-import Dashboard from './layouts/views/Dashboard/Dashboard'
+import DashboardContainer from './layouts/views/Dashboard/DashboardContainer'
+import TestContainer from './layouts/views/Test/TestContainer'
+import PopupContainer from './layouts/views/Popup/PopupContainer'
+import RawContainer from './layouts/views/Raw/RawContainer'
 
 class Layout extends Component {
 
@@ -16,8 +19,11 @@ class Layout extends Component {
     return(
       <App>
         <Switch>
+          <Route exact path="/test" component={TestContainer} />
+          <Route exact path="/popup" component={PopupContainer} />
+          <Route exact path="/raw" component={RawContainer} />
+          <Route exact path="/dashboard" component={DashboardContainer} />
           <Route exact path="/" component={HomeContainer} />
-          <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
       </App>
     );
