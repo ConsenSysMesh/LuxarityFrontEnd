@@ -19,12 +19,12 @@ class ProjectCardComplex extends Component {
   chooseSides(side) {
     if (side.toLowerCase() === 'right') {
       return (
-        <div className="p-card1">
+        <div className="p-card1" style={{backgroundImage: "url(" + this.props.charityImage + ")", backgroundRepeat: 'no-repeat', backgroundSize: '50% 100%', backgroundPosition: 'right'}}>
           <Grid container style={{padding: 0}}>
             <Grid item xs={12} sm={1}></Grid>
-            <Grid item xs={12} sm={6} style={{paddingBottom: 30}}>
-              <div className="card-content">
-                <p className="card-sub-title">{this.props.cardCategory}</p>
+            <Grid item xs={12} sm={7} style={{paddingBottom: 30}}>
+              <div className="card-content" >
+                <p className="card-sub-title3">{this.props.cardCategory}</p>
                 <p className="card-title">{this.props.cardOrgName}</p>
 
                 <p className="card-text">
@@ -47,7 +47,7 @@ class ProjectCardComplex extends Component {
       )
     } else if (side.toLowerCase() === 'left') {
       return (
-        <div className="p-card2">
+        <div className="p-card2" style={{backgroundImage: "url(" + this.props.charityImage + ")", backgroundRepeat: 'no-repeat', backgroundSize: '50% 100%', backgroundPosition: 'left'}}>
           <Grid container>
             <Grid item xs={12} sm={5}></Grid>
             <Grid item xs={12} sm={6} style={{paddingBottom: 30}}>
