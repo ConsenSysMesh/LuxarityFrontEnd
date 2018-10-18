@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import logo from '../../img/logo.png'
 import Grid from '@material-ui/core/Grid'
 import ProjectCard1 from '../../components/projectcard/ProjectCard1'
+import ProjectCard2 from '../../components/projectcard/ProjectCard2'
+import LuxarityIsMoreCard from '../../components/sections/LuxarityIsMoreCard'
+
 //components
 import Wrapper from '../../components/wrapper/Wrapper'
 
@@ -21,7 +24,7 @@ class Dashboard extends Component {
               <Grid item xs={12} sm={6} className="dashboard-main-info">
                 <div className="dashboard-main-info-l">
                   <div className="cause-donation">
-                    <p>Purchase total: <span> $222.00 </span> </p>
+                    <p>Purchase total: <span className="p-tot-amt"> $222.00 </span> </p>
                     <p>Luxarity fee: <span className="lux-fee"> -$20.00 </span> </p>
                     <hr/>
                     <p className="d-tot">Donation total: <span className="d-tot-amt"> $200.00 </span> </p>
@@ -33,6 +36,8 @@ class Dashboard extends Component {
             </Grid>
           </div>
           <ProjectCard1 />
+          <ProjectCard2 />
+          <LuxarityIsMoreCard />
         </div>
       </Wrapper>
     )
