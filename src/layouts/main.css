@@ -12,7 +12,7 @@
   letter-spacing: 3px;
 }
 .p-btn-dark {
-  background-color: rgba(62, 62, 60);
+  background-color: rgb(88, 90, 86);
   color: white;
 }
 .p-btn2-light {
@@ -41,6 +41,23 @@
 .splash-heading {
   text-transform: uppercase;
   letter-spacing: 3px;
+  font-size: 30px;
+}
+.p-landing-splash {
+  margin: auto;
+  background-color: rgb(88, 90, 86);
+  padding: 10%;
+  text-align: center;
+  color: white;
+}
+.p-splash-heading {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 30px;
+  color: white;
+}
+.p-splash-text {
+  line-height: 2;
 }
 .landing-content {
   background-color: rgb(207,219,210);
@@ -128,7 +145,7 @@
   padding: 15px;
   margin-top: 30px;
 }
-.card-title, .card-sub-title {
+.card-title, .card-sub-title1, .card-sub-title2 {
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 2px;
@@ -141,8 +158,12 @@
   letter-spacing: 3px;
   margin: 5px 0 5px 0;
 }
-.card-sub-title {
+.card-sub-title1 {
   color: green;
+  margin: 0;
+}
+.card-sub-title2 {
+  color: red;
   margin: 0;
 }
 .card-text {
@@ -167,8 +188,56 @@
   margin-right: -50px;
   width: 102.5%
 }
+.project-progress-bar {
+  background-color: rgb(209, 211, 209);
+}
 .progress-bar-meter {
   background-color: green;
   height: 5px;
 }
 /* PROJECT CARD END */
+
+/* PROJECT LIST */
+.project-card1, .project-card2 {
+  margin: 50px 0 50px 0;
+  padding-right: 50px;
+}
+.project-card1 {
+  height: 680px;
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  background-position: right top;
+}
+.project-card2 {
+  height: 680px;
+  background-repeat: no-repeat;
+  background-size: 50% 100%;
+  background-position: left top;
+}
+
+.project-card-content {
+  background-color: white;
+  padding: 0 50px 0 50px;;
+}
+.project-card-title, .project-card-sub-title1, .project-card-sub-title2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+.project-card-title {
+  font-weight: 400;
+  font-size: 30px;
+  color: #585A56;
+  letter-spacing: 3px;
+  margin: 5px 0 5px 0;
+}
+.project-card-sub-title1 {
+  color: green;
+  margin: 0;
+}
+.project-card-sub-title2 {
+  color: red;
+  margin: 0;
+}
+/* PROJECT LISt CARD END */
