@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom'; //v4
 import App from './App'
 //routes (views)
 import HomeContainer from './layouts/views/Home/HomeContainer'
+import Dashboard from './layouts/views/Dashboard/Dashboard'
 
 class Layout extends Component {
 
@@ -16,6 +17,7 @@ class Layout extends Component {
       <App>
         <Switch>
           <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/dashboard" component={Dashboard} />
         </Switch>
       </App>
     );

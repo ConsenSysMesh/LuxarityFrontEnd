@@ -9,7 +9,7 @@
   margin: 30px 20px 0 0;
   width: 265px;
   height: 65px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 .p-btn-dark {
   background-color: black;
@@ -24,10 +24,10 @@
   background-color: transparent;
   color: white;
   border: 2px solid white;
-  font-size: 12;
-  margin: 30px 20px 0 0;
+  margin: 30px 0 0 0;
   width: 265px;
   height: 65px;
+  float: right;
 }
 /* GENERAL END */
 
@@ -68,6 +68,15 @@
 .dashboard-main-info{
   display: flex;
   justify-content: center;
+  padding: 25px;
+}
+.dashboard-title {
+  letter-spacing: 4px;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.dashboard-text {
+  color: rgb(209, 211, 209)
 }
 .dashboard-main-info-l {
   max-width: 500px;
@@ -79,13 +88,13 @@
   width: 400px;
   color: gray;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 .cause-donation span {
   float: right;
 }
 .lux-fee {
-  color: yellow;
+  color: gold;
 }
 .d-tot-amt {
   color: white;
