@@ -10,7 +10,7 @@ class Home extends Component {
       <Wrapper>
         <div>
           <div className="landing-splash">
-            <h1 className="splash-heading">Pop up hero splash</h1>
+            <p className="splash-heading">Pop up hero splash</p>
             <button className="p-btn-dark">Enter pin</button>
           </div>
 

@@ -12,7 +12,7 @@ class ProjectCard2 extends Component {
             <Grid item xs={12} sm={5}></Grid>
             <Grid item xs={12} sm={5}>
               <div className="card-content">
-                <p className="card-sub-title">Aware</p>
+                <p className="card-sub-title2">Aware</p>
                 <p className="card-title">Health + wellness hackathon</p>
 
                 <p className="card-text">

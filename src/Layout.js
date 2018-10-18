@@ -8,6 +8,7 @@ import App from './App'
 //routes (views)
 import HomeContainer from './layouts/views/Home/HomeContainer'
 import Dashboard from './layouts/views/Dashboard/Dashboard'
+import ProjectList from './layouts/views/ProjectList/ProjectList'
 
 class Layout extends Component {
 
@@ -18,6 +19,7 @@ class Layout extends Component {
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/projects" component={ProjectList} />
         </Switch>
       </App>
     );
