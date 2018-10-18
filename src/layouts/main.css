@@ -163,6 +163,7 @@
 .progress-bar {
   background-color: rgb(209, 211, 209);
   margin-right: -50px;
+  width: 102.5%
 }
 .progress-bar-meter {
   background-color: green;
