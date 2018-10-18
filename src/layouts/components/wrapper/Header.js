@@ -27,9 +27,9 @@ export default class Header extends React.Component {
   render() {
 
     return (
-      <div style={{paddingLeft: '10%', paddingRight: '10%', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', paddingTop: 15, paddingBottom: 15, position: 'relative'}}>
+      <div style={{paddingLeft: '5%', paddingRight: '5%', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', paddingTop: 15, paddingBottom: 15, position: 'relative'}}>
         <Row style={{alignItems: 'center', justifyContent: 'space-between', paddingTop: 2}}>
-            <Row style={{paddingLeft: 5}}>
+            <Row style={{paddingLeft: 5, justifyContent: 'center', alignItems: 'center'}}>
               <LogoRow SiteTitle={'Impactfolio'} />
               <div style={{paddingLeft: 40, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <Link to={{pathname: '/' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>HOME</Link>
