@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //project cards
-import ProjectCard from '../../components/projectcard/ProjectCard'
+import ProjectCardComplex from '../../components/projectcard/ProjectCardComplex'
 //sections
 import LuxarityIsMoreSection from '../../components/sections/LuxarityIsMoreSection'
 import SupportACauseSection from '../../components/sections/SupportACauseSection'
@@ -29,12 +29,14 @@ class Dashboard extends Component {
         orientation = "left"
       }
       return (
-        <ProjectCard
+        <ProjectCardComplex
+          key={index}
           cardOrientation={orientation}
           cardCategory={datum.charityCategory.toUpperCase()}
           cardOrgName={datum.charityName.toUpperCase()}
           cardSummary={datum.charitySummary}
           cardPledged={datum.charityPledge}
+          charityImage={datum.charityImage}
           cardGoal={datum.charityGoal} />
       );
     });
