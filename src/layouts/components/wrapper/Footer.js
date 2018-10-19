@@ -2,7 +2,7 @@
 import React from 'react';
 //components
 import { Row } from 'react-grid-system';
-import Inputbox from '../inputbox/Inputbox'
+//import Inputbox from '../inputbox/Inputbox'
 
 export default class Footer extends React.Component {
 
