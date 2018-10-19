@@ -19,7 +19,7 @@ class Test extends Component {
               cardOrgName={"HKRITA RESEARCH"}
               cardSummary={"The Hong Kong Research Institute of Textiles and Apparel (HKRITA) was established in April 2006. To enhance Hong Kong's cutting edge, we have the funding support from Innovation and Technology Commission, HKSAR Government. HKRITA is also supported by institutes, companies and associations in the textile and clothing industry in Hong Kong, mainland China and other countries."}
               cardPledged={50320}
-              charityImage={"http://thembsgroup.co.uk/wp-content/uploads/2016/11/Sustainable-Fashion.jpg"}
+              charityImage={"https://amuse-images.vice.com/wp_upload/2016/09/vince-staples-crop.jpg"}
               cardGoal={200000} />
           </Row>
 
@@ -33,7 +33,7 @@ class Test extends Component {
               cardOrgName={"HKRITA RESEARCH"}
               cardSummary={"The Hong Kong Research Institute of Textiles and Apparel (HKRITA) was established in April 2006. To enhance Hong Kong's cutting edge, we have the funding support from Innovation and Technology Commission, HKSAR Government. HKRITA is also supported by institutes, companies and associations in the textile and clothing industry in Hong Kong, mainland China and other countries."}
               cardPledged={50320}
-              charityImage={"http://thembsgroup.co.uk/wp-content/uploads/2016/11/Sustainable-Fashion.jpg"}
+              charityImage={"https://amuse-images.vice.com/wp_upload/2016/09/vince-staples-crop.jpg"}
               cardGoal={200000} />
           </Row>
 
