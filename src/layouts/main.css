@@ -281,3 +281,28 @@
   object-fit: cover;
 }
 /* PROJECT CARD IMAGE STYLING END */
+
+/* INPUT BOX */
+form.inputbox {
+  height: 50px;
+  margin: 20px 0 20px 0;
+  position: relative;
+}
+input[type="text"] {
+    width: 200px;
+    height: 50px;
+    padding: 0 50px 0 10px;
+    border-color: rgb(88, 90, 86);
+    border-width: thin;
+}
+form.inputbox button {
+    position: absolute;
+    margin-left: -50px;
+    height: 51px;
+    width: 50px;
+    background: black;
+    color: white;
+    border: 0;
+    font-size: 35px;
+}
+/* INPUT BOX END */
