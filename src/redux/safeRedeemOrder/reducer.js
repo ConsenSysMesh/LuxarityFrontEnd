@@ -9,7 +9,7 @@ import {
 } from './actions'
 
 export default function* safeRedeemOrder(action) {
-  const api = getAPI();
+  const api = getAPI('onchain');
 
   yield put({ type: SAFE_REDEEM_ORDER_STARTED })
 

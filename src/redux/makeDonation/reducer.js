@@ -9,7 +9,7 @@ import {
 } from './actions'
 
 export default function* makeDonation(action) {
-  const api = getAPI();
+  const api = getAPI('onchain');
 
   yield put({ type: MAKE_DONATION_STARTED })
 

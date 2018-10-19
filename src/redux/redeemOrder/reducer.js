@@ -9,7 +9,7 @@ import {
 } from './actions'
 
 export default function* redeemOrder(action) {
-  const api = getAPI();
+  const api = getAPI('onchain');
 
   yield put({ type: REDEEM_ORDER_STARTED })
 
