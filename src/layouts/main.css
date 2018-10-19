@@ -11,6 +11,18 @@
   height: 65px;
   letter-spacing: 3px;
 }
+.p-btn-dark-medium, .p-btn-light-medium{
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  margin: 15px 10px 0 0;
+  width: '40%';
+  height: 45px;
+  letter-spacing: 3px;
+}
 .p-btn-dark-small, .p-btn-light-small {
   text-transform: uppercase;
   font-weight: 500;
@@ -22,7 +34,7 @@
   height: 45px;
   letter-spacing: 3px;
 }
-.p-btn-dark, .p-btn-dark-small  {
+.p-btn-dark, .p-btn-dark-small, .p-btn-dark-mediun  {
   background-color: rgb(88, 90, 86);
   color: white;
 }

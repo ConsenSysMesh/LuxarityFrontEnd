@@ -5,6 +5,7 @@ import { Row, Col } from 'react-grid-system';
 import Wrapper from '../../components/wrapper/Wrapper'
 import ProjectCardComplex from '../../components/projectcard/ProjectCardComplex'
 import ProjectCardSimple from '../../components/projectcard/ProjectCardSimple'
+import EnterPinSection from '../../components/sections/EnterPinSection'
 
 class Test extends Component {
   render() {
@@ -48,6 +49,12 @@ class Test extends Component {
               cardPledged={50320}
               charityImage={'http://modellist-id.com/wp-content/uploads/image/blog/adinda5.jpg'}
               cardGoal={200000} />
+          </Row>
+
+          <br/>
+
+          <Row style={{alignItems: 'center', justifyContent: 'center'}}>
+            <EnterPinSection />
           </Row>
 
           <br/>
