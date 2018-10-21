@@ -36,6 +36,7 @@ class Dashboard extends Component {
           cardOrgName={datum.charityName.toUpperCase()}
           cardSummary={datum.charitySummary}
           cardPledged={datum.charityPledge}
+          donationAmount={200}
           charityImage={datum.charityImage}
           cardGoal={datum.charityGoal} />
       );

@@ -180,6 +180,26 @@
   letter-spacing: 2px;
   font-size: 10px;
 }
+.card-subsection {
+  margin: 0 0 5px 0;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.card-subsection-title {
+  font-size: 28px;
+  color: '#575853';
+  padding-top: 15px;
+  padding-right: 15px;
+}
+.card-subsection-text {
+  font-size: 14px;
+  color: '#828981';
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  line-height: 1.7;
+}
 .card-title {
   font-weight: 400;
   font-size: 27px;

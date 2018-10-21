@@ -53,6 +53,7 @@ class Support extends Component {
           cardOrgName={datum.charityName}
           cardSummary={datum.charitySummary}
           cardPledged={datum.charityPledge}
+          donationAmount={200}
           charityImage={image}
           backgroundSizeImg={size}
           cardGoal={datum.charityGoal} />

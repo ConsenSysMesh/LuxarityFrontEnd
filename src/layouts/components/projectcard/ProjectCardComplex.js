@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
+//components
+import SupportModal from './SupportModal'
 
 
 class ProjectCardComplex extends Component {
@@ -9,78 +11,142 @@ class ProjectCardComplex extends Component {
 
     /* local state variables */
     this.state = {
+      supportOpen: false,
     }
 
     //bind functions
     this.formatNum = this.formatNum.bind(this)
+    this.handleClose = this.handleClose.bind(this)
+    this.handleDonate = this.handleDonate.bind(this)
+    this.handleOpen = this.handleOpen.bind(this)
+    this.getProgress = this.getProgress.bind(this)
+    this.getColor = this.getColor.bind(this)
     this.chooseSides = this.chooseSides.bind(this)
+  }
+
+  handleClose() {
+    this.setState({ supportOpen: false })
+  }
+
+  handleOpen() {
+    this.setState({ supportOpen: true })
+  }
+
+  handleDonate() {
+
+  }
+
+  formatNum(x) {
+    if (x !== null && x !== 0) {
+      let string = x + ""
+      let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      return "$" + firstNum
+    }
+    return "$0"
+  }
+
+  getProgress(x,y) {
+    let progress = (x/y)*100
+    let stringWidth = progress.toString()
+    return stringWidth + "%"
+  }
+
+  getColor(category) {
+    if (category.toLowerCase() === "responsible") {
+      return '#1DB42E'
+    } else if (category.toLowerCase() === "aware") {
+      return '#FD3F11'
+    } else if (category.toLowerCase() === "wonder") {
+      return '#25C7AA'
+    }
   }
 
   chooseSides(side) {
     if (side.toLowerCase() === 'right') {
       return (
-        <div className="p-card1" style={{backgroundImage: "url(" + this.props.charityImage + ")", backgroundRepeat: 'no-repeat', backgroundSize: this.props.backgroundSizeImg, backgroundPosition: 'right'}}>
-          <Grid container style={{padding: 0}}>
-            <Grid item xs={12} sm={1}></Grid>
-            <Grid item xs={12} sm={7} style={{paddingBottom: 30}}>
-              <div className="card-content" >
-                <p className="card-sub-title">{this.props.cardCategory}</p>
-                <p className="card-title">{this.props.cardOrgName}</p>
+        <div>
+          <div className="p-card1" style={{backgroundImage: "url(" + this.props.charityImage + ")", backgroundRepeat: 'no-repeat', backgroundSize: this.props.backgroundSizeImg, backgroundPosition: 'right'}}>
+            <Grid container style={{padding: 0}}>
+              <Grid item xs={12} sm={1}></Grid>
+              <Grid item xs={12} sm={7} style={{paddingBottom: 30}}>
+                <div className="card-content" >
+                  <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+                  <p className="card-title">{this.props.cardOrgName}</p>
 
-                <p className="card-text">
-                  {this.props.cardSummary}
-                </p>
+                  <p className="card-text">
+                    {this.props.cardSummary}
+                  </p>
 
-                <div className="progress-bar">
-                  <div className="progress-bar-meter" style={{width: '20%'}}></div>
+                  <div className="progress-bar">
+                    <div className="progress-bar-meter" style={{width: '20%'}}></div>
+                  </div>
+
+                  <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
+                  <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
                 </div>
 
-                <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
-                <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
-              </div>
-
-              <button className="p-btn-dark"> Suppport this project </button>
-              <button className="p-btn-light"> Charity details </button>
+                <button className="p-btn-dark" onClick={this.handleOpen}> Suppport this project </button>
+                <button className="p-btn-light"> Charity details </button>
+              </Grid>
             </Grid>
-          </Grid>
+          </div>
+          <SupportModal
+            open={this.state.supportOpen}
+            onDonate={this.handleDonate}
+            handleClose={this.handleClose}
+            overlayColor={'#CFDBD2'}
+            donationAmount={this.props.donationAmount}
+            donationImage={this.props.charityImage}
+            cardCategory={this.props.cardCategory}
+            cardOrgName={this.props.cardOrgName}
+            cardPledged={this.props.cardPledged}
+            cardGoal={this.props.cardGoal} />
         </div>
       )
     } else if (side.toLowerCase() === 'left') {
       return (
-        <div className="p-card2" style={{backgroundImage: "url(" + this.props.charityImage + ")", backgroundRepeat: 'no-repeat', backgroundSize: this.props.backgroundSizeImg, backgroundPosition: 'left'}}>
-          <Grid container>
-            <Grid item xs={12} sm={5}></Grid>
-            <Grid item xs={12} sm={6} style={{paddingBottom: 30}}>
-              <div className="card-content">
-                <p className="card-sub-title">{this.props.cardCategory}</p>
-                <p className="card-title">{this.props.cardOrgName}</p>
+        <div>
+          <div className="p-card2" style={{backgroundImage: "url(" + this.props.charityImage + ")", backgroundRepeat: 'no-repeat', backgroundSize: this.props.backgroundSizeImg, backgroundPosition: 'left'}}>
+            <Grid container>
+              <Grid item xs={12} sm={5}></Grid>
+              <Grid item xs={12} sm={6} style={{paddingBottom: 30}}>
+                <div className="card-content">
+                  <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+                  <p className="card-title">{this.props.cardOrgName}</p>
 
-                <p className="card-text">
-                  {this.props.cardSummary}
-                </p>
+                  <p className="card-text">
+                    {this.props.cardSummary}
+                  </p>
 
-                <div className="progress-bar">
-                  <div className="progress-bar-meter" style={{width: '20%'}}></div>
+                  <div className="progress-bar">
+                    <div className="progress-bar-meter" style={{width: '20%'}}></div>
+                  </div>
+
+                  <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
+                  <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
                 </div>
 
-                <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
-                <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
-              </div>
-
-              <div style={{float: 'right'}}>
-                <button className="p-btn-dark"> Suppport this project </button>
-                <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
-              </div>
+                <div style={{float: 'right'}}>
+                  <button className="p-btn-dark"> Suppport this project </button>
+                  <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
+          </div>
+          <SupportModal
+            open={this.state.supportOpen}
+            onDonate={this.handleDonate}
+            handleClose={this.handleClose}
+            overlayColor={'#E5D9CF'}
+            donationAmount={this.props.donationAmount}
+            donationImage={this.props.charityImage}
+            cardCategory={this.props.cardCategory}
+            cardOrgName={this.props.cardOrgName}
+            cardPledged={this.props.cardPledged}
+            cardGoal={this.props.cardGoal} />
         </div>
       )
     }
-  }
-
-  formatNum(x) {
-    let firstNum =  x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    return "$" + firstNum
   }
 
   render() {
