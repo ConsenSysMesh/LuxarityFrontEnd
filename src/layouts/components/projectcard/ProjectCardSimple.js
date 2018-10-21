@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid'
 import { Row, Col } from 'react-grid-system';
 
 
@@ -31,7 +30,7 @@ class ProjectCardSimple extends Component {
     return(
       <Row style={{width: '55%', minHeight: 400, backgroundColor: '#F1F2F3'}}>
         <Col md={5} style={{width: '100%', overflow: 'hidden', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center'}} >
-          <img className="boxed-image" style={{width: '100%', height: '100%'}} src={this.props.charityImage} />
+          <img alt="LUXARITY" className="boxed-image" style={{width: '100%', height: '100%'}} src={this.props.charityImage} />
         </Col>
         <Col md={7} className="box">
           <Row style={{background: 'white', height: 180, padding: 0}}></Row>

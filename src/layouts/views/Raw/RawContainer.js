@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import { drizzleConnect } from 'drizzle-react'
 //redux actions
 import { chooseDonation } from '../../../redux/chooseDonation/actions'
-import { makeDonation } from '../../../redux/makeDonation/actions'
 import { redeemOrder } from '../../../redux/redeemOrder/actions'
 import { safeRedeemOrder } from '../../../redux/safeRedeemOrder/actions'
 
@@ -15,11 +14,6 @@ const mapStateToProps = state => ({
   choseDonation: state.chooseDonation.response !== null,
   chooseDonationError: state.chooseDonation.error,
   chooseDonationSuccess: state.chooseDonation.success,
-
-  makingDonation: state.makeDonation.running,
-  madeDonation: state.makeDonation.response !== null,
-  makeDonationError: state.makeDonation.error,
-  makeDonationSuccess: state.makeDonation.success,
 
   redeemingOrder: state.redeemOrder.running,
   redeemedOrder: state.redeemOrder.response,
@@ -34,7 +28,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   chooseDonation,
-  makeDonation,
   redeemOrder,
   safeRedeemOrder,
 }, dispatch)

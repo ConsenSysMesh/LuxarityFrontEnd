@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid'
 import { Row, Col } from 'react-grid-system';
 //components
 import Wrapper from '../../components/wrapper/Wrapper'

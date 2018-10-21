@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid'
 //components
 import Wrapper from '../../components/wrapper/Wrapper'
+import { Link } from 'react-router-dom' //v4
+import Grid from '@material-ui/core/Grid'
 
 class Home extends Component {
   render() {
@@ -9,8 +10,10 @@ class Home extends Component {
       <Wrapper>
         <div>
           <div className="landing-splash">
-            <p className="splash-heading">Pop up hero splash</p>
-            <button className="p-btn-dark">Enter pin</button>
+            <p className="splash-heading">Conscious living for all</p>
+            <button className="p-btn-dark">
+              <Link to={{pathname: '/redeem' }} style={{ textDecoration: 'none', color: 'white'}}>Redeem Popup Order</Link>
+            </button>
           </div>
 
           <div className="landing-content">
@@ -19,8 +22,8 @@ class Home extends Component {
                 <img src={require('../../img/foo1.png')} alt="Luxarity Fashion"/>
               </Grid>
               <Grid item xs={12} sm={6} className="landing-content-info">
-                <h3 className="splash-heading">Pop up hero splash</h3>
-                <button className="p-btn-dark">Enter pin</button>
+                <h3 className="splash-heading">The Impact of Popups</h3>
+                <button className="p-btn-dark">Learn More</button>
               </Grid>
             </Grid>
           </div>
