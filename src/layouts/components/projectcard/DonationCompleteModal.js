@@ -37,7 +37,7 @@ class DonationCompleteModal extends Component {
 
                 <div className="modal-text" style={{color: '#FCFCFA'}}>In the meantime, learn how you can redeem your own Luxarity token for your charitable efforts.</div>
 
-                <div style={{alignItems: 'center', justifyContent: 'center'}}>
+                <div style={{display: 'flex', justifyContent: 'center'}}>
                   <button className="p-btn-light-medium">View Progress</button>
                 </div>
               </div>
