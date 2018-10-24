@@ -16,6 +16,7 @@ class SupportModal extends Component {
     //bind functions
     this.formatNum = this.formatNum.bind(this)
     this.getColor = this.getColor.bind(this)
+    this.getType = this.getType.bind(this)
   }
 
   formatNum(x) {
@@ -37,6 +38,43 @@ class SupportModal extends Component {
     }
   }
 
+  getType(type) {
+    if (type.toLowerCase() === 'split') {
+      return (
+        <div>
+          <Row style={{padding: 0, margin: 0}}>
+            <div className="card-content" style={{width: '100%', margin: 0}}>
+              <div style={{paddingTop: 4, paddingBottom: 4}}>
+                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+                <p className="card-title">{this.props.cardOrgName}</p>
+              </div>
+              <div style={{paddingTop: 4, paddingBottom: 4}}>
+                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+                <p className="card-title">{this.props.cardOrgName}</p>
+              </div>
+              <div style={{paddingTop: 4, paddingBottom: 4}}>
+                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+                <p className="card-title">{this.props.cardOrgName}</p>
+              </div>
+            </div>
+          </Row>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Row style={{background: 'white', height: 180, padding: 0, margin: 0}}> <span></span></Row>
+          <Row style={{padding: 0, margin: 0}}>
+            <div className="card-content" style={{width: '100%', margin: 0}}>
+              <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+              <p className="card-title">{this.props.cardOrgName}</p>
+            </div>
+          </Row>
+        </div>
+      )
+    }
+  }
+
   render() {
     return(
 
@@ -50,13 +88,7 @@ class SupportModal extends Component {
               <img alt="LUXARITY" className="boxed-image" style={{width: '100%', height: '100%'}} src={this.props.donationImage} />
             </Col>
             <Col md={7} className="box" style={{margin: 0, padding: 0}}>
-              <Row style={{background: 'white', height: 180, padding: 0, margin: 0}}></Row>
-              <Row style={{padding: 0, margin: 0}}>
-                <div className="card-content" style={{width: '100%', margin: 0}}>
-                  <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-                  <p className="card-title">{this.props.cardOrgName}</p>
-                </div>
-              </Row>
+              {this.getType(this.props.type)}
               <div style={{backgroundColor: '#cfdbd2', justifyContent: 'center', alignItems: 'center', height: 200, width: '100%'}}>
                 <div className="card-subsection">
                   <div className="card-subsection-title"><strong>You&#39;re donating {this.formatNum(this.props.donationAmount)}</strong></div>

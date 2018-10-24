@@ -25,6 +25,7 @@ class Support extends Component {
     this.mapSections = this.mapSections.bind(this)
   }
 
+
   mapSections(data) {
     const gridItems = data.map((datum, index) => {
       //orientation
@@ -69,7 +70,16 @@ class Support extends Component {
     return (
       <Wrapper>
         <div>
-          <SupportACauseSection />
+          <SupportACauseSection
+            totalOrder={1000}
+            feeAmount={20}
+            overlayColor={'#CFDBD2'}
+            donationAmount={200}
+            cardCategory={'RESPONSIBLE'}
+            cardOrgName={'Cisco Foundation'}
+            cardPledged={50000}
+            cardGoal={200000}
+          />
           {this.mapSections(testData)}
         </div>
       </Wrapper>

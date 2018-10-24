@@ -11,6 +11,19 @@
   height: 65px;
   letter-spacing: 3px;
 }
+.modal-title {
+  font-weight: 200;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+.modal-text {
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
 .p-btn-dark-medium, .p-btn-light-medium{
   text-transform: uppercase;
   font-weight: 500;

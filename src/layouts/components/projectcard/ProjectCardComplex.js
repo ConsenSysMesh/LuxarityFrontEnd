@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
 //components
 import SupportModal from './SupportModal'
+import DonationCompleteModal from './DonationCompleteModal'
 
 
 class ProjectCardComplex extends Component {
@@ -12,6 +13,7 @@ class ProjectCardComplex extends Component {
     /* local state variables */
     this.state = {
       supportOpen: false,
+      donateComplete: false,
     }
 
     //bind functions
@@ -22,6 +24,7 @@ class ProjectCardComplex extends Component {
     this.getProgress = this.getProgress.bind(this)
     this.getColor = this.getColor.bind(this)
     this.chooseSides = this.chooseSides.bind(this)
+    this.closeDonateComplete = this.closeDonateComplete.bind(this)
   }
 
   handleClose() {
@@ -33,7 +36,8 @@ class ProjectCardComplex extends Component {
   }
 
   handleDonate() {
-
+    this.setState({ donateComplete: true })
+    console.log('PRESSED!')
   }
 
   formatNum(x) {
@@ -59,6 +63,10 @@ class ProjectCardComplex extends Component {
     } else if (category.toLowerCase() === "wonder") {
       return '#25C7AA'
     }
+  }
+
+  closeDonateComplete() {
+    this.setState({ donateComplete: false })
   }
 
   chooseSides(side) {
@@ -91,6 +99,7 @@ class ProjectCardComplex extends Component {
             </Grid>
           </div>
           <SupportModal
+            type={'single'}
             open={this.state.supportOpen}
             onDonate={this.handleDonate}
             handleClose={this.handleClose}
@@ -101,6 +110,9 @@ class ProjectCardComplex extends Component {
             cardOrgName={this.props.cardOrgName}
             cardPledged={this.props.cardPledged}
             cardGoal={this.props.cardGoal} />
+          <DonationCompleteModal
+            open={this.state.donateComplete}
+            handleClose={this.closeDonateComplete} />
         </div>
       )
     } else if (side.toLowerCase() === 'left') {
@@ -127,13 +139,14 @@ class ProjectCardComplex extends Component {
                 </div>
 
                 <div style={{float: 'right'}}>
-                  <button className="p-btn-dark"> Suppport this project </button>
+                  <button className="p-btn-dark" onClick={this.handleOpen}> Suppport this project </button>
                   <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
                 </div>
               </Grid>
             </Grid>
           </div>
           <SupportModal
+            type={'single'}
             open={this.state.supportOpen}
             onDonate={this.handleDonate}
             handleClose={this.handleClose}
@@ -144,6 +157,9 @@ class ProjectCardComplex extends Component {
             cardOrgName={this.props.cardOrgName}
             cardPledged={this.props.cardPledged}
             cardGoal={this.props.cardGoal} />
+          <DonationCompleteModal
+            open={this.state.donateComplete}
+            handleClose={this.closeDonateComplete} />
         </div>
       )
     }
