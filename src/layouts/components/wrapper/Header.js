@@ -40,10 +40,9 @@ export default class Header extends React.Component {
             </Row>
             <Row style={{paddingLeft: 5}}>
               <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
-                <Link to={{pathname: '/faq' }} style={{textDecoration: 'none', color: '#7F8081'}}>DONATE</Link>
+                <Link to={{pathname: '/faq' }} style={{textDecoration: 'none', color: 'white', backgroundColor: 'rgb(93, 201, 168)', padding: '5px 20px'}}>DONATE</Link>
               </div>
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', borderLeft: 'thin solid grey', height: 15, width: 0.3}}>
-              </div>
+              
               <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <Link to={{pathname: '/about' }} style={{textDecoration: 'none', color: '#7F8081'}}>SUPPORT</Link>
               </div>
