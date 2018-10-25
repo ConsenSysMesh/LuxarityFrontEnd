@@ -1,6 +1,4 @@
-import { call, put } from 'redux-saga/effects';
-
-import getAPI from '../../util/api';
+import { createReducer, createLeaf } from 'redux-action-helper'
 
 import {
   MAKE_DONATION_STARTED,
@@ -8,22 +6,35 @@ import {
   MAKE_DONATION_FAILED,
 } from './actions'
 
-export default function* makeDonation(action) {
-  const api = getAPI('onchain');
-
-  yield put({ type: MAKE_DONATION_STARTED })
-
-  try {
-    const response = yield call(api.post, '/makeDonation', action.payload)
-    const data = yield call([response, response.json])
-    if (data.status === 'success') {
-      yield put({ type: MAKE_DONATION_SUCCEEDED, payload: data.data })
-    } else if (data.status === 'error') {
-      console.log('Request error:', data.message);
-      yield put({ type: MAKE_DONATION_FAILED, payload: {code: response.status, message: data.message} })
-    }
-  } catch (error) {
-    console.log('Request error:', error.message);
-    yield put({ type: MAKE_DONATION_FAILED, payload: error.message })
-  }
+const initialState = {
+  running: false,
+  response: [],
+  error: [],
+  success: false,
 }
+
+const makeDonationStarted = createLeaf(MAKE_DONATION_STARTED, (state, action) => ({
+  ...state,
+  running: true,
+  response: [],
+  error: [],
+}))
+
+const makeDonationSucceeded = createLeaf(MAKE_DONATION_SUCCEEDED, (state, action) => ({
+  ...state,
+  running: false,
+  error: action.payload,
+  success: false,
+}))
+
+const makeDonationFailed = createLeaf(MAKE_DONATION_FAILED, (state, action) => ({
+  ...state,
+  running: false,
+  error: action.payload,
+}))
+
+export default createReducer(initialState, {
+  makeDonationStarted,
+  makeDonationSucceeded,
+  makeDonationFailed,
+});

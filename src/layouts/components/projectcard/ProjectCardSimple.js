@@ -15,7 +15,6 @@ class ProjectCardSimple extends Component {
     //bind functions
     this.formatNum = this.formatNum.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    this.handleDonate = this.handleDonate.bind(this)
     this.handleOpen = this.handleOpen.bind(this)
     this.getProgress = this.getProgress.bind(this)
     this.getColor = this.getColor.bind(this)
@@ -27,10 +26,6 @@ class ProjectCardSimple extends Component {
 
   handleOpen() {
     this.setState({ supportOpen: true })
-  }
-
-  handleDonate() {
-
   }
 
   formatNum(x) {
@@ -88,8 +83,8 @@ class ProjectCardSimple extends Component {
         </Row>
         <SupportModal
           open={this.state.supportOpen}
-          onDonate={this.handleDonate}
-          handleClose={this.handleClose}
+          onDonate={this.props.onDonate}
+          handleClose={this.phandleClose}
           overlayColor={'#E5D9CF'}
           donationAmount={this.props.donationAmount}
           donationImage={this.props.charityImage}
@@ -103,3 +98,7 @@ class ProjectCardSimple extends Component {
 }
 
 export default ProjectCardSimple
+
+/*
+
+*/

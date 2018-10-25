@@ -88,6 +88,7 @@ class SupportACauseSection extends Component {
           onDonate={this.handleDonate}
           handleClose={this.handleClose}
           overlayColor={'#CFDBD2'}
+          orgs={this.props.orgs}
           donationAmount={this.splitTotal(this.props.totalOrder, this.props.feeAmount)}
           donationImage={AllImg}
           cardCategory={this.props.cardCategory}

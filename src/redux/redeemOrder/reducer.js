@@ -1,6 +1,4 @@
-import { call, put } from 'redux-saga/effects';
-
-import getAPI from '../../util/api';
+import { createReducer, createLeaf } from 'redux-action-helper'
 
 import {
   REDEEM_ORDER_STARTED,
@@ -8,22 +6,36 @@ import {
   REDEEM_ORDER_FAILED,
 } from './actions'
 
-export default function* redeemOrder(action) {
-  const api = getAPI('onchain');
-
-  yield put({ type: REDEEM_ORDER_STARTED })
-
-  try {
-    const response = yield call(api.post, '/redeemOrder', action.payload)
-    const data = yield call([response, response.json])
-    if (data.status === 'success') {
-      yield put({ type: REDEEM_ORDER_SUCCEEDED, payload: data.data })
-    } else if (data.status === 'error') {
-      console.log('Request error:', data.message);
-      yield put({ type: REDEEM_ORDER_FAILED, payload: {code: response.status, message: data.message} })
-    }
-  } catch (error) {
-    console.log('Request error:', error.message);
-    yield put({ type: REDEEM_ORDER_FAILED, payload: error.message })
-  }
+const initialState = {
+  running: false,
+  response: [],
+  error: [],
+  success: false,
 }
+
+const redeemOrderStarted = createLeaf(REDEEM_ORDER_STARTED, (state, action) => ({
+  ...state,
+  running: true,
+  response: [],
+  error: [],
+}))
+
+const redeemOrderSucceeded = createLeaf(REDEEM_ORDER_SUCCEEDED, (state, action) => ({
+  ...state,
+  running: false,
+  response: action.payload,
+  success: true,
+}))
+
+const redeemOrderFailed = createLeaf(REDEEM_ORDER_FAILED, (state, action) => ({
+  ...state,
+  running: false,
+  error: action.payload,
+  success: false,
+}))
+
+export default createReducer(initialState, {
+  redeemOrderStarted,
+  redeemOrderSucceeded,
+  redeemOrderFailed,
+});

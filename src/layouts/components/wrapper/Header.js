@@ -37,12 +37,6 @@ export default class Header extends React.Component {
               <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <Link to={{pathname: '/about' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>ABOUT</Link>
               </div>
-              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
-                <Link to={{pathname: '/raw' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>RAW</Link>
-              </div>
-              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
-                <Link to={{pathname: '/popup' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>POPUP</Link>
-              </div>
             </Row>
             <Row style={{paddingLeft: 5}}>
               <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>

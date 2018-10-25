@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 //components
-import Wrapper from '../../components/wrapper/Wrapper'
+import Wrapper from '../../components/wrapper/WrapperContainer'
 import { Link } from 'react-router-dom' //v4
 import Grid from '@material-ui/core/Grid'
 

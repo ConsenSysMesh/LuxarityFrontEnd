@@ -2,29 +2,31 @@ import 'whatwg-fetch';
 
 let api;
 
-const ONCHAIN_URL = process.env.SERVER_URL_ON;
-const OFFCHAIN_URL = process.env.SERVER_URL_OFF;
+let ONCHAIN_URL = process.env.SERVER_URL_ON;
+let OFFCHAIN_URL = process.env.SERVER_URL_OFF;
 
 function getAPIConnection(status) {
+
   if (api) {
     return api;
   }
 
-  let API_URL;
-  if (status.toLowerCase() === 'offchain') {
-    API_URL = OFFCHAIN_URL;
-  } else if (status.toLowerCase() === 'onchain') {
-    API_URL = ONCHAIN_URL;
+
+  let BASE_URL;
+  if (status === 'offchain') {
+    BASE_URL = OFFCHAIN_URL;
+  } else if (status === 'onchain') {
+    BASE_URL = ONCHAIN_URL;
   }
 
   api = {
     get: (endpoint) => {
-      return fetch(API_URL + endpoint, {
+      return fetch(BASE_URL + endpoint, {
         method: 'GET'
       })
     },
     post: (endpoint, data) => {
-      return fetch(API_URL + endpoint, {
+      return fetch(BASE_URL + endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

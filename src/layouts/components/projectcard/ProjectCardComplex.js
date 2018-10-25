@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
 //components
 import SupportModal from './SupportModal'
-import DonationCompleteModal from './DonationCompleteModal'
 
 
 class ProjectCardComplex extends Component {
@@ -13,18 +12,22 @@ class ProjectCardComplex extends Component {
     /* local state variables */
     this.state = {
       supportOpen: false,
-      donateComplete: false,
     }
 
     //bind functions
     this.formatNum = this.formatNum.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    this.handleDonate = this.handleDonate.bind(this)
     this.handleOpen = this.handleOpen.bind(this)
     this.getProgress = this.getProgress.bind(this)
     this.getColor = this.getColor.bind(this)
     this.chooseSides = this.chooseSides.bind(this)
     this.closeDonateComplete = this.closeDonateComplete.bind(this)
+    this.handleDonate = this.handleDonate.bind(this)
+  }
+
+  handleDonate() {
+    //make choose donation order
+    this.props.chooseDonation(this.props.order)
   }
 
   handleClose() {
@@ -33,11 +36,6 @@ class ProjectCardComplex extends Component {
 
   handleOpen() {
     this.setState({ supportOpen: true })
-  }
-
-  handleDonate() {
-    this.setState({ donateComplete: true })
-    console.log('PRESSED!')
   }
 
   formatNum(x) {
@@ -110,9 +108,6 @@ class ProjectCardComplex extends Component {
             cardOrgName={this.props.cardOrgName}
             cardPledged={this.props.cardPledged}
             cardGoal={this.props.cardGoal} />
-          <DonationCompleteModal
-            open={this.state.donateComplete}
-            handleClose={this.closeDonateComplete} />
         </div>
       )
     } else if (side.toLowerCase() === 'left') {
@@ -157,9 +152,6 @@ class ProjectCardComplex extends Component {
             cardOrgName={this.props.cardOrgName}
             cardPledged={this.props.cardPledged}
             cardGoal={this.props.cardGoal} />
-          <DonationCompleteModal
-            open={this.state.donateComplete}
-            handleClose={this.closeDonateComplete} />
         </div>
       )
     }

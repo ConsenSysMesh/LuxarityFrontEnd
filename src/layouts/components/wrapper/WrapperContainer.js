@@ -1,21 +1,17 @@
-import Support from './Support'
+import Wrapper from './Wrapper'
 //bindors and connectos
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { drizzleConnect } from 'drizzle-react'
 //redux actions
-import { chooseDonation } from '../../../redux/chooseDonation/actions'
 
 // connectors for API
 const mapStateToProps = state => ({
-  choosingDonation: state.chooseDonation.running,
-  choseDonation: state.chooseDonation.response !== null,
-  chooseDonationError: state.chooseDonation.error,
-  chooseDonationSuccess: state.chooseDonation.success,
+
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  chooseDonation: chooseDonation
+
 }, dispatch)
 
 // May still need this even with data function to refresh component on updates for this contract.
@@ -26,6 +22,6 @@ const mapDrizzleStateToProps = state => {
   }
 }
 
-const SupportContainer = drizzleConnect(connect(mapStateToProps, mapDispatchToProps)(Support), mapDrizzleStateToProps);
+const WrapperContainer = drizzleConnect(connect(mapStateToProps, mapDispatchToProps)(Wrapper), mapDrizzleStateToProps);
 
-export default SupportContainer
+export default WrapperContainer

@@ -12,6 +12,8 @@ import chooseDonation from './redux/chooseDonation/reducer'
 import makeDonation from './redux/makeDonation/reducer'
 import redeemOrder from './redux/redeemOrder/reducer'
 import safeRedeemOrder from './redux/safeRedeemOrder/reducer'
+import getDonationsByCause from './redux/donationsByCause/reducer'
+import getOrderByRedemptionHash from './redux/ordersByRedemptionHash/reducer'
 
 const reducer = combineReducers({
   routing: routerReducer,
@@ -20,6 +22,8 @@ const reducer = combineReducers({
   makeDonation,
   redeemOrder,
   safeRedeemOrder,
+  getDonationsByCause,
+  getOrderByRedemptionHash,
 
   ...drizzleReducers
 })

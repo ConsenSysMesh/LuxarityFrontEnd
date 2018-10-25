@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-grid-system';
 //components
-import Wrapper from '../../components/wrapper/Wrapper'
+import Wrapper from '../../components/wrapper/WrapperContainer'
 import ProjectCardComplex from '../../components/projectcard/ProjectCardComplex'
 import ProjectCardSimple from '../../components/projectcard/ProjectCardSimple'
 import EnterPinSection from '../../components/sections/EnterPinSection'

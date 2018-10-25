@@ -9,8 +9,6 @@ import App from './App'
 import HomeContainer from './layouts/views/Home/HomeContainer'
 import DashboardContainer from './layouts/views/Dashboard/DashboardContainer'
 import TestContainer from './layouts/views/Test/TestContainer'
-import PopupContainer from './layouts/views/Popup/PopupContainer'
-import RawContainer from './layouts/views/Raw/RawContainer'
 import RedeemContainer from './layouts/views/Redeem/RedeemContainer'
 import SupportContainer from './layouts/views/Support/SupportContainer'
 
@@ -22,11 +20,9 @@ class Layout extends Component {
       <App>
         <Switch>
           <Route exact path="/test" component={TestContainer} />
-          <Route exact path="/popup" component={PopupContainer} />
-          <Route exact path="/raw" component={RawContainer} />
           <Route exact path="/redeem" component={RedeemContainer} />
           <Route exact path="/dashboard" component={DashboardContainer} />
-          <Route exact path="/support" component={SupportContainer} />
+          <Route exact path="/support/:orderId" component={SupportContainer} />
           <Route exact path="/" component={HomeContainer} />
         </Switch>
       </App>

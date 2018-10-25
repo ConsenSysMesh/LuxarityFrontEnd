@@ -7,6 +7,22 @@ import Header from './Header'
 
 class Wrapper extends Component {
 
+  constructor(props, context) {
+    super(props)
+
+    /* local state variables */
+    this.state = {
+      email: '',
+    }
+
+    //bind functions
+    this.setEmail = this.setEmail.bind(this)
+  }
+
+  setEmail(email) {
+    this.setState(email: email)
+  }
+
   componentDidMount() {
     //scroll to top on all pages
     window.scrollTo(0,0)
@@ -17,7 +33,7 @@ class Wrapper extends Component {
         <div style={{flexDirection: 'column'}} >
           <Header />
             {Children.only(this.props.children)}
-          <Footer />
+          <Footer setEmail={this.setEmail} />
         </div>
      );
   }

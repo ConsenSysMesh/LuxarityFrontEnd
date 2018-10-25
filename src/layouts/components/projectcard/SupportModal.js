@@ -38,25 +38,40 @@ class SupportModal extends Component {
     }
   }
 
+  getOrgs(orgs) {
+    if (orgs.length > 0) {
+      const gridOrgs = orgs.map((org, index) => {
+
+        return (
+          <div style={{paddingTop: 4, paddingBottom: 4}}>
+            <p className="card-sub-title" style={{color: this.getColor(org.charityCategory)}}>{org.charityCategory}</p>
+            <p className="card-title">{org.charityName}</p>
+          </div>
+        );
+      });
+
+      return (
+        <div className="card-content" style={{width: '100%', margin: 0}}>
+          {gridOrgs}
+        </div>
+      )
+    }
+
+    return (
+      <div className="card-content" style={{width: '100%', margin: 0}}>
+        <p className="card-sub-title" style={{color: this.getColor(orgs[0].charityCategory)}}>{orgs[0].charityCategory}</p>
+        <p className="card-title">{orgs[0].cardOrgName}</p>
+      </div>
+    )
+
+  }
+
   getType(type) {
-    if (type.toLowerCase() === 'split') {
+    if (type.toLowerCase() === 'split' && Array.isArray(this.props.orgs)) {
       return (
         <div>
           <Row style={{padding: 0, margin: 0}}>
-            <div className="card-content" style={{width: '100%', margin: 0}}>
-              <div style={{paddingTop: 4, paddingBottom: 4}}>
-                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-                <p className="card-title">{this.props.cardOrgName}</p>
-              </div>
-              <div style={{paddingTop: 4, paddingBottom: 4}}>
-                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-                <p className="card-title">{this.props.cardOrgName}</p>
-              </div>
-              <div style={{paddingTop: 4, paddingBottom: 4}}>
-                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-                <p className="card-title">{this.props.cardOrgName}</p>
-              </div>
-            </div>
+            {this.getOrgs(this.props.orgs)}
           </Row>
         </div>
       )
