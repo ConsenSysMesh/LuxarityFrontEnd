@@ -7,8 +7,14 @@ import { Redirect } from 'react-router-dom'; //v4
 //components
 import Wrapper from '../../components/wrapper/WrapperContainer'
 import EnterPinSection from '../../components/sections/EnterPinSection'
-import AllFashionSection from '../../components/sections/AllFashionSection'
 import LuxarityIsMoreSection from '../../components/sections/LuxarityIsMoreSection'
+import ProjectCardSimple from '../../components/projectcard/ProjectCardSimple'
+//tempData
+import testData from '../Support/tempData/data.json'
+//images
+import GreenImg from '../../img/Green.png'
+import TanImg from '../../img/Tan.png'
+import BlueImg from '../../img/Blue.png'
 
 class Redeem extends Component {
   constructor(props, context) {
@@ -38,6 +44,41 @@ class Redeem extends Component {
     this.setState({ pinValue: pin })
   }
 
+  mapSections(data) {
+    const gridItems = data.map((datum, index) => {
+
+      //select image
+      let image;
+      let size;
+      if (index === 0) {
+        image = GreenImg;
+        size = '45% 100%';
+      } else if (index === 1) {
+        image = TanImg;
+        size = '45% 100%';
+      } else if (index === 2) {
+        image = BlueImg;
+        size = '50% 100%';
+      }
+
+      return (
+        <ProjectCardSimple
+          key={index}
+          cardCategory={datum.charityCategory}
+          cardOrgName={datum.charityName}
+          cardPledged={datum.charityPledge}
+          charityImage={image}
+          backgroundSizeImg={size}
+          cardGoal={datum.charityGoal} />
+      );
+    });
+
+    return (
+      <Row>{gridItems}</Row>
+    )
+  }
+
+
   render() {
     if (this.props.getOrderByRedemSuccess) {
       return (
@@ -65,7 +106,14 @@ class Redeem extends Component {
             <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: '3%', paddingBottom: '3%', paddingLeft: 20, paddingRight: 5, margin: 0}}>
               <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
             </Row>
-            <AllFashionSection />
+
+            <div className="support-sec" style={{margin: '0 100px'}}>
+              <div style={{fontSize: '30px', textAlign: 'center', paddingBottom: '100px'}}>Three incredible causes to support</div>
+
+              {this.mapSections(testData)}
+
+            </div>
+
             <LuxarityIsMoreSection />
           </div>
         </Wrapper>

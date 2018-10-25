@@ -178,7 +178,7 @@
 }
 .card-content {
   background-color: white;
-  padding: 15px;
+  padding: 15px 0;
   margin-top: 30px;
 }
 .card-title, .card-sub-title1, .card-sub-title2 {
@@ -215,7 +215,7 @@
 }
 .card-title {
   font-weight: 400;
-  font-size: 27px;
+  font-size: 25px;
   color: #585A56;
   letter-spacing: 3px;
   margin: 5px 0 5px 0;
@@ -249,6 +249,9 @@
   background-color: rgb(209, 211, 209);
   margin-right: -50px;
   width: 102.5%
+}
+.support-progress-bar {
+  background-color: rgb(209, 211, 209);
 }
 .progress-bar-small {
   background-color: rgb(209, 211, 209);
@@ -339,3 +342,15 @@ div.inputbox button {
     font-size: 30px;
 }
 /* INPUT BOX END */
+
+/* SUPPORT SECTION */
+.support-sec {
+  background-color: white;
+  padding: 100px 100px 0 100px;
+  margin-bottom: 150px;
+}
+.s-heading {
+
+}
+
+/* SUPPORT SECTION END*/
