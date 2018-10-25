@@ -2,7 +2,7 @@
 /* The purpose of this file is to import Drizzle's sagas -
 https://www.npmjs.com/package/redux-saga */
 
-import { all, fork, takeLatest } from 'redux-saga/effects'
+import { all, fork, takeLatest, takeEvery } from 'redux-saga/effects'
 import { drizzleSagas } from 'drizzle'
 
 import { CHOOSE_DONATION } from './redux/chooseDonation/actions'

@@ -11,9 +11,6 @@ const drizzleOptions = {
     }
   },
   contracts: [
-    ComplexStorage,
-    SimpleStorage,
-    TutorialToken
   ],
   events: {
     SimpleStorage: ['StorageSet']

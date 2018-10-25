@@ -7,11 +7,6 @@ let OFFCHAIN_URL = process.env.SERVER_URL_OFF;
 
 function getAPIConnection(status) {
 
-  if (api) {
-    return api;
-  }
-
-
   let BASE_URL;
   if (status === 'offchain') {
     BASE_URL = OFFCHAIN_URL;

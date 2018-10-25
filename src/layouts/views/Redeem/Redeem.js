@@ -48,7 +48,7 @@ class Redeem extends Component {
               orderId: this.props.gotOrderByRedem.orderid,
               orderNumber: this.props.gotOrderByRedem.ordernumber,
               totalcost: this.props.gotOrderByRedem.totalcost,
-              customeremail: this.props.gotOrderByRedem.customeremail, 
+              customeremail: this.props.gotOrderByRedem.customeremail,
             }
           }}
         />
