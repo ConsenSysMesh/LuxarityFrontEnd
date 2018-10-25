@@ -59,7 +59,7 @@ class ProjectCardSimple extends Component {
           <img alt="LUXARITY" style={{width: '100%', height: '100%'}} src={require('../../img/Tan.png')} />
           <div className="card-content" style={{width: '100%', margin: 0}}>
             <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-            <p className="card-title" style={{paddingLeft: '25px'}}>{this.props.cardOrgName}</p>
+            <p className="card-title" style={{paddingLeft: '25px', height: '70px'}}>{this.props.cardOrgName}</p>
 
             <div className="support-progress-bar" style={{marginLeft: '25px'}}>
               <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
@@ -71,7 +71,7 @@ class ProjectCardSimple extends Component {
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'center', margin: '25px'}}>
-            <button className="p-btn-dark-small" style={{display: "inline-block"}} onClick={this.handleDonate}>Project Details</button>
+            <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}} onClick={this.handleDonate}>Project Details</button>
           </div>
         </div>
 

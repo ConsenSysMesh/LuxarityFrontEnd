@@ -251,6 +251,7 @@
   width: 102.5%
 }
 .support-progress-bar {
+  margin-top: 25px;
   background-color: rgb(209, 211, 209);
 }
 .progress-bar-small {
