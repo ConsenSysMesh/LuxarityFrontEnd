@@ -12,14 +12,10 @@ class SupportACauseSection extends Component {
 
     /* local state variables */
     this.state = {
-      supportOpen: false,
     }
 
     //bind functions
     this.getDonateTotal = this.getDonateTotal.bind(this)
-    this.handleDonate = this.handleDonate.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-    this.splitDonation = this.splitDonation.bind(this)
     this.formatNum = this.formatNum.bind(this)
     this.splitTotal = this.splitTotal.bind(this)
   }
@@ -45,18 +41,6 @@ class SupportACauseSection extends Component {
     return this.formatNum(sum)
   }
 
-  splitDonation() {
-    this.setState({ supportOpen: true })
-  }
-
-  handleClose() {
-    this.setState({ supportOpen: false })
-  }
-
-  handleDonate() {
-
-  }
-
   render() {
     return(
       <div>
@@ -77,24 +61,20 @@ class SupportACauseSection extends Component {
                   <p className="d-tot">Donation total: <span className="d-tot-amt">{this.getDonateTotal(this.props.totalOrder, this.props.feeAmount)}</span> </p>
                 </div>
 
-                <button className="p-btn-clear" onClick={this.splitDonation}>Split my donation evenly</button>
+                <button className="p-btn-clear" onClick={this.props.splitDonation}>Split my donation evenly</button>
               </div>
             </Grid>
           </Grid>
         </div>
         <SupportModal
           type={'split'}
-          open={this.state.supportOpen}
-          onDonate={this.handleDonate}
-          handleClose={this.handleClose}
+          open={this.props.supportOpen}
+          onDonate={this.props.handleDonate}
+          handleClose={this.props.handleClose}
           overlayColor={'#CFDBD2'}
           orgs={this.props.orgs}
           donationAmount={this.splitTotal(this.props.totalOrder, this.props.feeAmount)}
-          donationImage={AllImg}
-          cardCategory={this.props.cardCategory}
-          cardOrgName={this.props.cardOrgName}
-          cardPledged={this.props.cardPledged}
-          cardGoal={this.props.cardGoal} />
+          donationImage={AllImg} />
        </div>
     )
   }
