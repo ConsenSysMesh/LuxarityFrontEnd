@@ -2,8 +2,8 @@ import 'whatwg-fetch';
 
 let api;
 
-let ONCHAIN_URL = process.env.SERVER_URL_ON;
-let OFFCHAIN_URL = process.env.SERVER_URL_OFF;
+const ONCHAIN_URL = process.env.SERVER_URLON;
+const OFFCHAIN_URL = process.env.SERVER_URLOFF;
 
 function getAPIConnection(status) {
 

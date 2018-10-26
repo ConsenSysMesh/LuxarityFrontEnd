@@ -43,9 +43,9 @@ class SupportModal extends Component {
       const gridOrgs = orgs.map((org, index) => {
 
         return (
-          <div style={{paddingTop: 4, paddingBottom: 4}}>
+          <div style={{paddingTop: 2, paddingBottom: 2}} key={index}>
             <p className="card-sub-title" style={{color: this.getColor(org.charityCategory)}}>{org.charityCategory}</p>
-            <p className="card-title">{org.charityName}</p>
+            <p className="card-title" style={{fontSize: 22}}>{org.charityName}</p>
           </div>
         );
       });
@@ -96,7 +96,12 @@ class SupportModal extends Component {
       <Dialog
         open={this.props.open}
         onClose={this.props.handleClose}
-        overlayStyle={{backgroundColor: this.props.overlayColor}} >
+        PaperProps={{
+          style: {
+            backgroundColor: this.props.overlayColor,
+            boxShadow: 'none',
+          },
+        }} >
         <DialogContent style={{padding: 0, maxHeight: 800}}>
           <Row style={{minHeight: 400, backgroundColor: '#F1F2F3'}}>
             <Col md={5} style={{width: '100%', overflow: 'hidden', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 0}} >
