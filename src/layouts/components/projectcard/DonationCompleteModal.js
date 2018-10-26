@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Row, Col } from 'react-grid-system'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
+import { Link } from 'react-router-dom' //v4
+
 //images
 import AllImg from '../../img/tripleFashion.png'
 
@@ -38,7 +40,9 @@ class DonationCompleteModal extends Component {
                 <div className="modal-text" style={{color: '#FCFCFA'}}>In the meantime, learn how you can redeem your own Luxarity token for your charitable efforts.</div>
 
                 <div style={{display: 'flex', justifyContent: 'center'}}>
-                  <button className="p-btn-light-medium">View Progress</button>
+                  <button className="p-btn-light-medium">
+                    <Link to={{pathname: '/progress' }} style={{ textDecoration: 'none', color: 'rgb(88, 90, 86)'}}>View Progress</Link>
+                    </button>
                 </div>
               </div>
             </Col>
