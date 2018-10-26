@@ -7,10 +7,15 @@ import { Redirect, withRouter } from 'react-router-dom'; //v4
 //components
 import Wrapper from '../../components/wrapper/WrapperContainer'
 import EnterPinSection from '../../components/sections/EnterPinSection'
-import AllFashionSection from '../../components/sections/AllFashionSection'
 import LuxarityIsMoreSection from '../../components/sections/LuxarityIsMoreSection'
 import MessageModal from '../../components/userfeedback/MessageModal'
+import ProjectCardSimple from '../../components/projectcard/ProjectCardSimple'
+//tempData
+import testData from '../Support/tempData/data.json'
 //images
+import GreenImg from '../../img/Green.png'
+import TanImg from '../../img/Tan.png'
+import BlueImg from '../../img/Blue.png'
 import AllImg from '../../img/tripleFashion.png'
 
 class Redeem extends Component {
@@ -55,6 +60,40 @@ class Redeem extends Component {
     this.setState({ messageModal: false })
   }
 
+  mapSections(data) {
+    const gridItems = data.map((datum, index) => {
+
+      //select image
+      let image;
+      let size;
+      if (index === 0) {
+        image = GreenImg;
+        size = '45% 100%';
+      } else if (index === 1) {
+        image = TanImg;
+        size = '45% 100%';
+      } else if (index === 2) {
+        image = BlueImg;
+        size = '50% 100%';
+      }
+
+      return (
+        <ProjectCardSimple
+          key={index}
+          cardCategory={datum.charityCategory}
+          cardOrgName={datum.charityName}
+          cardPledged={datum.charityPledge}
+          charityImage={image}
+          backgroundSizeImg={size}
+          cardGoal={datum.charityGoal} />
+      );
+    });
+
+    return (
+      <Row>{gridItems}</Row>
+    )
+  }
+
   render() {
     if (this.props.getOrderByRedemSuccess && this.props.gotOrderByRedem !== null) {
       return (
@@ -82,7 +121,14 @@ class Redeem extends Component {
             <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: '3%', paddingBottom: '3%', paddingLeft: 20, paddingRight: 5, margin: 0}}>
               <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
             </Row>
-            <AllFashionSection />
+
+            <div className="support-sec" style={{margin: '0 100px'}}>
+              <div style={{fontSize: '30px', textAlign: 'center', paddingBottom: '100px'}}>Three incredible causes to support</div>
+
+              {this.mapSections(testData)}
+
+            </div>
+
             <LuxarityIsMoreSection />
             <MessageModal
               open={this.state.messageModal}
