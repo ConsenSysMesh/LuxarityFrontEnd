@@ -52,13 +52,13 @@ class Redeem extends Component {
       let size;
       if (index === 0) {
         image = GreenImg;
-        size = '45% 100%';
+        size = '55%';
       } else if (index === 1) {
         image = TanImg;
-        size = '45% 100%';
+        size = '55%';
       } else if (index === 2) {
         image = BlueImg;
-        size = '50% 100%';
+        size = '55%';
       }
 
       return (
@@ -68,7 +68,7 @@ class Redeem extends Component {
           cardOrgName={datum.charityName}
           cardPledged={datum.charityPledge}
           charityImage={image}
-          backgroundSizeImg={size}
+          charityImageSize={size}
           cardGoal={datum.charityGoal} />
       );
     });
@@ -108,7 +108,7 @@ class Redeem extends Component {
             </Row>
 
             <div className="support-sec" style={{margin: '0 100px'}}>
-              <div style={{fontSize: '30px', textAlign: 'center', paddingBottom: '100px'}}>Three incredible causes to support</div>
+              <div style={{fontSize: '30px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
 
               {this.mapSections(testData)}
 

@@ -54,27 +54,27 @@ class ProjectCardSimple extends Component {
   render() {
     return(
       <Col sm={12} md={4}>
+        <div style={{margin: '0 25px 25px 50px', height: '100%'}}>
+          <img alt="LUXARITY" style={{width: '100%', height: this.props.charityImageSize}} src={this.props.charityImage} />
+          <div>
+            <div className="card-content-slim" style={{width: '100%', margin: 0}}>
+              <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+              <p className="card-title-slim" style={{paddingLeft: '25px', height: '70px'}}>{this.props.cardOrgName}</p>
 
-        <div style={{margin: '0 25px 25px 50px'}}>
-          <img alt="LUXARITY" style={{width: '100%', height: '100%'}} src={require('../../img/Tan.png')} />
-          <div className="card-content" style={{width: '100%', margin: 0}}>
-            <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-            <p className="card-title" style={{paddingLeft: '25px', height: '70px'}}>{this.props.cardOrgName}</p>
+              <div className="support-progress-bar" style={{marginLeft: '25px'}}>
+                <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
+              </div>
 
-            <div className="support-progress-bar" style={{marginLeft: '25px'}}>
-              <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
+              <div style={{paddingLeft: '25px'}}>
+                <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
+                <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
+              </div>
             </div>
-
-            <div style={{paddingLeft: '25px'}}>
-              <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
-              <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
+            <div style={{display: 'flex', justifyContent: 'center', margin: '25px'}}>
+              <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}} onClick={this.handleDonate}>Project Details</button>
             </div>
-          </div>
-          <div style={{display: 'flex', justifyContent: 'center', margin: '25px'}}>
-            <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}} onClick={this.handleDonate}>Project Details</button>
           </div>
         </div>
-
       </Col>
     )
   }
