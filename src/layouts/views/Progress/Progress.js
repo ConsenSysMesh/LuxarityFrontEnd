@@ -74,7 +74,7 @@ class Progress extends Component {
               </div>
             </div>
 
-            <div className="support-sec" style={{margin: '0 100px'}}>
+            <div className="support-sec" style={{margin: '0 5%'}}>
               <div style={{fontSize: '50px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
 
               {this.mapSections(testData)}
