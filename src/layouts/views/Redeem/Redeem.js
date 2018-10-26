@@ -9,7 +9,7 @@ import Wrapper from '../../components/wrapper/WrapperContainer'
 import EnterPinSection from '../../components/sections/EnterPinSection'
 import LuxarityIsMoreSection from '../../components/sections/LuxarityIsMoreSection'
 import MessageModal from '../../components/userfeedback/MessageModal'
-import ProjectCardSimple from '../../components/projectcard/ProjectCardSimple'
+import ProjectSkinnyCard from '../../components/projectcard/ProjectSkinnyCard'
 //tempData
 import testData from '../Support/tempData/data.json'
 //images
@@ -78,7 +78,7 @@ class Redeem extends Component {
       }
 
       return (
-        <ProjectCardSimple
+        <ProjectSkinnyCard
           key={index}
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
