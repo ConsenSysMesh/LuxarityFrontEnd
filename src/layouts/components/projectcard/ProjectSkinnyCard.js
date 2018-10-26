@@ -59,7 +59,7 @@ class ProjectSkinnyCard extends Component {
           <div>
             <div className="card-content-slim" style={{width: '100%', margin: 0}}>
               <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-              <p className="card-title-slim" style={{paddingLeft: '25px', height: '70px'}}>{this.props.cardOrgName}</p>
+              <p className="card-title-slim" style={{paddingLeft: '25px', height: '70px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>{this.props.cardOrgName}</p>
 
               <div className="support-progress-bar" style={{marginLeft: '25px'}}>
                 <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>

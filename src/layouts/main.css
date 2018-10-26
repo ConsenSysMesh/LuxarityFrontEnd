@@ -366,3 +366,15 @@ div.inputbox button {
 }
 
 /* SUPPORT SECTION END*/
+/* PROGRESS */
+.p-landing{
+  background-image: url('./img/lux1061.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 750px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/* PROGRESS END */
