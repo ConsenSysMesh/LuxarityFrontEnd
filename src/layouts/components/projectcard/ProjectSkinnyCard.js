@@ -53,13 +53,16 @@ class ProjectSkinnyCard extends Component {
 
   render() {
     return(
-      <Col sm={12} md={4}>
+      <Col sm={12} md={4} >
         <div style={{margin: '0 25px 25px 50px', height: '100%'}}>
-          <img alt="LUXARITY" style={{width: '100%', height: this.props.charityImageSize}} src={this.props.charityImage} />
+          <div className="boxed-image" style={{width: '100%'}}>
+            <img alt="LUXARITY" style={{maxWidth: '100%', height: 400}} src={this.props.charityImage} />
+          </div>
+
           <div>
             <div className="card-content-slim" style={{width: '100%', margin: 0}}>
               <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-              <p className="card-title-slim" style={{paddingLeft: '25px', height: '70px'}}>{this.props.cardOrgName}</p>
+              <p className="card-title-slim" style={{paddingLeft: 20, height: '70px'}}>{this.props.cardOrgName}</p>
 
               <div className="support-progress-bar" style={{marginLeft: '25px'}}>
                 <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>

@@ -7,17 +7,6 @@ import AllImg from '../../img/tripleFashion.png'
 
 class DonationCompleteModal extends Component {
 
-  constructor(props, context) {
-    super(props)
-
-    /* local state variables */
-    this.state = {
-    }
-
-    //bind functions
-  }
-
-
   render() {
     return(
 
@@ -38,7 +27,7 @@ class DonationCompleteModal extends Component {
                 <div className="modal-text" style={{color: '#FCFCFA'}}>In the meantime, learn how you can redeem your own Luxarity token for your charitable efforts.</div>
 
                 <div style={{display: 'flex', justifyContent: 'center'}}>
-                  <button className="p-btn-light-medium">View Progress</button>
+                  <button className="p-btn-light-medium" onClick={this.props.handleClose}>Close</button>
                 </div>
               </div>
             </Col>

@@ -227,7 +227,7 @@
 }
 .card-title-slim {
   font-weight: 400;
-  font-size: 27px;
+  font-size: 22px;
   color: #585A56;
   letter-spacing: 3px;
   margin: 5px 0 5px 0;
@@ -260,7 +260,7 @@
 .progress-bar {
   background-color: rgb(209, 211, 209);
   margin-right: -50px;
-  width: 102.5%
+  width: 102%
 }
 .support-progress-bar {
   margin-top: 25px;

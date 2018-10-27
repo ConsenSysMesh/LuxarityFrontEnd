@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+//resources
+import web3Utils from 'web3-utils'
 //css components
 import { Row } from 'react-grid-system'
 import Loadable from 'react-loading-overlay'
-import { sha256 } from 'js-sha256'
 import { Redirect, withRouter } from 'react-router-dom'; //v4
 //components
 import Wrapper from '../../components/wrapper/WrapperContainer'
@@ -45,7 +47,7 @@ class Redeem extends Component {
     //prevent default after press
     event.preventDefault();
     //prepare data
-    let pinHash = sha256(this.state.pinValue)
+    let pinHash = await web3Utils.keccak256(this.state.pinValue)
     console.log(pinHash)
     //need to replace with actual entry data**
     await this.props.getOrderByRedemptionHash('12345')
@@ -65,16 +67,12 @@ class Redeem extends Component {
 
       //select image
       let image;
-      let size;
       if (index === 0) {
         image = GreenImg;
-        size = '55%';
       } else if (index === 1) {
         image = TanImg;
-        size = '55%';
       } else if (index === 2) {
         image = BlueImg;
-        size = '55%';
       }
 
       return (
@@ -84,13 +82,12 @@ class Redeem extends Component {
           cardOrgName={datum.charityName}
           cardPledged={datum.charityPledge}
           charityImage={image}
-          charityImageSize={size}
           cardGoal={datum.charityGoal} />
       );
     });
 
     return (
-      <Row>{gridItems}</Row>
+      <Row style={{margin: 0, padding: 0}}>{gridItems}</Row>
     )
   }
 
@@ -122,11 +119,9 @@ class Redeem extends Component {
               <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
             </Row>
 
-            <div className="support-sec" style={{margin: '0 100px'}}>
-              <div style={{fontSize: '30px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
-
+            <div className="support-sec" style={{alignItems: 'center', justifyContent:'center'}}>
+              <div style={{fontSize: 40, textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
               {this.mapSections(testData)}
-
             </div>
 
             <LuxarityIsMoreSection />
@@ -143,6 +138,10 @@ class Redeem extends Component {
       </Loadable>
     )
   }
+}
+
+Redeem.contextTypes = {
+  drizzle: PropTypes.object
 }
 
 export default withRouter(Redeem)

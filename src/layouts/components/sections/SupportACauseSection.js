@@ -49,7 +49,7 @@ class SupportACauseSection extends Component {
             <Grid item xs={12} sm={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
-                <p className="dashboard-text">Choose to donate to one or both of these causes. Luxarity will keep in touch with you with updates on their progress over the next few months.</p>
+                <p className="dashboard-text">Choose to donate to one or all of these causes. Luxarity will keep in touch with you with updates on their progress over the next few months.</p>
               </div>
             </Grid>
             <Grid item xs={12} sm={6} className="dashboard-main-info">

@@ -25,9 +25,9 @@ class ProjectCardComplex extends Component {
     this.handleDonate = this.handleDonate.bind(this)
   }
 
-  handleDonate() {
+  async handleDonate() {
     //make choose donation order
-    this.props.chooseDonation(this.props.order)
+    await this.props.chooseDonation(this.props.order)
   }
 
   handleClose() {
@@ -84,7 +84,7 @@ class ProjectCardComplex extends Component {
                   </p>
 
                   <div className="progress-bar">
-                    <div className="progress-bar-meter" style={{width: '20%'}}></div>
+                    <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
                   </div>
 
                   <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
@@ -126,7 +126,7 @@ class ProjectCardComplex extends Component {
                   </p>
 
                   <div className="progress-bar">
-                    <div className="progress-bar-meter" style={{width: '20%'}}></div>
+                    <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
                   </div>
 
                   <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>

@@ -1,6 +1,4 @@
-import ComplexStorage from './../build/contracts/ComplexStorage.json'
-import SimpleStorage from './../build/contracts/SimpleStorage.json'
-import TutorialToken from './../build/contracts/TutorialToken.json'
+import LuxOrders from '../build/contracts/LuxOrders.json'
 
 const drizzleOptions = {
   web3: {
@@ -11,9 +9,13 @@ const drizzleOptions = {
     }
   },
   contracts: [
+    LuxOrders
   ],
   events: {
-    SimpleStorage: ['StorageSet']
+    LuxOrders: ['SoldAndMintedToken'],
+    LuxOrders: ['DonationChosen'],
+    LuxOrders: ['DonationMadeToCharity'],
+    LuxOrders: ['RedeemedToken']
   },
   polls: {
     accounts: 1500
