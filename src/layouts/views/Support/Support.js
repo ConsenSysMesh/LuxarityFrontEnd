@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 //resources
 import web3Utils from 'web3-utils'
+import Web3 from 'web3'
+import LuxOrder from '../../../../build/contracts/LuxOrders.json'
+import { Redirect, withRouter } from 'react-router-dom'; //v4
 //css components
 import Loadable from 'react-loading-overlay'
 //components
@@ -31,6 +34,11 @@ class Support extends Component {
       modalMessage: false,
       supportOpen: false,
       donateComplete: false,
+      contract: null,
+      remainding: null,
+      emailHash: null,
+      charitiesAllocated: [],
+      noAllocationleft: false,
     }
 
     //bind functions
@@ -43,18 +51,47 @@ class Support extends Component {
   }
 
   async componentDidMount() {
-    //get web3 instance
-    let web3 = await new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/dafcac3faf174e009483337759967f85"))
+    if (this.props.location.state.customeremail !== null) {
+      //get web3 instance
+      let web3 = await new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/dafcac3faf174e009483337759967f85"))
 
-    //get abi information
-    let abi = LuxOrder.abi
-    let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828");
-    contract.methods.orderIndex().call(function(err, res){
-      console.log(res)
-    })
+      //get abi information
+      let abi = LuxOrder.abi
+      let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828")
+
+      //check if allocation amount is sufficient to choose a donation
+      let emailHash = web3Utils.keccak256(this.props.location.state.customeremail)
+      let remainding
+      let totalAmount = this.props.location.state.totalcost
+      await contract.methods.buyers(emailHash).call(function(err, res){
+        let leftover = res[0] - res[1]
+        if (leftover >= totalAmount) {
+          remainding = totalAmount
+        } else {
+          remainding = leftover
+        }
+      })
+
+      //get already chosen allocated amounts for each charity
+      let charitiesAllocated = []
+      for (let i = 0; i < testData.length; i++) {
+        let charityHash = web3Utils.keccak256(testData[i].charityName)
+        await contract.methods.charities(charityHash).call(function(err, res){
+          charitiesAllocated.push(res[1])
+        })
+      }
+
+      //update state
+      await this.setState({
+        contract: contract,
+        remainding: remainding,
+        emailHash: emailHash,
+        charitiesAllocated: charitiesAllocated,
+      })
+    }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(prevProps, prevState) {
     if (prevProps.chooseDonationError.length === 0 && this.props.chooseDonationError.length !== 0) {
       this.setState({ modalMessage: true })
     }
@@ -66,30 +103,73 @@ class Support extends Component {
     if (!prevProps.chooseDonationSuccess && this.props.chooseDonationSuccess) {
       this.setState({ donateComplete: true })
     }
-  }
 
-  async handleSingleDonate(order) {
-    await this.props.chooseDonation(order)
-  }
+    if (prevProps.choseDonation.length === 0 && this.props.choseDonation.length !== 0) {
+      console.log(this.props.choseDonation)
+      this.setState({ transaction: this.props.choseDonation })
+    }
 
-  async handleSplitDonate() {
-    //check if allocation amount is sufficient to choose a donation
-      //if it is do for loop
-      //if it is not then show message
-    let emailHash = await web3Utils.keccak256(this.props.location.state.customeremail)
-    //test value for emailHash: "0xe58e151a26e02da3c87c04685390219fdad1790462511124a11f44c9d06eeb03"
+    //get web3 instance
+    let web3 = await new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/dafcac3faf174e009483337759967f85"))
+
+    //get abi information
+    let abi = LuxOrder.abi
+    let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828")
+
+    let charitiesAllocated = []
     for (let i = 0; i < testData.length; i++) {
-      await this.props.chooseDonation({
-        customerEmailSHA256: emailHash,
-        charityName: testData[i].charityName,
-        chosenDonateAmount: this.props.location.state.totalcost/testData.length,
-        blockchain: "Rinkeby"
+      let charityHash = web3Utils.keccak256(testData[i].charityName)
+      await contract.methods.charities(charityHash).call(function(err, res){
+        charitiesAllocated.push(res[1])
       })
     }
 
-    //need to add amountAllocated to orders table as a column
-    //and after successful allocation set that amount to zero here
-      //TBD
+    if (!this.arraysEqual(charitiesAllocated, this.state.charitiesAllocated)) {
+      this.setState({ charitiesAllocated: charitiesAllocated })
+    }
+
+    if (!prevState.donateComplete && this.state.donateComplete) {
+      this.setState({ supportOpen: false })
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.handleSingleDonate)
+    clearInterval(this.handleSplitDonate)
+  }
+
+  arraysEqual(arr1, arr2) {
+    if(arr1.length !== arr2.length)
+        return false;
+    for(var i = arr1.length; i--;) {
+        if(arr1[i] !== arr2[i])
+            return false;
+    }
+    return true;
+  }
+
+  async handleSingleDonate(order) {
+    if (order.remainding !== 0) {
+      console.log(order)
+      await this.props.chooseDonation(order)
+    } else {
+      this.setState({ noAllocationleft: true })
+    }
+  }
+
+  async handleSplitDonate() {
+    if (this.state.remainding !== 0) {
+      for (let i = 0; i < testData.length; i++) {
+        await this.props.chooseDonation({
+          customerEmailSHA256: this.props.location.state.customeremail,
+          charityName: testData[i].charityName,
+          chosenDonateAmount: Math.floor(this.state.remainding/testData.length),
+          blockchain: "Rinkeby"
+        })
+      }
+    } else {
+      this.setState({ noAllocationleft: true })
+    }
   }
 
   closeDonateComplete() {
@@ -133,12 +213,11 @@ class Support extends Component {
       }
 
       //set object
-      let emailhash = web3Utils.keccak256(this.props.location.state.customeremail)
       let orderObject = {
-        customerEmailSHA256: emailhash,
+        customerEmailSHA256: this.props.location.state.customeremail,
         charityName: datum.charityName,
-        chosenDonateAmount: this.props.location.state.totalcost,
-        blockchain: "rinkeby"
+        chosenDonateAmount: Math.floor(this.state.remainding),
+        blockchain: "Rinkeby"
       }
 
       return (
@@ -149,7 +228,7 @@ class Support extends Component {
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
           cardSummary={datum.charitySummary}
-          cardPledged={datum.charityPledge}
+          cardPledged={this.state.charitiesAllocated[index]}
           chooseDonation={this.handleSingleDonate}
           donationAmount={this.props.location.state.totalcost}
           charityImage={image}
@@ -164,40 +243,48 @@ class Support extends Component {
   }
 
   render() {
+    if (this.props.location.state.customeremail === null || this.props.location.state.totalcost === null) {
+      return (
+        <Redirect to={{ pathname: `/redeem`}} />
+      );
+    }
+
     return (
       <Wrapper>
-        <Loadable
-          active={this.props.choosingDonation}
-          spinner={true}
-          spinnerSize={'100px'}
-          text={"Checking for order..."}>
-          <div>
-            <SupportACauseSection
-              supportOpen={this.state.supportOpen}
-              handleClose={this.closeSupportModal}
-              splitDonation={this.openSplitDonation}
-              totalOrder={this.props.location.state.totalcost}
-              handleDonate={this.handleSplitDonate}
-              feeAmount={0}
-              orgs={testData}
-              overlayColor={'#CFDBD2'}
-              cardPledged={10000}
-              cardGoal={35000} />
-            {this.mapSections(testData)}
-            <LuxarityIsMoreSection />
-            <DonationCompleteModal
-              open={this.state.donateComplete}
-              handleClose={this.closeDonateComplete} />
-            <MessageModal
-              open={this.state.modalMessage}
-              handleClose={this.handleMessageClose}
-              overlayColor={'#bec0be'}
-              messageImage={AllImg}
-              cardTitle={"Donation Didn't Complete!"}
-              cardSubtitle={"Please try again."}
-              cardMessage={"Hmm..For some reason your donation choice didn't go through. Please refresh the page and try once more."} />
-          </div>
-        </Loadable>
+        <div>
+          <Loadable
+            active={this.props.choosingDonation}
+            spinner={true}
+            spinnerSize={'100px'}
+            text={"Processing donation choice!.."}>
+            <div>
+              <SupportACauseSection
+                supportOpen={this.state.supportOpen}
+                handleClose={this.closeSupportModal}
+                splitDonation={this.openSplitDonation}
+                totalOrder={this.props.location.state.totalcost}
+                handleDonate={this.handleSplitDonate}
+                remainderAmount={this.state.remainding}
+                orgs={testData}
+                overlayColor={'#CFDBD2'} />
+              {this.mapSections(testData)}
+            </div>
+          </Loadable>
+          <LuxarityIsMoreSection />
+          <DonationCompleteModal
+            transaction={this.state.transaction}
+            open={this.state.donateComplete}
+            handleClose={this.closeDonateComplete} />
+          <MessageModal
+            open={this.state.modalMessage || this.state.noAllocationleft}
+            handleClose={this.handleMessageClose}
+            noAllocationleft={this.state.noAllocationleft}
+            overlayColor={'#bec0be'}
+            messageImage={AllImg}
+            cardTitle={"Donation Didn't Complete!"}
+            cardSubtitle={"Please try again."}
+            cardMessage={"Hmm..For some reason your donation choice didn't go through. Please refresh the page and try once more."} />
+        </div>
       </Wrapper>
     )
   }
@@ -207,4 +294,4 @@ Support.contextTypes = {
   drizzle: PropTypes.object
 }
 
-export default Support
+export default withRouter(Support)

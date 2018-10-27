@@ -109,24 +109,19 @@ class Redeem extends Component {
     }
 
     return (
-      <Loadable
-        active={this.props.gettingOrderByRedem}
-        spinner
-        text={"Checking for order..."}>
         <Wrapper>
           <div>
-            <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: 50, paddingBottom: '3%', paddingLeft: 50, paddingRight: 5, margin: 0}}>
-              <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
-            </Row>
+            <Loadable
+              active={this.props.gettingOrderByRedem}
+              spinner
+              text={"Checking for order..."}>
+              <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: 50, paddingBottom: '3%', paddingLeft: 50, paddingRight: 5, margin: 0}}>
+                <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
+              </Row>
+            </Loadable>
 
-<<<<<<< HEAD
-            <div className="support-sec" style={{alignItems: 'center', justifyContent:'center'}}>
-              <div style={{fontSize: 40, textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
-=======
             <div>
               <div style={{fontSize: '50px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
-
->>>>>>> 9b62017f8a4df5f2a0ba2ecc7a7c78c2f118dc04
               {this.mapSections(testData)}
             </div>
 
@@ -141,7 +136,6 @@ class Redeem extends Component {
               cardMessage={"This doesn't quite match any pin codes on record. Please try again and make sure there aren't any rogue spaces or letters in your entry."} />
           </div>
         </Wrapper>
-      </Loadable>
     )
   }
 }

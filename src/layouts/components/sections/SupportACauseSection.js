@@ -15,7 +15,6 @@ class SupportACauseSection extends Component {
     }
 
     //bind functions
-    this.getDonateTotal = this.getDonateTotal.bind(this)
     this.formatNum = this.formatNum.bind(this)
     this.splitTotal = this.splitTotal.bind(this)
   }
@@ -36,11 +35,6 @@ class SupportACauseSection extends Component {
     return "$0"
   }
 
-  getDonateTotal(x,y) {
-    let sum = x - y
-    return this.formatNum(sum)
-  }
-
   render() {
     return(
       <div>
@@ -56,9 +50,9 @@ class SupportACauseSection extends Component {
               <div className="dashboard-main-info-l">
                 <div className="cause-donation">
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
-                  <p>Luxarity fee: <span className="lux-fee">{this.formatNum(this.props.feeAmount)}</span> </p>
+                  <p>Remaining Donor Amount: <span className="lux-fee">{this.formatNum(this.props.remainderAmount)}</span> </p>
                   <hr/>
-                  <p className="d-tot">Donation total: <span className="d-tot-amt">{this.getDonateTotal(this.props.totalOrder, this.props.feeAmount)}</span> </p>
+                  <p className="d-tot">Donation to Allocate: <span className="d-tot-amt">${this.props.remainderAmount}</span> </p>
                 </div>
 
                 <button className="p-btn-clear" onClick={this.props.splitDonation}>Split my donation evenly</button>
@@ -73,7 +67,7 @@ class SupportACauseSection extends Component {
           handleClose={this.props.handleClose}
           overlayColor={'#CFDBD2'}
           orgs={this.props.orgs}
-          donationAmount={this.splitTotal(this.props.totalOrder, this.props.feeAmount)}
+          donationAmount={this.splitTotal(this.props.totalOrder, this.props.remainderAmount)}
           donationImage={AllImg} />
        </div>
     )

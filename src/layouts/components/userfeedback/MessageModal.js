@@ -6,6 +6,18 @@ import DialogContent from '@material-ui/core/DialogContent'
 
 class MessageModal extends Component {
 
+  getMessage(status) {
+    if (status) {
+      return (
+        <div className="card-subsection-text" style={{fontSize: 14, color: '#595A55'}}>Unfortunately, you have no more proceeds to donate. If you would like to continue to give to the causes Luxarity is sponsoring, please feel free to donate directly in the top right corner of the site! Thank you!</div>
+      )
+    }
+
+    return (
+      <div className="card-subsection-text" style={{fontSize: 14, color: '#595A55'}}>{this.props.cardMessage}</div>
+    )
+  }
+
   render() {
     return(
 
@@ -14,7 +26,7 @@ class MessageModal extends Component {
         onClose={this.props.handleClose}
         PaperProps={{
           style: {
-            backgroundColor: this.props.overlayColor, 
+            backgroundColor: this.props.overlayColor,
             boxShadow: 'none',
           },
         }} >
@@ -35,7 +47,7 @@ class MessageModal extends Component {
               <div style={{backgroundColor: '#cfdbd2', justifyContent: 'center', alignItems: 'center'}}>
                 <div className="card-subsection">
                   <div className="card-subsection-title"><strong>{this.props.cardSubtitle}</strong></div>
-                  <div className="card-subsection-text" style={{fontSize: 14, color: '#595A55'}}>{this.props.cardMessage}</div>
+                  {this.getMessage(this.props.noAllocationleft)}
                 </div>
                 <div className="card-subsection" style={{display: 'flex', justifyContent: 'flex-end', height: '100%', margin: 0}}>
                   <button

@@ -9,7 +9,7 @@ import { chooseDonation } from '../../../redux/chooseDonation/actions'
 // connectors for API
 const mapStateToProps = state => ({
   choosingDonation: state.chooseDonation.running,
-  choseDonation: state.chooseDonation.response !== null,
+  choseDonation: state.chooseDonation.response,
   chooseDonationError: state.chooseDonation.error,
   chooseDonationSuccess: state.chooseDonation.success,
 })
