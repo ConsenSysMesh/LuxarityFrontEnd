@@ -336,6 +336,7 @@ div.inputbox {
   height: 50px;
   margin: 20px 0 20px 0;
   position: relative;
+  white-space: nowrap;
 }
 input[type="text"] {
     width: 200px;

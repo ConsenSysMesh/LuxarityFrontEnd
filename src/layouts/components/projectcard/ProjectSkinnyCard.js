@@ -53,10 +53,10 @@ class ProjectSkinnyCard extends Component {
 
   render() {
     return(
-      <Col sm={12} md={4}>
+      <Col sm={12} md={6} lg={4}>
         <div style={{margin: '0 5% 5% 5%', height: '100%'}}>
           <img alt="LUXARITY" style={{width: '100%', height: this.props.charityImageSize}} src={this.props.charityImage} />
-          <div>
+          <div style={{position:'relative'}}>
             <div className="card-content-slim" style={{width: '100%', margin: 0}}>
               <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
               <p className="card-title-slim" style={{paddingLeft: '25px', minHeight: '80px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>{this.props.cardOrgName}</p>
@@ -70,7 +70,7 @@ class ProjectSkinnyCard extends Component {
                 <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
               </div>
             </div>
-            <div style={{display: 'flex', justifyContent: 'center', margin: '25px'}}>
+            <div style={{display: 'flex', justifyContent: 'center', padding: '25px'}}>
               <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}} onClick={this.handleDonate}>Project Details</button>
             </div>
           </div>
