@@ -8,6 +8,7 @@ import SupportACauseSection from '../../components/sections/SupportACauseSection
 import ProjectCardComplex from '../../components/projectcard/ProjectCardComplex'
 import DonationCompleteModal from '../../components/projectcard/DonationCompleteModal'
 import MessageModal from '../../components/userfeedback/MessageModal'
+import LuxarityIsMoreSection from '../../components/sections/LuxarityIsMoreSection'
 //tempData
 import testData from './tempData/data.json'
 //images
@@ -167,6 +168,7 @@ class Support extends Component {
               cardPledged={50000}
               cardGoal={200000} />
             {this.mapSections(testData)}
+            <LuxarityIsMoreSection />
             <DonationCompleteModal
               open={this.state.donateComplete}
               handleClose={this.closeDonateComplete} />

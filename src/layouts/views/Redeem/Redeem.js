@@ -90,7 +90,7 @@ class Redeem extends Component {
     });
 
     return (
-      <Row>{gridItems}</Row>
+      <Row style={{backgroundColor: 'rgb(241, 242, 243)', padding: '0 5%'}}>{gridItems}</Row>
     )
   }
 
@@ -118,16 +118,14 @@ class Redeem extends Component {
         text={"Checking for order..."}>
         <Wrapper>
           <div>
-            <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: '3%', paddingBottom: '3%', paddingLeft: 20, paddingRight: 5, margin: 0}}>
+            <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: 50, paddingBottom: '3%', paddingLeft: 50, paddingRight: 5, margin: 0}}>
               <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
             </Row>
 
             <div>
               <div style={{fontSize: '50px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
 
-              <div style={{backgroundColor: 'rgb(241, 242, 243)', padding: '0 5%'}}>
-                {this.mapSections(testData)}
-              </div>
+              {this.mapSections(testData)}
 
             </div>
 

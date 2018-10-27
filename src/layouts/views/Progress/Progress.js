@@ -56,7 +56,7 @@ class Progress extends Component {
     });
 
     return (
-      <Row>{gridItems}</Row>
+      <Row style={{backgroundColor: 'rgb(241, 242, 243)', padding: '0 5%'}}>{gridItems}</Row>
     )
   }
 
@@ -73,8 +73,7 @@ class Progress extends Component {
                 </button>
               </div>
             </div>
-
-            <div className="support-sec" style={{margin: '0 5%'}}>
+            <div>
               <div style={{fontSize: '50px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
 
               {this.mapSections(testData)}
