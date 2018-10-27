@@ -53,16 +53,16 @@ class ProjectSkinnyCard extends Component {
 
   render() {
     return(
-      <Col sm={12} md={4} >
-        <div style={{margin: '0 25px 25px 50px', height: '100%'}}>
-          <div className="boxed-image" style={{width: '100%'}}>
-            <img alt="LUXARITY" style={{maxWidth: '100%', height: 400}} src={this.props.charityImage} />
+      <Col sm={12} md={6} lg={4}>
+        <div style={{margin: '0 5% 5% 5%', height: '100%'}}>
+          <div style={{height: this.props.charityImageSize, position: 'relative'}}>
+            <div style={{width: '150%', height: '100%', backgroundColor: 'white', position: 'absolute', zIndex: '-1'}}></div>
+            <img alt="LUXARITY" style={{width: '100%', height: '100%'}} src={this.props.charityImage} />
           </div>
-
-          <div>
+          <div style={{position:'relative'}}>
             <div className="card-content-slim" style={{width: '100%', margin: 0}}>
               <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
-              <p className="card-title-slim" style={{paddingLeft: 20, height: '70px'}}>{this.props.cardOrgName}</p>
+              <p className="card-title-slim" style={{paddingLeft: '25px', minHeight: '80px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>{this.props.cardOrgName}</p>
 
               <div className="support-progress-bar" style={{marginLeft: '25px'}}>
                 <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
@@ -73,7 +73,7 @@ class ProjectSkinnyCard extends Component {
                 <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
               </div>
             </div>
-            <div style={{display: 'flex', justifyContent: 'center', margin: '25px'}}>
+            <div style={{display: 'flex', justifyContent: 'center', padding: '25px'}}>
               <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}} onClick={this.handleDonate}>Project Details</button>
             </div>
           </div>

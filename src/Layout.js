@@ -11,6 +11,7 @@ import DashboardContainer from './layouts/views/Dashboard/DashboardContainer'
 import TestContainer from './layouts/views/Test/TestContainer'
 import RedeemContainer from './layouts/views/Redeem/RedeemContainer'
 import SupportContainer from './layouts/views/Support/SupportContainer'
+import ProgressContainer from './layouts/views/Progress/ProgressContainer'
 
 class Layout extends Component {
 
@@ -23,6 +24,7 @@ class Layout extends Component {
           <Route exact path="/redeem" component={RedeemContainer} />
           <Route exact path="/dashboard" component={DashboardContainer} />
           <Route exact path="/support/:orderId" component={SupportContainer} />
+          <Route exact path="/progress" component={ProgressContainer} />
           <Route exact path="/" component={HomeContainer} />
         </Switch>
       </App>
