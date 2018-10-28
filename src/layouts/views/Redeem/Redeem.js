@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 //resources
 import web3Utils from 'web3-utils'
+import Web3 from 'web3'
+import LuxOrder from '../../../../build/contracts/LuxOrders.json'
 //css components
 import { Row } from 'react-grid-system'
 import Loadable from 'react-loading-overlay'
@@ -28,12 +30,43 @@ class Redeem extends Component {
     this.state = {
       pinValue: '',
       messageModal: false,
+      contract: null,
+      charitiesAllocated: []
     }
 
     //bind functions
     this.setPinValue = this.setPinValue.bind(this)
     this.enterPin = this.enterPin.bind(this)
     this.handleClose = this.handleClose.bind(this)
+  }
+
+  async componentDidMount() {
+    //get web3 instance
+    let web3 = await new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/dafcac3faf174e009483337759967f85"))
+
+    //get abi information
+    let abi = LuxOrder.abi
+    let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828")
+
+    //get already chosen allocated amounts for each charity
+    let charitiesAllocated = []
+    for (let i = 0; i < testData.length; i++) {
+      let charityHash = web3Utils.keccak256(testData[i].charityName)
+      await contract.methods.charities(charityHash).call(function(err, res){
+        if (err) {
+          charitiesAllocated.push(0)
+        }
+        else {
+          charitiesAllocated.push(res[1])
+        }
+      })
+    }
+
+    //update state
+    await this.setState({
+      contract: contract,
+      charitiesAllocated: charitiesAllocated,
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -80,14 +113,14 @@ class Redeem extends Component {
           key={index}
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
-          cardPledged={datum.charityPledge}
+          cardPledged={this.state.charitiesAllocated[index]}
           charityImage={image}
           cardGoal={datum.charityGoal} />
       );
     });
 
     return (
-      <Row style={{backgroundColor: 'rgb(241, 242, 243)', padding: '0 5%'}}>{gridItems}</Row>
+      <Row style={{padding: 0, margin: 0, alignItems: 'center', justifyContent: 'center'}}>{gridItems}</Row>
     )
   }
 
@@ -120,10 +153,15 @@ class Redeem extends Component {
               </Row>
             </Loadable>
 
-            <div>
-              <div style={{fontSize: '50px', textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
-              {this.mapSections(testData)}
-            </div>
+            <Loadable
+              active={this.state.charitiesAllocated.length === 0}
+              spinner
+              text={"Loading charities..."}>
+              <div style={{alignItems: 'center', justifyContent: 'center'}}>
+                <div style={{fontSize: 40, textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
+                {this.mapSections(testData)}
+              </div>
+            </Loadable>
 
             <LuxarityIsMoreSection />
             <MessageModal

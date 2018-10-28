@@ -39,6 +39,7 @@ class Support extends Component {
       emailHash: null,
       charitiesAllocated: [],
       noAllocationleft: false,
+      orderIncomplete: false,
     }
 
     //bind functions
@@ -63,12 +64,17 @@ class Support extends Component {
       let emailHash = web3Utils.keccak256(this.props.location.state.customeremail)
       let remainding
       let totalAmount = this.props.location.state.totalcost
+      let orderIncomplete
       await contract.methods.buyers(emailHash).call(function(err, res){
-        let leftover = res[0] - res[1]
-        if (leftover >= totalAmount) {
-          remainding = totalAmount
+        if (err) {
+          orderIncomplete = true
         } else {
-          remainding = leftover
+          let leftover = res[0] - res[1]
+          if (leftover >= totalAmount) {
+            remainding = totalAmount
+          } else {
+            remainding = leftover
+          }
         }
       })
 
@@ -77,7 +83,11 @@ class Support extends Component {
       for (let i = 0; i < testData.length; i++) {
         let charityHash = web3Utils.keccak256(testData[i].charityName)
         await contract.methods.charities(charityHash).call(function(err, res){
-          charitiesAllocated.push(res[1])
+          if (err) {
+            charitiesAllocated.push(0)
+          } else {
+            charitiesAllocated.push(res[1])
+          }
         })
       }
 
@@ -87,6 +97,7 @@ class Support extends Component {
         remainding: remainding,
         emailHash: emailHash,
         charitiesAllocated: charitiesAllocated,
+        orderIncomplete: true, 
       })
     }
   }
@@ -279,6 +290,7 @@ class Support extends Component {
             open={this.state.modalMessage || this.state.noAllocationleft}
             handleClose={this.handleMessageClose}
             noAllocationleft={this.state.noAllocationleft}
+            orderIncomplete={this.state.orderIncomplete}
             overlayColor={'#bec0be'}
             messageImage={AllImg}
             cardTitle={"Donation Didn't Complete!"}
