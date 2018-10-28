@@ -74,6 +74,9 @@
     "start": "node scripts/start.js",
     "build": "truffle compile && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build_webpack/ s3://luxarity-app-client --delete",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id EKI7MXK5XLURQ --paths '/*' && aws cloudfront create-invalidation --distribution-id E12Y6PXJ5QW41U --paths '/*'",
     "chain": "ganache-cli",
     "prepare": "npm run build"
   },

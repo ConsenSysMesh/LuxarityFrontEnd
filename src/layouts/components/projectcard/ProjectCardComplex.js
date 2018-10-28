@@ -54,11 +54,11 @@ class ProjectCardComplex extends Component {
   }
 
   getColor(category) {
-    if (category.toLowerCase() === "responsible") {
+    if (category.toLowerCase() === "sustainability") {
       return '#1DB42E'
-    } else if (category.toLowerCase() === "aware") {
+    } else if (category.toLowerCase() === "entrepreneurship") {
       return '#FD3F11'
-    } else if (category.toLowerCase() === "wonder") {
+    } else if (category.toLowerCase() === "arts") {
       return '#25C7AA'
     }
   }
