@@ -12,10 +12,10 @@ const drizzleOptions = {
     LuxOrders
   ],
   events: {
-    LuxOrders: ['SoldAndMintedToken'],
-    LuxOrders: ['DonationChosen'],
-    LuxOrders: ['DonationMadeToCharity'],
-    LuxOrders: ['RedeemedToken']
+    SoldAndMintedToken: ['SoldAndMintedToken'],
+    DonationChosen: ['DonationChosen'],
+    DonationMadeToCharity: ['DonationMadeToCharity'],
+    RedeemedToken: ['RedeemedToken']
   },
   polls: {
     accounts: 1500

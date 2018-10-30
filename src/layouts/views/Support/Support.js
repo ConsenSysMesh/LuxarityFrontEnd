@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 //resources
 import web3Utils from 'web3-utils'
+import { sha256 } from 'js-sha256'
 import Web3 from 'web3'
 import LuxOrder from '../../../../build/contracts/LuxOrders.json'
 import { Redirect, withRouter } from 'react-router-dom'; //v4
@@ -52,28 +53,57 @@ class Support extends Component {
   }
 
   async componentDidMount() {
-    if (this.props.location.state.customeremail !== null) {
+    await this.update('componentDidMount')
+  }
+
+  async update(message) {
+    console.log(message)
+    if (this.props.location.state.customeremail !== null && this.props.gotOrderByRedem.length !== 0) {
+
       //get web3 instance
       let web3 = await new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/dafcac3faf174e009483337759967f85"))
 
       //get abi information
       let abi = LuxOrder.abi
-      let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828")
+      let contract = await new web3.eth.Contract(abi, "0xa4c69450f2dea4a10a7e799674feda99c9af9732")
 
       //check if allocation amount is sufficient to choose a donation
-      let emailHash = web3Utils.keccak256(this.props.location.state.customeremail)
+      let emailHash = sha256(this.props.location.state.customeremail)
+      let finalHash = web3Utils.keccak256(emailHash.toUpperCase())
       let remainding
-      let totalAmount = this.props.location.state.totalcost
+      let totalAmount = Number(this.props.location.state.totalcost)
       let orderIncomplete
-      await contract.methods.buyers(emailHash).call(function(err, res){
+
+      console.log(contract)
+
+      //check the buyers donation allocation remaining
+      await contract.methods.buyers(finalHash).call(function(err, res){
         if (err) {
           orderIncomplete = true
         } else {
+          console.log(res)
           let leftover = res[0] - res[1]
           if (leftover >= totalAmount) {
             remainding = totalAmount
           } else {
             remainding = leftover
+          }
+        }
+      })
+
+      //check if the chooseDonations struct exists
+      let orderNumber = Number(this.props.gotOrderByRedem[0].ordernumber)
+      await contract.methods.chooseDonations(orderNumber).call(function(err, res){
+        if (err) {
+          orderIncomplete = true
+          console.log(err)
+        } else {
+          console.log(res)
+          //choose donation has been made before
+          if (res[1] >= totalAmount) {
+            remainding = 0
+          } else {
+            remainding = totalAmount - res[1]
           }
         }
       })
@@ -97,7 +127,7 @@ class Support extends Component {
         remainding: remainding,
         emailHash: emailHash,
         charitiesAllocated: charitiesAllocated,
-        orderIncomplete: true, 
+        orderIncomplete: orderIncomplete,
       })
     }
   }
@@ -125,7 +155,7 @@ class Support extends Component {
 
     //get abi information
     let abi = LuxOrder.abi
-    let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828")
+    let contract = await new web3.eth.Contract(abi, "0xa4c69450f2dea4a10a7e799674feda99c9af9732")
 
     let charitiesAllocated = []
     for (let i = 0; i < testData.length; i++) {
@@ -163,6 +193,9 @@ class Support extends Component {
     if (order.remainding !== 0) {
       console.log(order)
       await this.props.chooseDonation(order)
+      if (this.props.chooseDonationSuccess) {
+        await this.update('handleSingleDonate')
+      }
     } else {
       this.setState({ noAllocationleft: true })
     }
@@ -175,8 +208,14 @@ class Support extends Component {
           customerEmailSHA256: this.props.location.state.customeremail,
           charityName: testData[i].charityName,
           chosenDonateAmount: Math.floor(this.state.remainding/testData.length),
+          orderNumber: this.props.gotOrderByRedem[0].ordernumber,
+          tokenId: this.props.gotOrderByRedem[0].tokenid,
+          orderId: Number(this.props.gotOrderByRedem[0].orderid),
           blockchain: "Rinkeby"
         })
+        if (this.props.chooseDonationSuccess) {
+          await this.update('handleSplitDonate')
+        }
       }
     } else {
       this.setState({ noAllocationleft: true })
@@ -225,9 +264,12 @@ class Support extends Component {
 
       //set object
       let orderObject = {
-        customerEmailSHA256: this.props.location.state.customeremail,
+        customerEmailSHA256: sha256(this.props.location.state.customeremail).toUpperCase(),
         charityName: datum.charityName,
         chosenDonateAmount: Math.floor(this.state.remainding),
+        orderNumber: this.props.gotOrderByRedem[0].ordernumber,
+        tokenId: this.props.gotOrderByRedem[0].tokenid,
+        orderId: Number(this.props.gotOrderByRedem[0].orderid),
         blockchain: "Rinkeby"
       }
 
@@ -254,7 +296,7 @@ class Support extends Component {
   }
 
   render() {
-    if (this.props.location.state.customeremail === null || this.props.location.state.totalcost === null) {
+    if (this.props.location.state === null || this.props.gotOrderByRedem.length === 0) {
       return (
         <Redirect to={{ pathname: `/redeem`}} />
       );

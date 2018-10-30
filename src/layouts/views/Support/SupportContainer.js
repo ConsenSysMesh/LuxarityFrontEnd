@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { drizzleConnect } from 'drizzle-react'
 //redux actions
 import { chooseDonation } from '../../../redux/chooseDonation/actions'
+import { getOrderByRedemptionHash } from '../../../redux/ordersByRedemptionHash/actions'
 
 // connectors for API
 const mapStateToProps = state => ({
@@ -12,6 +13,11 @@ const mapStateToProps = state => ({
   choseDonation: state.chooseDonation.response,
   chooseDonationError: state.chooseDonation.error,
   chooseDonationSuccess: state.chooseDonation.success,
+
+  gettingOrderByRedem: state.getOrderByRedemptionHash.running,
+  gotOrderByRedem: state.getOrderByRedemptionHash.response,
+  getOrderByRedemError: state.getOrderByRedemptionHash.error,
+  getOrderByRedemSuccess: state.getOrderByRedemptionHash.success,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

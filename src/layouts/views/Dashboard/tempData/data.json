@@ -1,18 +1,22 @@
 [
   {
-    "charityCategory": "RESPONSIBLE",
+    "charityCategory": "responsibility",
     "charityName": "HKRITA RESEARCH",
-    "charitySummary": "The Hong Kong Research Institute of Textiles and Apparel (HKRITA) was established in April 2006. To enhance Hong Kong's cutting edge, we have the funding support from Innovation and Technology Commission, HKSAR Government. HKRITA is also supported by institutes, companies and associations in the textile and clothing industry in Hong Kong, mainland China and other countries.",
-    "charityPledge": 50320,
-    "charityGoal": 200000,
-    "charityImage": "http://thembsgroup.co.uk/wp-content/uploads/2016/11/Sustainable-Fashion.jpg"
+    "charitySummary": "We are pledging a donation goal of $150,000 HKD for HKRITA (The Hong Kong Research Institute of Textiles and Apparel) to deepen research on recycling and upcycling apparels.",
+    "charityPledge": 10000,
+    "charityGoal": 19132.70
   },
   {
-    "charityCategory": "RESPONSIBLE",
-    "charityName": "HKRITA RESEARCH",
-    "charitySummary": "The Hong Kong Research Institute of Textiles and Apparel (HKRITA) was established in April 2006. To enhance Hong Kong's cutting edge, we have the funding support from Innovation and Technology Commission, HKSAR Government. HKRITA is also supported by institutes, companies and associations in the textile and clothing industry in Hong Kong, mainland China and other countries.",
-    "charityPledge": 50320,
-    "charityGoal": 200000,
-    "charityImage": "http://thembsgroup.co.uk/wp-content/uploads/2016/11/Sustainable-Fashion.jpg"
+    "charityCategory": "awareness",
+    "charityName": "HEALTH & WELLNESS HACKATHON",
+    "charitySummary": "To engage the social entrepreneurship and blockchain ecosystem in Hong Kong, and help spawn potential social enterprises in Hong Kong, we are raising $100,000 HKD as prize money to gift out to outstanding social entrepreneurs  in the community who will win the Hackathon hosted together with ConsenSys Social Impact - to achieve health and well-being for all.",
+    "charityPledge": 10000,
+    "charityGoal": 19132.70
+  },
+  {
+    "charityCategory": "wonder",
+    "charityName": "SCAD + PARSONS",
+    "charitySummary": "To support the development of sustainable education and innovation in the lifestyle industry, LUXARITY is pledging to raising a total of $350,000 HKD to develop an open-sourced online course with SCAD HK ($150,000) & to support two designers from PARSONS SCHOOL OF DESIGN who are focused on sustainability & innovation.",
+    "charityGoal": 19132.70
   }
 ]

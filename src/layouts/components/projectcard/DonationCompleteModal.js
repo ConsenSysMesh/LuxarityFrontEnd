@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Row, Col } from 'react-grid-system'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
-import { Link } from 'react-router-dom' //v4
 
 //images
 import AllImg from '../../img/tripleFashion.png'

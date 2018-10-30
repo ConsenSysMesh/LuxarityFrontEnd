@@ -37,14 +37,16 @@ export default class Header extends React.Component {
               <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <Link to={{pathname: '/about' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>ABOUT</Link>
               </div>
+              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: '#7F8081', float:'left'}}>RAW
+              </div>
+              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center',textDecoration: 'none', color: '#7F8081', float:'left'}}>POPUP
+              </div>
             </Row>
             <Row style={{paddingLeft: 5}}>
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
-                <Link to={{pathname: '/faq' }} style={{textDecoration: 'none', color: 'white', backgroundColor: 'rgb(93, 201, 168)', padding: '5px 20px'}}>DONATE</Link>
+              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>DONATE
               </div>
-              
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
-                <Link to={{pathname: '/about' }} style={{textDecoration: 'none', color: '#7F8081'}}>SUPPORT</Link>
+
+              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>SUPPORT
               </div>
             </Row>
         </Row>

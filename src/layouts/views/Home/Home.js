@@ -23,7 +23,7 @@ class Home extends Component {
               </Grid>
               <Grid item xs={12} sm={6} className="landing-content-info">
                 <h3 className="splash-heading">The Impact of Popups</h3>
-                <a href="http://luxarity.com" target="_blank" style={{textDecoration: 'none', color: 'white'}}>
+                <a href="http://luxarity.com" rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: 'white'}}>
                   <button className="p-btn-dark">Learn More</button>
                 </a>
               </Grid>

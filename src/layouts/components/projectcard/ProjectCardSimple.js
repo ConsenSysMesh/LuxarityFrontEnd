@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'react-grid-system';
 //components
-import SupportModal from './SupportModal'
 
 class ProjectCardSimple extends Component {
   constructor(props, context) {
@@ -30,9 +29,11 @@ class ProjectCardSimple extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let string = x + ""
+      let hkd = 7.84*x
+      let final = Math.round(hkd);
+      let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      return "$" + firstNum
+      return "HK$" + firstNum
     }
     return "$0"
   }
@@ -44,11 +45,11 @@ class ProjectCardSimple extends Component {
   }
 
   getColor(category) {
-    if (category.toLowerCase() === "sustainability") {
+    if (category.toLowerCase() === "responsibility") {
       return '#1DB42E'
-    } else if (category.toLowerCase() === "entrepreneurship") {
+    } else if (category.toLowerCase() === "awareness") {
       return '#FD3F11'
-    } else if (category.toLowerCase() === "arts") {
+    } else if (category.toLowerCase() === "wonder") {
       return '#25C7AA'
     }
   }
@@ -64,7 +65,7 @@ class ProjectCardSimple extends Component {
             <Row style={{background: 'white', height: 180, padding: 0}}></Row>
             <Row style={{padding: 0}}>
               <div className="card-content" style={{width: '100%', margin: 0}}>
-                <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+                <p className="card-sub-title1" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
                 <p className="card-title">{this.props.cardOrgName}</p>
 
                 <div className="progress-bar-small">

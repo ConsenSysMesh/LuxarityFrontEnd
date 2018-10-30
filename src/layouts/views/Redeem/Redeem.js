@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 //resources
 import web3Utils from 'web3-utils'
 import Web3 from 'web3'
+import { sha256 } from 'js-sha256'
 import LuxOrder from '../../../../build/contracts/LuxOrders.json'
 //css components
 import { Row } from 'react-grid-system'
@@ -46,7 +47,7 @@ class Redeem extends Component {
 
     //get abi information
     let abi = LuxOrder.abi
-    let contract = await new web3.eth.Contract(abi, "0x365e68BBBd82a639A17eED8c89CCDC5CFeDBd828")
+    let contract = await new web3.eth.Contract(abi, "0xa4c69450f2dea4a10a7e799674feda99c9af9732")
 
     //get already chosen allocated amounts for each charity
     let charitiesAllocated = []
@@ -80,10 +81,11 @@ class Redeem extends Component {
     //prevent default after press
     event.preventDefault();
     //prepare data
-    let pinHash = await web3Utils.keccak256(this.state.pinValue)
+    let pinString = this.state.pinValue.toString()
+    let pinHash = sha256(pinString)
     console.log(pinHash)
     //need to replace with actual entry data**
-    await this.props.getOrderByRedemptionHash('12345')
+    await this.props.getOrderByRedemptionHash(pinHash.toUpperCase())
   }
 
   setPinValue(pin) {

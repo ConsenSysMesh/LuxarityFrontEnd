@@ -28,9 +28,11 @@ class SupportACauseSection extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let string = x + ""
+      let hkd = 7.84*x
+      let final = Math.round(hkd);
+      let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      return "$" + firstNum
+      return "HK$" + firstNum
     }
     return "$0"
   }
@@ -50,9 +52,9 @@ class SupportACauseSection extends Component {
               <div className="dashboard-main-info-l">
                 <div className="cause-donation">
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
-                  <p>Remaining Donor Amount: <span className="lux-fee">{this.formatNum(this.props.remainderAmount)}</span> </p>
+                  <p>Remaining Amount: <span className="lux-fee">{this.formatNum(this.props.remainderAmount)}</span> </p>
                   <hr/>
-                  <p className="d-tot">Donation to Allocate: <span className="d-tot-amt">${this.props.remainderAmount}</span> </p>
+                  <p className="d-tot">Allocate Amount: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount)}</span> </p>
                 </div>
 
                 <button className="p-btn-clear" onClick={this.props.splitDonation}>Split my donation evenly</button>

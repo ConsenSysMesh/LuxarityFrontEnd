@@ -21,17 +21,19 @@ class SupportModal extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let string = x + ""
+      let hkd = 7.84*x
+      let final = Math.round(hkd);
+      let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      return "$" + firstNum
+      return "HK$" + firstNum
     }
     return "$0"
   }
 
   getColor(category) {
-    if (category.toLowerCase() === "responsible") {
+    if (category.toLowerCase() === "responsibility") {
       return '#1DB42E'
-    } else if (category.toLowerCase() === "aware") {
+    } else if (category.toLowerCase() === "awareness") {
       return '#FD3F11'
     } else if (category.toLowerCase() === "wonder") {
       return '#25C7AA'
@@ -44,7 +46,7 @@ class SupportModal extends Component {
 
         return (
           <div style={{paddingTop: 2, paddingBottom: 2}} key={index}>
-            <p className="card-sub-title" style={{color: this.getColor(org.charityCategory)}}>{org.charityCategory}</p>
+            <p className="card-sub-title1" style={{color: this.getColor(org.charityCategory)}}>{org.charityCategory}</p>
             <p className="card-title" style={{fontSize: 22}}>{org.charityName}</p>
           </div>
         );
@@ -59,7 +61,7 @@ class SupportModal extends Component {
 
     return (
       <div className="card-content" style={{width: '100%', margin: 0}}>
-        <p className="card-sub-title" style={{color: this.getColor(orgs[0].charityCategory)}}>{orgs[0].charityCategory}</p>
+        <p className="card-sub-title1" style={{color: this.getColor(orgs[0].charityCategory)}}>{orgs[0].charityCategory}</p>
         <p className="card-title">{orgs[0].cardOrgName}</p>
       </div>
     )
@@ -81,7 +83,7 @@ class SupportModal extends Component {
           <Row style={{background: 'white', height: 180, padding: 0, margin: 0}}> <span></span></Row>
           <Row style={{padding: 0, margin: 0}}>
             <div className="card-content" style={{width: '100%', margin: 0}}>
-              <p className="card-sub-title" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+              <p className="card-sub-title1" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
               <p className="card-title">{this.props.cardOrgName}</p>
             </div>
           </Row>

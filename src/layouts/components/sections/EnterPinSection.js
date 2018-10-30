@@ -30,7 +30,7 @@ class EnterPinSection extends Component {
             <div style={{textTransform: 'uppercase', color: 'white'}}>LUXARITY IS MORE</div>
             <div style={{textTransform: 'uppercase', color: 'white'}}>THAN A STORE</div>
             <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Choose to donate to one or both of these causes. We will keep in touch with you with updates on their progress over the next few months.</div>
-            <a href="http://luxarity.com" target="_blank" style={{textDecoration: 'none', color: '#585A56'}}>
+            <a href="http://luxarity.com" rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: '#585A56'}}>
               <button className="p-btn-light-medium" style={{color: '#585A56', letterSpacing: 1, paddingLeft: '10%', paddingRight: '10%'}}> Learn More </button>
             </a>
           </Col>

@@ -28,9 +28,11 @@ class ProjectSkinnyCard extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let string = x + ""
+      let hkd = 7.84*x
+      let final = Math.round(hkd);
+      let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-      return "$" + firstNum
+      return "HK$" + firstNum
     }
     return "$0"
   }
@@ -42,11 +44,11 @@ class ProjectSkinnyCard extends Component {
   }
 
   getColor(category) {
-    if (category.toLowerCase() === "sustainability") {
+    if (category.toLowerCase() === "responsibility") {
       return '#1DB42E'
-    } else if (category.toLowerCase() === "entrepreneurship") {
+    } else if (category.toLowerCase() === "awareness") {
       return '#FD3F11'
-    } else if (category.toLowerCase() === "arts") {
+    } else if (category.toLowerCase() === "wonder") {
       return '#25C7AA'
     }
   }
@@ -60,7 +62,7 @@ class ProjectSkinnyCard extends Component {
         </div>
         <div>
           <div className="card-content-slim" style={{width: '100%', margin: 0}}>
-            <p className="card-sub-title" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
+            <p className="card-sub-title1" style={{paddingLeft: '25px', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
             <p className="card-title-slim" style={{paddingLeft: '25px', minHeight: '80px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>{this.props.cardOrgName}</p>
 
             <div className="support-progress-bar" style={{marginLeft: '25px'}}>
