@@ -93,7 +93,7 @@ class ProjectCardComplex extends Component {
                   <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
                 </div>
 
-                <button className="p-btn-dark" onClick={this.handleOpen}> Suppport this project </button>
+                <button className="p-btn-dark" disabled={this.props.noAllocationleft} onClick={this.handleOpen}> Suppport this project </button>
                 <button className="p-btn-light"> Charity details </button>
               </Grid>
             </Grid>
@@ -136,7 +136,7 @@ class ProjectCardComplex extends Component {
                 </div>
 
                 <div style={{float: 'right'}}>
-                  <button className="p-btn-dark" onClick={this.handleOpen}> Suppport this project </button>
+                  <button className="p-btn-dark" onClick={this.handleOpen} disabled={this.props.noAllocationleft}> Suppport this project </button>
                   <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
                 </div>
               </Grid>

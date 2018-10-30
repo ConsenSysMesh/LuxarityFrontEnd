@@ -93,7 +93,9 @@ class Support extends Component {
 
       //check if the chooseDonations struct exists
       let orderNumber = Number(this.props.gotOrderByRedem[0].ordernumber)
-      await contract.methods.chooseDonations(orderNumber).call(function(err, res){
+      let noAllocation = false
+      console.log(contract.methods)
+      await contract.methods.choseDonations(orderNumber).call(function(err, res){
         if (err) {
           orderIncomplete = true
           console.log(err)
@@ -102,6 +104,7 @@ class Support extends Component {
           //choose donation has been made before
           if (res[1] >= totalAmount) {
             remainding = 0
+            noAllocation = true
           } else {
             remainding = totalAmount - res[1]
           }
@@ -128,6 +131,7 @@ class Support extends Component {
         emailHash: emailHash,
         charitiesAllocated: charitiesAllocated,
         orderIncomplete: orderIncomplete,
+        noAllocationleft: noAllocation,
       })
     }
   }
@@ -190,6 +194,7 @@ class Support extends Component {
   }
 
   async handleSingleDonate(order) {
+    await this.setState({ supportOpen: false })
     if (order.remainding !== 0) {
       console.log(order)
       await this.props.chooseDonation(order)
@@ -278,6 +283,7 @@ class Support extends Component {
           key={index}
           order={orderObject}
           cardOrientation={orientation}
+          noAllocationleft={this.state.noAllocationleft}
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
           cardSummary={datum.charitySummary}
@@ -314,6 +320,7 @@ class Support extends Component {
               <SupportACauseSection
                 supportOpen={this.state.supportOpen}
                 handleClose={this.closeSupportModal}
+                noAllocationleft={this.state.noAllocationleft}
                 splitDonation={this.openSplitDonation}
                 totalOrder={this.props.location.state.totalcost}
                 handleDonate={this.handleSplitDonate}
@@ -329,7 +336,7 @@ class Support extends Component {
             open={this.state.donateComplete}
             handleClose={this.closeDonateComplete} />
           <MessageModal
-            open={this.state.modalMessage || this.state.noAllocationleft}
+            open={this.state.modalMessage}
             handleClose={this.handleMessageClose}
             noAllocationleft={this.state.noAllocationleft}
             orderIncomplete={this.state.orderIncomplete}

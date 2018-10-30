@@ -29,7 +29,7 @@ class DonationCompleteModal extends Component {
 
                 <div style={{display: 'flex', justifyContent: 'center'}}>
 
-                  <button className="p-btn-light-medium" onClick={this.props.handleClose}>View Progress</button>
+                  <button className="p-btn-light-medium" >Learn More</button>
 
                 </div>
               </div>

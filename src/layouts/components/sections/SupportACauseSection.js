@@ -37,6 +37,18 @@ class SupportACauseSection extends Component {
     return "$0"
   }
 
+  getAllocationStatus(allocationStatus) {
+    if (allocationStatus) {
+      return (
+        <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause!</strong> If you&#39;d still like to contribute, please donate here.</p>
+      )
+    }
+
+    return (
+      <span></span>
+    )
+  }
+
   render() {
     return(
       <div>
@@ -46,6 +58,7 @@ class SupportACauseSection extends Component {
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
                 <p className="dashboard-text">Choose to donate to one or all of these causes. Luxarity will keep in touch with you with updates on their progress over the next few months.</p>
+                {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
             <Grid item xs={12} sm={6} className="dashboard-main-info">
@@ -54,10 +67,10 @@ class SupportACauseSection extends Component {
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
                   <p>Remaining Amount: <span className="lux-fee">{this.formatNum(this.props.remainderAmount)}</span> </p>
                   <hr/>
-                  <p className="d-tot">Allocate Amount: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount)}</span> </p>
+                  <p className="d-tot">Amount to Allocate: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount)}</span> </p>
                 </div>
 
-                <button className="p-btn-clear" onClick={this.props.splitDonation}>Split my donation evenly</button>
+                <button className="p-btn-clear" disabled={this.props.noAllocationleft} onClick={this.props.splitDonation}>Split my donation evenly</button>
               </div>
             </Grid>
           </Grid>
