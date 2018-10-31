@@ -22,8 +22,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 //for more on what the hell this is, check out here: https://github.com/trufflesuite/drizzle
 const mapDrizzleStateToProps = state => {
   return {
-    drizzleStatus: state.drizzleStatus,
-    web3: state.web3,
   }
 }
 

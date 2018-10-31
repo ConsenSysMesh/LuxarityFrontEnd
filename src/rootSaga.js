@@ -3,7 +3,7 @@
 https://www.npmjs.com/package/redux-saga */
 
 import { all, fork, takeLatest, takeEvery } from 'redux-saga/effects'
-import { drizzleSagas } from 'drizzle'
+//import { drizzleSagas } from 'drizzle'
 
 import { CHOOSE_DONATION } from './redux/chooseDonation/actions'
 import chooseDonation from './redux/chooseDonation/request'
@@ -29,8 +29,5 @@ export default function* root() {
   yield takeLatest(REDEEM_ORDER, redeemOrder),
   yield takeLatest(SAFE_REDEEM_ORDER, safeRedeemOrder),
   yield takeLatest(GET_DONATION_BY_CAUSE, getDonationsByCause),
-  yield takeLatest(GET_ORDER_BY_REDEMPTION_HASH, getOrderByRedemptionHash),
-  yield all(
-    drizzleSagas.map(saga => fork(saga))
-  )
+  yield takeLatest(GET_ORDER_BY_REDEMPTION_HASH, getOrderByRedemptionHash)
 }
