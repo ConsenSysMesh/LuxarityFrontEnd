@@ -6,7 +6,7 @@ have react-router-redux keeping the state of react-router in our store. */
 
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import { drizzleReducers } from 'drizzle'
+//import { drizzleReducers } from 'drizzle'
 
 import chooseDonation from './redux/chooseDonation/reducer'
 import makeDonation from './redux/makeDonation/reducer'
@@ -15,6 +15,7 @@ import safeRedeemOrder from './redux/safeRedeemOrder/reducer'
 import getDonationsByCause from './redux/donationsByCause/reducer'
 import getOrderByRedemptionHash from './redux/ordersByRedemptionHash/reducer'
 
+//...drizzleReducers
 const reducer = combineReducers({
   routing: routerReducer,
 
@@ -23,9 +24,8 @@ const reducer = combineReducers({
   redeemOrder,
   safeRedeemOrder,
   getDonationsByCause,
-  getOrderByRedemptionHash,
+  getOrderByRedemptionHash
 
-  ...drizzleReducers
 })
 
 export default reducer

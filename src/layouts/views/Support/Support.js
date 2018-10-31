@@ -58,7 +58,7 @@ class Support extends Component {
   }
 
   async update(message) {
-    console.log(message)
+    //console.log(message)
     if (this.props.location.state.customeremail !== null && this.props.gotOrderByRedem.length !== 0) {
 
       //get web3 instance
@@ -75,7 +75,7 @@ class Support extends Component {
       let totalAmount = Number(this.props.location.state.totalcost)
       let orderIncomplete
 
-      console.log(contract)
+      //console.log(contract)
 
       //check the buyers donation allocation remaining
       await contract.methods.buyers(finalHash).call(function(err, res){
@@ -95,7 +95,7 @@ class Support extends Component {
       //check if the chooseDonations struct exists
       let orderNumber = Number(this.props.gotOrderByRedem[0].ordernumber)
       let noAllocation = false
-      console.log(contract.methods)
+      //console.log(contract.methods)
       await contract.methods.choseDonations(orderNumber).call(function(err, res){
         if (err) {
           orderIncomplete = true
@@ -231,6 +231,7 @@ class Support extends Component {
   }
 
   async handleSingleDonate(order) {
+    console.log(order)
     await this.setState({ supportOpen: false })
     if (order.remainding !== 0) {
       console.log(order)

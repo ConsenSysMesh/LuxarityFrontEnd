@@ -30,4 +30,9 @@ export default function* root() {
   yield takeLatest(SAFE_REDEEM_ORDER, safeRedeemOrder),
   yield takeLatest(GET_DONATION_BY_CAUSE, getDonationsByCause),
   yield takeLatest(GET_ORDER_BY_REDEMPTION_HASH, getOrderByRedemptionHash)
+  /*
+  yield all(
+    drizzleSagas.map(saga => fork(saga))
+  )
+  */
 }
