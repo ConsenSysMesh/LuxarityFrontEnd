@@ -31,7 +31,7 @@ class Support extends Component {
     /* local state variables */
     this.state = {
       donationAmount: 200,
-      splitDonateCount: 0,
+      splitDonate: false,
       modalMessage: false,
       supportOpen: false,
       donateComplete: false,
@@ -50,6 +50,7 @@ class Support extends Component {
     this.closeSupportModal = this.closeSupportModal.bind(this)
     this.openSplitDonation = this.openSplitDonation.bind(this)
     this.handleSingleDonate = this.handleSingleDonate.bind(this)
+    this.handleSplitDonate = this.handleSplitDonate.bind(this)
   }
 
   async componentDidMount() {
@@ -118,11 +119,26 @@ class Support extends Component {
         await contract.methods.charities(charityHash).call(function(err, res){
           if (err) {
             charitiesAllocated.push(0)
-          } else {
-            charitiesAllocated.push(res[1])
+          }
+          else {
+            console.log(res)
+            charitiesAllocated.push(Number(res.amountChosenToDonate))
           }
         })
       }
+
+      //extra use case (both)
+      console.log(charitiesAllocated)
+      let charityHashSplit = web3Utils.keccak256(testData[0].charityName + "," + testData[2].charityName)
+      await contract.methods.charities(charityHashSplit).call(function(err, res){
+        if (err || !res.exists) {
+          charitiesAllocated.push(0)
+        } else {
+          console.log(res.amountChosenToDonate/2)
+          charitiesAllocated[0] += Number(res.amountChosenToDonate/2)
+          charitiesAllocated[2] += Number(res.amountChosenToDonate/2)
+        }
+      })
 
       //update state
       await this.setState({
@@ -147,6 +163,7 @@ class Support extends Component {
 
     if (!prevProps.chooseDonationSuccess && this.props.chooseDonationSuccess) {
       this.setState({ donateComplete: true })
+      await this.update('componentDidUpdate')
     }
 
     if (prevProps.choseDonation.length === 0 && this.props.choseDonation.length !== 0) {
@@ -161,13 +178,33 @@ class Support extends Component {
     let abi = LuxOrder.abi
     let contract = await new web3.eth.Contract(abi, "0xa4c69450f2dea4a10a7e799674feda99c9af9732")
 
+    //get already chosen allocated amounts for each charity
     let charitiesAllocated = []
     for (let i = 0; i < testData.length; i++) {
       let charityHash = web3Utils.keccak256(testData[i].charityName)
       await contract.methods.charities(charityHash).call(function(err, res){
-        charitiesAllocated.push(res[1])
+        if (err) {
+          charitiesAllocated.push(0)
+        }
+        else {
+          console.log(res)
+          charitiesAllocated.push(Number(res.amountChosenToDonate))
+        }
       })
     }
+
+    //extra use case (both)
+    console.log(charitiesAllocated)
+    let charityHashSplit = web3Utils.keccak256(testData[0].charityName + "," + testData[2].charityName)
+    await contract.methods.charities(charityHashSplit).call(function(err, res){
+      if (err || !res.exists) {
+        charitiesAllocated.push(0)
+      } else {
+        console.log(res.amountChosenToDonate/2)
+        charitiesAllocated[0] += Number(res.amountChosenToDonate/2)
+        charitiesAllocated[2] += Number(res.amountChosenToDonate/2)
+      }
+    })
 
     if (!this.arraysEqual(charitiesAllocated, this.state.charitiesAllocated)) {
       this.setState({ charitiesAllocated: charitiesAllocated })
@@ -206,21 +243,25 @@ class Support extends Component {
     }
   }
 
-  async handleSplitDonate() {
-    if (this.state.remainding !== 0) {
-      for (let i = 0; i < testData.length; i++) {
-        await this.props.chooseDonation({
-          customerEmailSHA256: this.props.location.state.customeremail,
-          charityName: testData[i].charityName,
-          chosenDonateAmount: Math.floor(this.state.remainding/testData.length),
-          orderNumber: this.props.gotOrderByRedem[0].ordernumber,
-          tokenId: this.props.gotOrderByRedem[0].tokenid,
-          orderId: Number(this.props.gotOrderByRedem[0].orderid),
-          blockchain: "Rinkeby"
-        })
-        if (this.props.chooseDonationSuccess) {
-          await this.update('handleSplitDonate')
-        }
+  async handleSplitDonate(remainding) {
+    await this.setState({ splitDonate: true })
+    //make the transaction
+    if (remainding !== 0) {
+      //make donation object (use delimiter and make it once chosend donation
+      let donation = {
+        customerEmailSHA256: sha256(this.props.location.state.customeremail).toUpperCase(),
+        charityName: testData[0].charityName + "," + testData[2].charityName,
+        chosenDonateAmount: Math.floor(this.state.remainding),
+        orderNumber: Number(this.props.gotOrderByRedem[0].ordernumber),
+        tokenId: Number(this.props.gotOrderByRedem[0].tokenid),
+        orderId: Number(this.props.gotOrderByRedem[0].orderid),
+        blockchain: "Rinkeby"
+      }
+
+      await this.props.chooseDonation(donation)
+
+      if (this.props.chooseDonationSuccess) {
+        await this.update('handleSplitDonate')
       }
     } else {
       this.setState({ noAllocationleft: true })
@@ -256,15 +297,19 @@ class Support extends Component {
       //select image
       let image;
       let size;
+      let pledge
       if (index === 0) {
-        image = GreenImg;
-        size = '45% 100%';
+        image = GreenImg
+        size = '45% 100%'
+        pledge = this.state.charitiesAllocated[index]
       } else if (index === 1) {
-        image = TanImg;
-        size = '45% 100%';
+        image = TanImg
+        size = '40% 100%'
+        pledge = testData[index].charityPledge
       } else if (index === 2) {
-        image = BlueImg;
-        size = '50% 100%';
+        image = BlueImg
+        size = '45% 100%'
+        pledge = this.state.charitiesAllocated[index]
       }
 
       //set object
@@ -272,8 +317,8 @@ class Support extends Component {
         customerEmailSHA256: sha256(this.props.location.state.customeremail).toUpperCase(),
         charityName: datum.charityName,
         chosenDonateAmount: Math.floor(this.state.remainding),
-        orderNumber: this.props.gotOrderByRedem[0].ordernumber,
-        tokenId: this.props.gotOrderByRedem[0].tokenid,
+        orderNumber: Number(this.props.gotOrderByRedem[0].ordernumber),
+        tokenId: Number(this.props.gotOrderByRedem[0].tokenid),
         orderId: Number(this.props.gotOrderByRedem[0].orderid),
         blockchain: "Rinkeby"
       }
@@ -281,13 +326,14 @@ class Support extends Component {
       return (
         <ProjectCardComplex
           key={index}
+          index={index}
           order={orderObject}
           cardOrientation={orientation}
           noAllocationleft={this.state.noAllocationleft}
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
           cardSummary={datum.charitySummary}
-          cardPledged={this.state.charitiesAllocated[index]}
+          cardPledged={pledge}
           chooseDonation={this.handleSingleDonate}
           donationAmount={this.props.location.state.totalcost}
           charityImage={image}
@@ -304,32 +350,38 @@ class Support extends Component {
   render() {
     if (this.props.location.state === null || this.props.gotOrderByRedem.length === 0) {
       return (
-        <Redirect to={{ pathname: `/redeem`}} />
+        <Redirect to={{ pathname: `/`}} />
       );
     }
 
     return (
       <Wrapper>
         <div>
-          <Loadable
-            active={this.props.choosingDonation}
-            spinner={true}
-            spinnerSize={'100px'}
-            text={"Processing donation choice!.."}>
             <div>
-              <SupportACauseSection
-                supportOpen={this.state.supportOpen}
-                handleClose={this.closeSupportModal}
-                noAllocationleft={this.state.noAllocationleft}
-                splitDonation={this.openSplitDonation}
-                totalOrder={this.props.location.state.totalcost}
-                handleDonate={this.handleSplitDonate}
-                remainderAmount={this.state.remainding}
-                orgs={testData}
-                overlayColor={'#CFDBD2'} />
-              {this.mapSections(testData)}
+              <Loadable
+                active={this.props.choosingDonation && this.state.splitDonate}
+                spinner={true}
+                spinnerSize={'100px'}
+                text={"Processing donation choice!.."}>
+                <SupportACauseSection
+                  supportOpen={this.state.supportOpen}
+                  handleClose={this.closeSupportModal}
+                  noAllocationleft={this.state.noAllocationleft}
+                  splitDonation={this.openSplitDonation}
+                  totalOrder={this.props.location.state.totalcost}
+                  handleDonate={this.handleSplitDonate}
+                  remainderAmount={this.state.remainding}
+                  orgs={[testData[0], testData[2]]}
+                  overlayColor={'#CFDBD2'} />
+              </Loadable>
+              <Loadable
+                active={this.props.choosingDonation}
+                spinner={true}
+                spinnerSize={'100px'}
+                text={"Processing donation choice!.."}>
+                  {this.mapSections(testData)}
+              </Loadable>
             </div>
-          </Loadable>
           <LuxarityIsMoreSection />
           <DonationCompleteModal
             transaction={this.state.transaction}

@@ -17,6 +17,7 @@ class SupportACauseSection extends Component {
     //bind functions
     this.formatNum = this.formatNum.bind(this)
     this.splitTotal = this.splitTotal.bind(this)
+    this.onDonate = this.onDonate.bind(this)
   }
 
   splitTotal(x,y) {
@@ -49,6 +50,10 @@ class SupportACauseSection extends Component {
     )
   }
 
+  onDonate() {
+    this.props.handleDonate(this.props.remainderAmount)
+  }
+
   render() {
     return(
       <div>
@@ -78,11 +83,11 @@ class SupportACauseSection extends Component {
         <SupportModal
           type={'split'}
           open={this.props.supportOpen}
-          onDonate={this.props.handleDonate}
+          onDonate={this.onDonate}
           handleClose={this.props.handleClose}
           overlayColor={'#CFDBD2'}
           orgs={this.props.orgs}
-          donationAmount={this.splitTotal(this.props.totalOrder, this.props.remainderAmount)}
+          donationAmount={this.props.remainderAmount}
           donationImage={AllImg} />
        </div>
     )

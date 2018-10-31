@@ -6,12 +6,9 @@ import { Route, Switch } from 'react-router-dom'; //v4
 //import App component (acess to the rest of the application)
 import App from './App'
 //routes (views)
-import HomeContainer from './layouts/views/Home/HomeContainer'
-import DashboardContainer from './layouts/views/Dashboard/DashboardContainer'
 import TestContainer from './layouts/views/Test/TestContainer'
 import RedeemContainer from './layouts/views/Redeem/RedeemContainer'
 import SupportContainer from './layouts/views/Support/SupportContainer'
-import ProgressContainer from './layouts/views/Progress/ProgressContainer'
 
 class Layout extends Component {
 
@@ -21,11 +18,8 @@ class Layout extends Component {
       <App>
         <Switch>
           <Route exact path="/test" component={TestContainer} />
-          <Route exact path="/redeem" component={RedeemContainer} />
-          <Route exact path="/dashboard" component={DashboardContainer} />
           <Route exact path="/support/:orderId" component={SupportContainer} />
-          <Route exact path="/progress" component={ProgressContainer} />
-          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/" component={RedeemContainer} />
         </Switch>
       </App>
     );

@@ -23,6 +23,7 @@ class ProjectCardComplex extends Component {
     this.chooseSides = this.chooseSides.bind(this)
     this.closeDonateComplete = this.closeDonateComplete.bind(this)
     this.handleDonate = this.handleDonate.bind(this)
+    this.getButtons = this.getButtons.bind(this)
   }
 
   async handleDonate() {
@@ -51,6 +52,9 @@ class ProjectCardComplex extends Component {
 
   getProgress(x,y) {
     let progress = (x/y)*100
+    if (progress > 100) {
+      progress = 100
+    }
     let stringWidth = progress.toString()
     return stringWidth + "%"
   }
@@ -67,6 +71,41 @@ class ProjectCardComplex extends Component {
 
   closeDonateComplete() {
     this.setState({ donateComplete: false })
+  }
+
+  getButtons(index, direction) {
+    if (index === 1) {
+      if (direction === 'right') {
+        return (
+          <div style={{float: 'right'}}>
+            <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
+          </div>
+        )
+      } else {
+        return(
+          <div>
+            <button className="p-btn-light"> Charity details </button>
+          </div>
+        )
+      }
+    } else {
+      if (direction === 'right') {
+        return (
+          <div style={{float: 'right'}}>
+            <button className="p-btn-dark" disabled={this.props.noAllocationleft} onClick={this.handleOpen}> Suppport this project </button>
+            <button className="p-btn-light"> Charity details </button>
+          </div>
+        )
+      } else {
+        return (
+          <div>
+            <button className="p-btn-dark" disabled={this.props.noAllocationleft} onClick={this.handleOpen}> Suppport this project </button>
+            <button className="p-btn-light"> Charity details </button>
+          </div>
+        )
+      }
+    }
+
   }
 
   chooseSides(side) {
@@ -93,8 +132,7 @@ class ProjectCardComplex extends Component {
                   <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
                 </div>
 
-                <button className="p-btn-dark" disabled={this.props.noAllocationleft} onClick={this.handleOpen}> Suppport this project </button>
-                <button className="p-btn-light"> Charity details </button>
+                {this.getButtons(this.props.index)}
               </Grid>
             </Grid>
           </div>
@@ -135,10 +173,8 @@ class ProjectCardComplex extends Component {
                   <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
                 </div>
 
-                <div style={{float: 'right'}}>
-                  <button className="p-btn-dark" onClick={this.handleOpen} disabled={this.props.noAllocationleft}> Suppport this project </button>
-                  <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
-                </div>
+                {this.getButtons(this.props.index, 'right')}
+
               </Grid>
             </Grid>
           </div>

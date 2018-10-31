@@ -45,7 +45,7 @@ class SupportModal extends Component {
       const gridOrgs = orgs.map((org, index) => {
 
         return (
-          <div style={{paddingTop: 2, paddingBottom: 2}} key={index}>
+          <div style={{paddingTop: 35, paddingBottom: 35}} key={index}>
             <p className="card-sub-title1" style={{color: this.getColor(org.charityCategory)}}>{org.charityCategory}</p>
             <p className="card-title" style={{fontSize: 22}}>{org.charityName}</p>
           </div>

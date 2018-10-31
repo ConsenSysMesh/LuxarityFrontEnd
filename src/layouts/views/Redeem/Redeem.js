@@ -58,10 +58,24 @@ class Redeem extends Component {
           charitiesAllocated.push(0)
         }
         else {
-          charitiesAllocated.push(res[1])
+          console.log(res)
+          charitiesAllocated.push(Number(res.amountChosenToDonate))
         }
       })
     }
+
+    //extra use case (both)
+    console.log(charitiesAllocated)
+    let charityHashSplit = web3Utils.keccak256(testData[0].charityName + "," + testData[2].charityName)
+    await contract.methods.charities(charityHashSplit).call(function(err, res){
+      if (err || !res.exists) {
+        charitiesAllocated.push(0)
+      } else {
+        console.log(res.amountChosenToDonate/2)
+        charitiesAllocated[0] += Number(res.amountChosenToDonate/2)
+        charitiesAllocated[2] += Number(res.amountChosenToDonate/2)
+      }
+    })
 
     //update state
     await this.setState({
@@ -101,13 +115,17 @@ class Redeem extends Component {
     const gridItems = data.map((datum, index) => {
 
       //select image
-      let image;
+      let image
+      let pledge
       if (index === 0) {
-        image = GreenImg;
+        image = GreenImg
+        pledge = this.state.charitiesAllocated[index]
       } else if (index === 1) {
-        image = TanImg;
+        image = TanImg
+        pledge = testData[1].charityPledge
       } else if (index === 2) {
-        image = BlueImg;
+        image = BlueImg
+        pledge = this.state.charitiesAllocated[index]
       }
 
       return (
@@ -115,7 +133,7 @@ class Redeem extends Component {
           key={index}
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
-          cardPledged={this.state.charitiesAllocated[index]}
+          cardPledged={pledge}
           charityImage={image}
           cardGoal={datum.charityGoal} />
       );

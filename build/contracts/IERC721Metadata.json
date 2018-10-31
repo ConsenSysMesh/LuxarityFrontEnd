@@ -325,9 +325,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.4.24;\n\nimport \"./IERC721.sol\";\n\n\n/**\n * @title ERC-721 Non-Fungible Token Standard, optional metadata extension\n * @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md\n */\ncontract IERC721Metadata is IERC721 {\n  function name() external view returns (string);\n  function symbol() external view returns (string);\n  function tokenURI(uint256 tokenId) public view returns (string);\n}\n",
-  "sourcePath": "/Applications/MAMP/htdocs/LuxToken/openzeppelin-solidity-master/contracts/token/ERC721/IERC721Metadata.sol",
+  "sourcePath": "/Applications/MAMP/htdocs/LuxarityFrontEnd/openzeppelin-solidity-master/contracts/token/ERC721/IERC721Metadata.sol",
   "ast": {
-    "absolutePath": "/Applications/MAMP/htdocs/LuxToken/openzeppelin-solidity-master/contracts/token/ERC721/IERC721Metadata.sol",
+    "absolutePath": "/Applications/MAMP/htdocs/LuxarityFrontEnd/openzeppelin-solidity-master/contracts/token/ERC721/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC721Metadata": [
         3519
@@ -348,7 +348,7 @@
         "src": "0:24:13"
       },
       {
-        "absolutePath": "/Applications/MAMP/htdocs/LuxToken/openzeppelin-solidity-master/contracts/token/ERC721/IERC721.sol",
+        "absolutePath": "/Applications/MAMP/htdocs/LuxarityFrontEnd/openzeppelin-solidity-master/contracts/token/ERC721/IERC721.sol",
         "file": "./IERC721.sol",
         "id": 3499,
         "nodeType": "ImportDirective",
@@ -598,7 +598,7 @@
     "src": "0:417:13"
   },
   "legacyAST": {
-    "absolutePath": "/Applications/MAMP/htdocs/LuxToken/openzeppelin-solidity-master/contracts/token/ERC721/IERC721Metadata.sol",
+    "absolutePath": "/Applications/MAMP/htdocs/LuxarityFrontEnd/openzeppelin-solidity-master/contracts/token/ERC721/IERC721Metadata.sol",
     "exportedSymbols": {
       "IERC721Metadata": [
         3519
@@ -619,7 +619,7 @@
         "src": "0:24:13"
       },
       {
-        "absolutePath": "/Applications/MAMP/htdocs/LuxToken/openzeppelin-solidity-master/contracts/token/ERC721/IERC721.sol",
+        "absolutePath": "/Applications/MAMP/htdocs/LuxarityFrontEnd/openzeppelin-solidity-master/contracts/token/ERC721/IERC721.sol",
         "file": "./IERC721.sol",
         "id": 3499,
         "nodeType": "ImportDirective",
@@ -874,5 +874,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-10-30T02:12:25.688Z"
+  "updatedAt": "2018-10-30T07:56:02.452Z"
 }

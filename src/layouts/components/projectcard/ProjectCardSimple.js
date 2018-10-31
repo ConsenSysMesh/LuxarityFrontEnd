@@ -40,6 +40,9 @@ class ProjectCardSimple extends Component {
 
   getProgress(x,y) {
     let progress = (x/y)*100
+    if (progress > 100) {
+      progress = 100
+    }
     let stringWidth = progress.toString()
     return stringWidth + "%"
   }
