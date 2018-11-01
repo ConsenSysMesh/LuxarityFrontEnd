@@ -178,7 +178,7 @@ class Redeem extends Component {
               spinner
               text={"Loading charities..."}>
               <div style={{alignItems: 'center', justifyContent: 'center'}}>
-                <div style={{fontSize: 40, textAlign: 'center', padding: '100px 0'}}>Three incredible causes to support</div>
+                <div style={{fontSize: 40, textAlign: 'center', padding: '100px 0 100px 0'}}>R.A.W. Grant Partners</div>
                 {this.mapSections(testData)}
               </div>
             </Loadable>

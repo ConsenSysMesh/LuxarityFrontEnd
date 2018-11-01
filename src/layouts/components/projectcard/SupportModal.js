@@ -113,7 +113,7 @@ class SupportModal extends Component {
               {this.getType(this.props.type)}
               <div style={{backgroundColor: '#cfdbd2', justifyContent: 'center', alignItems: 'center', height: 200, width: '100%'}}>
                 <div className="card-subsection">
-                  <div className="card-subsection-title"><strong>You&#39;re donating {this.formatNum(this.props.donationAmount)}</strong></div>
+                  <div className="card-subsection-title"><strong>You are donating {this.formatNum(this.props.donationAmount)}</strong></div>
                   <div className="card-subsection-text" style={{fontSize: 14, color: '#595A55'}}>If you are sure you&#39;d like to donate {this.formatNum(this.props.donationAmount)}, please press the donate button.</div>
                 </div>
                 <div className="card-subsection" >

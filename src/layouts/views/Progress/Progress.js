@@ -67,7 +67,7 @@ class Progress extends Component {
           <div>
             <div className="p-landing">
               <div style={{display: 'flex', justifyContent: 'center', backgroundColor: 'white', padding: '25px 50px 25px 50px', position: 'absolute', top: '65%'}}>
-                <p style={{textTransform: 'uppercase', display: 'flex', flexDirection: 'column', justifyContent: 'center', letterSpacing: 4, fontSize: 38, paddingRight: 25, color: 'rgb(88, 90, 86)'}}>Luxarity is more than a store</p>
+                <p style={{textTransform: 'uppercase', display: 'flex', flexDirection: 'column', justifyContent: 'center', letterSpacing: 4, fontSize: 38, paddingRight: 25, color: 'rgb(88, 90, 86)'}}>THE FUTURE OF GIVING IS HERE</p>
                 <button className="p-btn-dark">
                   <Link to={{pathname: '/' }} style={{ textDecoration: 'none', color: 'white'}}>Learn more</Link>
                 </button>
