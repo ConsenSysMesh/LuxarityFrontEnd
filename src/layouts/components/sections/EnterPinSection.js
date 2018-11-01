@@ -28,7 +28,7 @@ class EnterPinSection extends Component {
         <Col md={6} style={{backgroundColor: '#585A56', minHeight: 400}}>
           <Col style={{textAlign: 'left', letterSpacing: 4, fontSize: 42, alignItems: 'center', justifyContent: 'center', padding: '15%', color: '#BEC0BE', lineHeight: 1.7}}>
             <div style={{textTransform: 'uppercase', color: 'white'}}>THE FUTURE OF GIVING IS HERE</div>
-            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Decide which cause to support and track where your money goes.</div>
+            <div style={{color: '#BEC0BE', fontSize: 20, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Decide which cause to support and track where your money goes.</div>
             <a href="http://luxarity.com" rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: '#585A56'}}>
               <button className="p-btn-light-medium" style={{color: '#585A56', letterSpacing: 1, paddingLeft: '10%', paddingRight: '10%'}}> Learn More </button>
             </a>
@@ -37,7 +37,7 @@ class EnterPinSection extends Component {
         <Col md={6} style={{minHeight: 400}}>
           <Col style={{textAlign: 'left', alignItems: 'center', justifyContent: 'center', padding: '15%', color: 'black', lineHeight: 1.7}}>
             <div style={{fontSize: 50}}>Enter your pin number</div>
-            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Your pin is located in your email receipt sent from LUXARITY.</div>
+            <div style={{color: '#BEC0BE', fontSize: 20, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Your pin is located in your email receipt sent from LUXARITY.</div>
             <div className="inputbox">
               <input type="text" placeholder="0 • 0 • 0 • 0 • 0" name="password" style={{color: '#B2B2B2', width: '80%'}} value={this.state.pinValue} onChange={this.updatePin}/>
               <button onClick={this.props.enterPin}>
