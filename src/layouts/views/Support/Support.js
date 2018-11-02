@@ -350,6 +350,7 @@ class Support extends Component {
           donationAmount={this.props.location.state.totalcost}
           charityImage={image}
           backgroundSizeImg={size}
+          cardAltGoal={datum.charityAltGoal}
           cardGoal={datum.charityGoal} />
       );
     });

@@ -139,6 +139,7 @@ class Redeem extends Component {
           charityURL={datum.charityURL}
           cardPledged={pledge}
           charityImage={image}
+          cardAltGoal={datum.charityAltGoal}
           cardGoal={datum.charityGoal} />
       );
     });

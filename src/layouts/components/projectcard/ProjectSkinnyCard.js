@@ -74,7 +74,7 @@ class ProjectSkinnyCard extends Component {
 
             <div style={{paddingLeft: '0'}}>
               <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
-              <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
+              <div className="pledge-sub" >pledged of {this.formatNum(this.props.cardAltGoal)} goal</div>
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'center', padding: '25px'}}>

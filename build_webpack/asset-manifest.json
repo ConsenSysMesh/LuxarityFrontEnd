@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.a9173764.css",
   "main.css.map": "static/css/main.a9173764.css.map",
-  "main.js": "static/js/main.8620eb75.js",
-  "main.js.map": "static/js/main.8620eb75.js.map",
+  "main.js": "static/js/main.b6007bba.js",
+  "main.js.map": "static/js/main.b6007bba.js.map",
   "static/media/AGaramondPro-Regular.otf": "static/media/AGaramondPro-Regular.1b3af73b.otf",
   "static/media/Blue.png": "static/media/Blue.5435edd5.png",
   "static/media/Boysen Regular.otf": "static/media/Boysen Regular.96688d2f.otf",
@@ -23,6 +23,9 @@
   "static/media/Oswald-regular.woff": "static/media/Oswald-regular.4cd42bac.woff",
   "static/media/Oswald-regular.woff2": "static/media/Oswald-regular.29b3a057.woff2",
   "static/media/Tan.png": "static/media/Tan.ec5f658a.png",
+  "static/media/lux0030.jpg": "static/media/lux0030.80f69354.jpg",
+  "static/media/lux0609.jpg": "static/media/lux0609.01335a80.jpg",
+  "static/media/lux0783.jpg": "static/media/lux0783.d03f668a.jpg",
   "static/media/lux1061.jpg": "static/media/lux1061.7bc69ceb.jpg",
   "static/media/luxlogo.svg": "static/media/luxlogo.b6adeffe.svg",
   "static/media/tripleFashion.png": "static/media/tripleFashion.9e0817ee.png"
