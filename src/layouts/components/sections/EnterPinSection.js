@@ -47,7 +47,7 @@ class EnterPinSection extends Component {
               </button>
             </div>
             <div style={{justifyContent: 'space-around', alignItems: 'center'}}>
-              <button className="p-btn-dark-medium" style={{color: 'white', letterSpacing: 1, paddingLeft: '5%', paddingRight: '5%', backgroundColor: 'black'}}><a style={{textDecoration: 'none', color: 'white'}} href="https://luxarity-popup-2016.myshopify.com/" target="_blank">Donate Directly </a></button>
+              <button className="p-btn-dark-medium" style={{color: 'white', letterSpacing: 1, paddingLeft: '5%', paddingRight: '5%', backgroundColor: 'black'}}><a style={{textDecoration: 'none', color: 'white'}} href="https://luxarity-popup-2016.myshopify.com/" target="_blank">Make Additional Donation</a></button>
             </div>
           </Col>
         </Col>
