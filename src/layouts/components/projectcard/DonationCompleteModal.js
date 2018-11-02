@@ -23,7 +23,7 @@ class DonationCompleteModal extends Component {
               <div style={{alignItems: 'center', justifyContent: 'center'}}>
                 <div className="modal-title" style={{color: '#FCFCFA'}}>You are set!</div>
 
-                <div className="modal-text" style={{color: '#FCFCFA'}}><strong>Thank you for completing the R.A.W. donation journey with us. You have just made a positive impact to help raise awareness about responsible consumption.</strong></div>
+                <div className="modal-text" style={{color: '#FCFCFA'}}><strong><a href={"https://rinkeby.etherscan.io/tx/" + this.props.transaction} target="_blank" style={{textDecoration: 'none', color: 'white'}}>Thank you for completing the R.A.W. donation journey with us.</a> You have just made a positive impact to help raise awareness about responsible consumption.</strong></div>
 
                 <div className="modal-text" style={{color: '#FCFCFA'}}>We will keep you updated about the project in the coming months.</div>
 
