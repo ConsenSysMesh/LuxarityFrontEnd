@@ -55,7 +55,9 @@ class SupportACauseSection extends Component {
   getAllocationStatus(allocationStatus) {
     if (allocationStatus) {
       return (
-        <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause!</strong> If you&#39;d still like to contribute, <strong><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></strong>.</p>
+        <div>
+          <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause!</strong> If you&#39;d like to contribute further, <strong><u><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></u></strong>.</p>
+        </div>
       )
     }
 
@@ -76,7 +78,7 @@ class SupportACauseSection extends Component {
             <Grid item xs={12} sm={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
-                <p className="dashboard-text">Choose to donate to one or all of these causes. Luxarity will keep in touch with you with updates on their progress over the next few months.</p>
+                <p className="dashboard-text">Choose to donate to one or all of the causes. 30% of funds raised will go towards LUXARITY&#39;s operational costs to continue making an impact.</p>
                 {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
@@ -86,7 +88,7 @@ class SupportACauseSection extends Component {
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
                   <p>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
                   <hr/>
-                  <p className="d-tot">Amount to Allocate: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount)}</span> </p>
+                  <p className="d-tot">Amount to Cause: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount - this.props.remainderAmount*0.30)}</span> </p>
                 </div>
 
                 <button className="p-btn-clear" disabled={this.props.noAllocationleft} onClick={this.props.splitDonation}>Split my donation evenly</button>

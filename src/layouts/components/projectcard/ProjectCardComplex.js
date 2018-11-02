@@ -132,7 +132,7 @@ class ProjectCardComplex extends Component {
                   </div>
 
                   <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
-                  <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
+                  <div className="pledge-sub" >pledged of {this.formatNum(this.props.cardAltGoal)} goal</div>
                 </div>
 
                 {this.getButtons(this.props.index)}
@@ -173,7 +173,7 @@ class ProjectCardComplex extends Component {
                   </div>
 
                   <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
-                  <p className="pledge-sub">pledged of {this.formatNum(this.props.cardGoal)} goal</p>
+                  <div className="pledge-sub" >pledged of {this.formatNum(this.props.cardAltGoal)} goal</div>
                 </div>
 
                 {this.getButtons(this.props.index, 'right')}
