@@ -86,7 +86,7 @@ class SupportACauseSection extends Component {
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
                   <div>
                     <div class="tooltip">?
-                      <span class="tooltiptext">Popup cost</span>
+                      <span class="tooltiptext">30% of funds raised will go towards LUXARITY&#39;s operational costs to continue making an impact.</span>
                     </div>
                     <p style={{display: 'inline', paddingLeft: '5px'}}>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
                   </div>
