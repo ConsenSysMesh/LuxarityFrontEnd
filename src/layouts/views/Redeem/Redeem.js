@@ -172,7 +172,7 @@ class Redeem extends Component {
               active={this.props.gettingOrderByRedem}
               spinner
               text={"Checking for order..."}>
-              <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: 50, paddingBottom: '3%', paddingLeft: 50, paddingRight: 5, margin: 0}}>
+              <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: 50, paddingBottom: '3%', paddingLeft: '3%', paddingRight: 5, margin: 0}}>
                 <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
               </Row>
             </Loadable>

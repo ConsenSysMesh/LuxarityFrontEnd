@@ -6,7 +6,7 @@ class LuxarityIsMoreSection extends Component {
 
   render() {
     return(
-      <Row style={{backgroundColor: 'white', minHeight: 300, alignItems: 'center', justifyContent: 'center', margin: '50px'}}>
+      <Row style={{backgroundColor: 'white', minHeight: 300, alignItems: 'center', justifyContent: 'center', margin: '3%'}}>
         <div style={{backgroundColor: '#585A56', width: '100%', minHeight: 280, padding: '5%'}}>
           <Row style={{alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 30}}>
             <Col style={{textAlign: 'center', letterSpacing: 4}}>
