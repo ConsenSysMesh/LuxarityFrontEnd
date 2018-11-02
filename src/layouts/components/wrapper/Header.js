@@ -35,7 +35,7 @@ export default class Header extends React.Component {
                 <a href='/' style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>HOME</a>
               </div>
               <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
-                <Link to={{pathname: 'http://luxarity.com/about' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>ABOUT</Link>
+                <a href='http://luxarity.com/about' target='_blank' style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>ABOUT</a>
               </div>
               <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center',textDecoration: 'none', color: '#7F8081', float:'left'}}><a href="http://luxarity.com/pop-up-events/" style={{textDecoration: 'none', color: '#7F8081'}}>POPUP</a>
               </div>
