@@ -403,6 +403,14 @@ div.inputbox button {
     right: 125%;
 }
 
+@media (max-width: 960px) {
+  .tooltip .tooltiptext{
+    top: -110px;
+    left: -15px;
+    width: 300px;
+  }
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
     visibility: visible;
