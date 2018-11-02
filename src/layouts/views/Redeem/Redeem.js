@@ -133,6 +133,7 @@ class Redeem extends Component {
           key={index}
           cardCategory={datum.charityCategory}
           cardOrgName={datum.charityName}
+          charityURL={datum.charityURL}
           cardPledged={pledge}
           charityImage={image}
           cardGoal={datum.charityGoal} />
