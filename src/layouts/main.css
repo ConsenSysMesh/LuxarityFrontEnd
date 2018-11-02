@@ -123,6 +123,11 @@
   justify-content: center;
   padding: 25px;
 }
+@media (max-width: 520px) {
+  .dashboard-main-info{
+    padding: 0;
+  }
+}
 .dashboard-title {
   letter-spacing: 4px;
   font-size: 30px;
@@ -134,11 +139,11 @@
 .dashboard-main-info-l {
   max-width: 500px;
   line-height: 2;
+  width: 100%;
 }
 .cause-donation {
   background-color: rgba(62, 62, 60);
   padding: 25px;
-  width: 400px;
   color: gray;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -169,12 +174,12 @@
 .p-card1 {
   background-color: rgb(207,219,210);
   padding: 20;
-  max-height: 550px;
+  /* max-height: 550px; */
 }
 .p-card2 {
   background-color: rgb(229,217,207);
   padding: 20;
-  max-height: 550px;
+  /* max-height: 550px; */
 }
 .card-content {
   background-color: white;
@@ -377,6 +382,7 @@ div.inputbox button {
     border-radius: 50%;
     padding: 0 10px 0 12px;
     color: white;
+    font-weight: bold;
 }
 
 /* Tooltip text */

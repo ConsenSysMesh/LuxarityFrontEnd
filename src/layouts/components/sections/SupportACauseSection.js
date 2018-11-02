@@ -73,14 +73,14 @@ class SupportACauseSection extends Component {
       <div>
         <div className="dashboard-main">
           <Grid container>
-            <Grid item xs={12} sm={6} className="dashboard-main-info">
+            <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
                 <p className="dashboard-text">Choose to donate to one or all of these causes. Luxarity will keep in touch with you with updates on their progress over the next few months.</p>
                 {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
-            <Grid item xs={12} sm={6} className="dashboard-main-info">
+            <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <div className="cause-donation">
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
