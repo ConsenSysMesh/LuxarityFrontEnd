@@ -28,7 +28,7 @@ class ProjectSkinnyCard extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let hkd = 7.84*x
+      let hkd = x
       let final = Math.round(hkd);
       let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -48,11 +48,11 @@ class ProjectSkinnyCard extends Component {
 
   getColor(category) {
     if (category.toLowerCase() === "responsibility") {
-      return '#1DB42E'
+      return 'grey'
     } else if (category.toLowerCase() === "awareness") {
-      return '#FD3F11'
+      return 'gold'
     } else if (category.toLowerCase() === "wonder") {
-      return '#25C7AA'
+      return 'turquoise'
     }
   }
 
@@ -69,7 +69,7 @@ class ProjectSkinnyCard extends Component {
             <p className="card-title-slim" style={{paddingLeft: '25px', minHeight: '80px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>{this.props.cardOrgName}</p>
 
             <div className="support-progress-bar" style={{marginLeft: '25px'}}>
-              <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
+              <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal), backgroundColor: this.getColor(this.props.cardCategory)}}></div>
             </div>
 
             <div style={{paddingLeft: '25px'}}>

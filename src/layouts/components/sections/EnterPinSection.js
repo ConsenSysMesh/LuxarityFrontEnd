@@ -27,9 +27,9 @@ class EnterPinSection extends Component {
       <Row style={{backgroundColor: '#F1F2F3', justifyContent: 'center', margin: 0, minHeight: 400, width: '100%', padding: 0}}>
         <Col md={6} style={{backgroundColor: '#585A56', minHeight: 400}}>
           <Col style={{textAlign: 'left', letterSpacing: 4, fontSize: 42, alignItems: 'center', justifyContent: 'center', padding: '15%', color: '#BEC0BE', lineHeight: 1.7}}>
-            <div style={{textTransform: 'uppercase', color: 'white'}}>LUXARITY IS MORE</div>
-            <div style={{textTransform: 'uppercase', color: 'white'}}>THAN A STORE</div>
-            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Choose to donate to one or both of these causes. We will keep in touch with you with updates on their progress over the next few months.</div>
+            <div style={{textTransform: 'uppercase', color: 'white'}}>THE FUTURE OF</div>
+            <div style={{textTransform: 'uppercase', color: 'white'}}>GIVING IS HERE</div>
+            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Decide which cause to support and track where your money goes, when it is spent, and how it is spent.</div>
             <a href="http://luxarity.com" rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: '#585A56'}}>
               <button className="p-btn-light-medium" style={{color: '#585A56', letterSpacing: 1, paddingLeft: '10%', paddingRight: '10%'}}> Learn More </button>
             </a>
@@ -37,8 +37,9 @@ class EnterPinSection extends Component {
         </Col>
         <Col md={6} style={{minHeight: 400}}>
           <Col style={{textAlign: 'left', alignItems: 'center', justifyContent: 'center', padding: '15%', color: 'black', lineHeight: 1.7}}>
-            <div style={{fontSize: 50}}>Enter your secret pin</div>
-            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Want to choose which cause your order proceeds go towards? Please enter your pin found on your sale receipt from the Luxarity Pop-up shop.</div>
+            <div style={{textTransform: 'uppercase', fontSize: 40}}><strong>ENTER YOUR PIN</strong></div>
+            <div style={{textTransform: 'uppercase', fontSize: 40}}><strong>NUMBER</strong></div>
+            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Please enter your pin to choose where the proceeds of your order goes toward. Your pin is located in your email receipt sent from LUXARITY.</div>
             <div className="inputbox">
               <input type="text" placeholder="0 • 0 • 0 • 0 • 0" name="password" style={{color: '#B2B2B2', width: '80%'}} value={this.state.pinValue} onChange={this.updatePin}/>
               <button onClick={this.props.enterPin}>
@@ -46,7 +47,7 @@ class EnterPinSection extends Component {
               </button>
             </div>
             <div style={{justifyContent: 'space-around', alignItems: 'center'}}>
-              <button className="p-btn-dark-medium" style={{color: 'white', letterSpacing: 1, paddingLeft: '5%', paddingRight: '5%', backgroundColor: 'black'}}> Donate without a pin </button>
+              <button className="p-btn-dark-medium" style={{color: 'white', letterSpacing: 1, paddingLeft: '5%', paddingRight: '5%', backgroundColor: 'black'}}><a style={{textDecoration: 'none', color: 'white'}} href="https://luxarity-popup-2016.myshopify.com/" target="_blank">Donate Directly </a></button>
             </div>
           </Col>
         </Col>

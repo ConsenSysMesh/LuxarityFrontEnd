@@ -21,7 +21,8 @@ class SupportModal extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let hkd = 7.84*x
+      //console.log(x)
+      let hkd = x
       let final = Math.round(hkd);
       let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")

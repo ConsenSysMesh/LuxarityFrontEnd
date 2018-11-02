@@ -2,21 +2,27 @@
   {
     "charityCategory": "RESPONSIBILITY",
     "charityName": "HKRITA RESEARCH",
-    "charitySummary": "We are pledging a donation goal of $150,000 HKD for HKRITA (The Hong Kong Research Institute of Textiles and Apparel) to deepen research on recycling and upcycling apparels.",
+    "cuaseName": "HRIKTA RESEARCH GRANT",
+    "charitySummary": "To deepen the research on recycling and up-cycling apparel, we are pledging a donation goal of $150,000 HKD for HKRITA (The Hong Kong Research Institute of Textiles and Apparel).",
     "charityPledge": 10000,
-    "charityGoal": 19132.70
+    "charityGoal": 150000,
+    "charityURL": "http://luxarity.com/2018/10/30/hkrita/"
   },
   {
     "charityCategory": "AWARENESS",
     "charityName": "HEALTH & WELLNESS HACKATHON",
-    "charitySummary": "To engage the social entrepreneurship and blockchain ecosystem in Hong Kong, and help spawn potential social enterprises in Hong Kong, we are raising $100,000 HKD as prize money to gift out to outstanding social entrepreneurs  in the community who will win the Hackathon hosted together with ConsenSys Social Impact - to achieve health and well-being for all.",
-    "charityPledge": 19132.70,
-    "charityGoal": 19132.70
+    "cuaseName": "HEALTH & WELLNESS HACKATHON",
+    "charitySummary": "To engage the social entrepreneurship & blockchain ecosystem in Hong Kong, we are raising $100,000 HKD as prize money for the first ever lifestyle & blockchain HACKATHON with ConsenSys Social Impact - to achieve health & well-being for all.",
+    "charityPledge": 150000,
+    "charityGoal": 150000,
+    "charityURL": "http://luxarity.com/2018/10/23/luxarity-consensys-hackathon/"
   },
   {
     "charityCategory": "WONDER",
     "charityName": "SCAD + PARSONS",
+    "causeName": "SCAD + PARSONS EDUCATIONAL GRANT",
     "charitySummary": "To support the development of sustainable education and innovation in the lifestyle industry, LUXARITY is pledging to raising a total of $350,000 HKD to develop an open-sourced online course with SCAD HK ($150,000) & to support two designers from PARSONS SCHOOL OF DESIGN who are focused on sustainability & innovation.",
-    "charityGoal": 19132.70
+    "charityGoal": 150000,
+    "charityURL": "http://luxarity.com/2018/10/24/scad-hk/"
   }
 ]

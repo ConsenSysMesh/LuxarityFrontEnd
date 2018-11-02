@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid'
 //components
 import SupportModal from './SupportModal'
+//css components
+import Loadable from 'react-loading-overlay'
 
 
 class ProjectCardComplex extends Component {
@@ -28,6 +30,7 @@ class ProjectCardComplex extends Component {
 
   async handleDonate() {
     //make choose donation order
+    this.setState({ supportOpen: false })
     await this.props.chooseDonation(this.props.order)
   }
 
@@ -41,7 +44,7 @@ class ProjectCardComplex extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let hkd = 7.84*x
+      let hkd = x
       let final = Math.round(hkd);
       let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -61,11 +64,11 @@ class ProjectCardComplex extends Component {
 
   getColor(category) {
     if (category.toLowerCase() === "responsibility") {
-      return '#1DB42E'
+      return 'grey'
     } else if (category.toLowerCase() === "awareness") {
-      return '#FD3F11'
+      return 'gold'
     } else if (category.toLowerCase() === "wonder") {
-      return '#25C7AA'
+      return 'turquoise'
     }
   }
 
@@ -124,8 +127,8 @@ class ProjectCardComplex extends Component {
                     {this.props.cardSummary}
                   </p>
 
-                  <div className="progress-bar">
-                    <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
+                  <div className="progress-bar" style={{width: '102%'}}>
+                    <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal), backgroundColor: this.getColor(this.props.cardCategory)}}></div>
                   </div>
 
                   <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
@@ -165,8 +168,8 @@ class ProjectCardComplex extends Component {
                     {this.props.cardSummary}
                   </p>
 
-                  <div className="progress-bar">
-                    <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
+                  <div className="progress-bar" style={{width: '102%'}}>
+                    <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal), backgroundColor: this.getColor(this.props.cardCategory)}}></div>
                   </div>
 
                   <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>
@@ -178,18 +181,24 @@ class ProjectCardComplex extends Component {
               </Grid>
             </Grid>
           </div>
-          <SupportModal
-            type={'single'}
-            open={this.state.supportOpen}
-            onDonate={this.handleDonate}
-            handleClose={this.handleClose}
-            overlayColor={'#E5D9CF'}
-            donationAmount={this.props.donationAmount}
-            donationImage={this.props.charityImage}
-            cardCategory={this.props.cardCategory}
-            cardOrgName={this.props.cardOrgName}
-            cardPledged={this.props.cardPledged}
-            cardGoal={this.props.cardGoal} />
+          <Loadable
+            active={this.props.choosingDonationNow}
+            spinner={true}
+            spinnerSize={'100px'}
+            text={"Processing donation choice!.."}>
+            <SupportModal
+              type={'single'}
+              open={this.state.supportOpen}
+              onDonate={this.handleDonate}
+              handleClose={this.handleClose}
+              overlayColor={'#E5D9CF'}
+              donationAmount={this.props.donationAmount}
+              donationImage={this.props.charityImage}
+              cardCategory={this.props.cardCategory}
+              cardOrgName={this.props.cardOrgName}
+              cardPledged={this.props.cardPledged}
+              cardGoal={this.props.cardGoal} />
+          </Loadable>
         </div>
       )
     }

@@ -29,7 +29,7 @@ class ProjectCardSimple extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let hkd = 7.84*x
+      let hkd = x
       let final = Math.round(hkd);
       let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -49,11 +49,11 @@ class ProjectCardSimple extends Component {
 
   getColor(category) {
     if (category.toLowerCase() === "responsibility") {
-      return '#1DB42E'
+      return 'grey'
     } else if (category.toLowerCase() === "awareness") {
-      return '#FD3F11'
+      return 'gold'
     } else if (category.toLowerCase() === "wonder") {
-      return '#25C7AA'
+      return 'turquoise'
     }
   }
 
@@ -71,8 +71,8 @@ class ProjectCardSimple extends Component {
                 <p className="card-sub-title1" style={{color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
                 <p className="card-title">{this.props.cardOrgName}</p>
 
-                <div className="progress-bar-small">
-                  <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal)}}></div>
+                <div className="progress-bar" style={{width: '102%'}}>
+                  <div className="progress-bar-meter" style={{width: this.getProgress(this.props.cardPledged,this.props.cardGoal), backgroundColor: this.getColor(this.props.cardCategory)}}></div>
                 </div>
 
                 <p className="pledge">{this.formatNum(this.props.cardPledged)}</p>

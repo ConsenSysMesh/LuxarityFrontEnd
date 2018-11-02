@@ -99,9 +99,9 @@ class Support extends Component {
       await contract.methods.choseDonations(orderNumber).call(function(err, res){
         if (err) {
           orderIncomplete = true
-          console.log(err)
+          //console.log(err)
         } else {
-          console.log(res)
+          //console.log(res)
           //choose donation has been made before
           if (res[1] >= totalAmount) {
             remainding = 0
@@ -121,20 +121,20 @@ class Support extends Component {
             charitiesAllocated.push(0)
           }
           else {
-            console.log(res)
+            //console.log(res)
             charitiesAllocated.push(Number(res.amountChosenToDonate))
           }
         })
       }
 
       //extra use case (both)
-      console.log(charitiesAllocated)
+      //console.log(charitiesAllocated)
       let charityHashSplit = web3Utils.keccak256(testData[0].charityName + "," + testData[2].charityName)
       await contract.methods.charities(charityHashSplit).call(function(err, res){
         if (err || !res.exists) {
           charitiesAllocated.push(0)
         } else {
-          console.log(res.amountChosenToDonate/2)
+          //console.log(res.amountChosenToDonate/2)
           charitiesAllocated[0] += Number(res.amountChosenToDonate/2)
           charitiesAllocated[2] += Number(res.amountChosenToDonate/2)
         }
@@ -167,7 +167,7 @@ class Support extends Component {
     }
 
     if (prevProps.choseDonation.length === 0 && this.props.choseDonation.length !== 0) {
-      console.log(this.props.choseDonation)
+      //console.log(this.props.choseDonation)
       this.setState({ transaction: this.props.choseDonation })
     }
 
@@ -187,20 +187,20 @@ class Support extends Component {
           charitiesAllocated.push(0)
         }
         else {
-          console.log(res)
+          //console.log(res)
           charitiesAllocated.push(Number(res.amountChosenToDonate))
         }
       })
     }
 
     //extra use case (both)
-    console.log(charitiesAllocated)
+    //console.log(charitiesAllocated)
     let charityHashSplit = web3Utils.keccak256(testData[0].charityName + "," + testData[2].charityName)
     await contract.methods.charities(charityHashSplit).call(function(err, res){
       if (err || !res.exists) {
         charitiesAllocated.push(0)
       } else {
-        console.log(res.amountChosenToDonate/2)
+        //console.log(res.amountChosenToDonate/2)
         charitiesAllocated[0] += Number(res.amountChosenToDonate/2)
         charitiesAllocated[2] += Number(res.amountChosenToDonate/2)
       }
@@ -218,6 +218,8 @@ class Support extends Component {
   componentWillUnmount() {
     clearInterval(this.handleSingleDonate)
     clearInterval(this.handleSplitDonate)
+    clearInterval(this.arraysEqual)
+    clearInterval(this.closeDonateComplete)
   }
 
   arraysEqual(arr1, arr2) {
@@ -239,6 +241,7 @@ class Support extends Component {
       if (this.props.chooseDonationSuccess) {
         await this.update('handleSingleDonate')
       }
+      await this.setState({ noAllocationleft: true })
     } else {
       this.setState({ noAllocationleft: true })
     }
@@ -327,6 +330,7 @@ class Support extends Component {
       return (
         <ProjectCardComplex
           key={index}
+          choosingDonationNow={this.props.choosingDonation}
           index={index}
           order={orderObject}
           cardOrientation={orientation}

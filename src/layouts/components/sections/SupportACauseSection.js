@@ -29,7 +29,8 @@ class SupportACauseSection extends Component {
 
   formatNum(x) {
     if (x !== null && x !== 0) {
-      let hkd = 7.84*x
+      //console.log(x)
+      let hkd = x
       let final = Math.round(hkd);
       let string = final + ""
       let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -41,7 +42,7 @@ class SupportACauseSection extends Component {
   getAllocationStatus(allocationStatus) {
     if (allocationStatus) {
       return (
-        <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause!</strong> If you&#39;d still like to contribute, please donate here.</p>
+        <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause!</strong> If you&#39;d still like to contribute, <strong><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></strong>.</p>
       )
     }
 

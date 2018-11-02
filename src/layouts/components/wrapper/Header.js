@@ -37,16 +37,16 @@ export default class Header extends React.Component {
               <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <Link to={{pathname: '/about' }} style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>ABOUT</Link>
               </div>
-              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: '#7F8081', float:'left'}}>RAW
+              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', color: '#7F8081', float:'left'}}><a href="#raw" style={{textDecoration: 'none', color: '#7F8081'}}>RAW</a>
               </div>
-              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center',textDecoration: 'none', color: '#7F8081', float:'left'}}>POPUP
+              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center',textDecoration: 'none', color: '#7F8081', float:'left'}}><a href="http://luxarity.com/pop-up-events/" style={{textDecoration: 'none', color: '#7F8081'}}>POPUP</a>
               </div>
             </Row>
             <Row style={{paddingLeft: 5}}>
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>DONATE
+              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: '#7F8081'}} target="_blank">DONATE</a>
               </div>
 
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>SUPPORT
+              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', color: '#7F8081'}}>SUPPORT
               </div>
             </Row>
         </Row>
