@@ -28,7 +28,7 @@ class LuxarityIsMoreSection extends Component {
                 <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>DISCOVERING</div>
               </Row>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
-                <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>Pop-up events of curated pre-loved luxury goods and a transparent donations process.</div>
+                <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>Pop-up events of curated pre-loved luxury goods and a transparent donations process</div>
               </Row>
             </Col>
             <Col style={{alignItems: 'center', justifyContent:'center'}}>
@@ -36,7 +36,7 @@ class LuxarityIsMoreSection extends Component {
                 <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>RECEIVING</div>
               </Row>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
-                <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>All benefits raised support projects and educational grants focusing on the UN SDGs.</div>
+                <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>All benefits raised support projects and educational grants focusing on the UN SDGs</div>
               </Row>
             </Col>
           </Row>
