@@ -18,6 +18,7 @@ class SupportACauseSection extends Component {
     this.formatNum = this.formatNum.bind(this)
     this.splitTotal = this.splitTotal.bind(this)
     this.onDonate = this.onDonate.bind(this)
+    this.formatExpense = this.formatExpense.bind(this)
   }
 
   splitTotal(x,y) {
@@ -25,6 +26,18 @@ class SupportACauseSection extends Component {
     let donateAmount = sum/3
     let final = Math.max( Math.round(donateAmount * 10) / 10, 2.8 ).toFixed(2)
     return final
+  }
+
+  formatExpense(x) {
+    if (x !== null && x !== 0) {
+      //console.log(x)
+      let hkd = x*0.30
+      let final = Math.round(hkd);
+      let string = final + ""
+      let firstNum =  string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      return "- HK$" + firstNum
+    }
+    return "$0"
   }
 
   formatNum(x) {
@@ -71,7 +84,7 @@ class SupportACauseSection extends Component {
               <div className="dashboard-main-info-l">
                 <div className="cause-donation">
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
-                  <p>Remaining Amount: <span className="lux-fee">{this.formatNum(this.props.remainderAmount)}</span> </p>
+                  <p>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
                   <hr/>
                   <p className="d-tot">Amount to Allocate: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount)}</span> </p>
                 </div>
