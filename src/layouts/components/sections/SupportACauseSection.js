@@ -84,7 +84,12 @@ class SupportACauseSection extends Component {
               <div className="dashboard-main-info-l">
                 <div className="cause-donation">
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
-                  <p>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
+                  <div>
+                    <div class="tooltip">?
+                      <span class="tooltiptext">Popup cost</span>
+                    </div>
+                    <p style={{display: 'inline', paddingLeft: '5px'}}>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
+                  </div>
                   <hr/>
                   <p className="d-tot">Amount to Allocate: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount)}</span> </p>
                 </div>
