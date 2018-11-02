@@ -114,7 +114,7 @@
 .dashboard-main {
   background-color: #585A56;
   width: auto;
-  margin: 50px;
+  margin: 3%;
   color: white;
   padding: 25px;
 }
@@ -122,6 +122,11 @@
   display: flex;
   justify-content: center;
   padding: 25px;
+}
+@media (max-width: 520px) {
+  .dashboard-main-info{
+    padding: 0;
+  }
 }
 .dashboard-title {
   letter-spacing: 4px;
@@ -134,11 +139,11 @@
 .dashboard-main-info-l {
   max-width: 500px;
   line-height: 2;
+  width: 100%;
 }
 .cause-donation {
   background-color: rgba(62, 62, 60);
   padding: 25px;
-  width: 400px;
   color: gray;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -169,12 +174,12 @@
 .p-card1 {
   background-color: rgb(207,219,210);
   padding: 20;
-  max-height: 550px;
+  /* max-height: 550px; */
 }
 .p-card2 {
   background-color: rgb(229,217,207);
   padding: 20;
-  max-height: 550px;
+  /* max-height: 550px; */
 }
 .card-content {
   background-color: white;
@@ -368,3 +373,36 @@ div.inputbox button {
   justify-content: center;
 }
 /* PROGRESS END */
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    background-color: rgb(120,120,120);
+    border-radius: 50%;
+    padding: 0 10px 0 12px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    display: inline;
+
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    right: 125%;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

@@ -75,18 +75,23 @@ class SupportACauseSection extends Component {
       <div>
         <div className="dashboard-main">
           <Grid container>
-            <Grid item xs={12} sm={6} className="dashboard-main-info">
+            <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
                 <p className="dashboard-text">Choose to donate to one or all of the causes. 30% of funds raised will go towards LUXARITY&#39;s operational costs to continue making an impact.</p>
                 {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
-            <Grid item xs={12} sm={6} className="dashboard-main-info">
+            <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <div className="cause-donation">
                   <p>Purchase total: <span className="p-tot-amt">{this.formatNum(this.props.totalOrder)}</span> </p>
-                  <p>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
+                  <div>
+                    <div class="tooltip">?
+                      <span class="tooltiptext">Popup cost</span>
+                    </div>
+                    <p style={{display: 'inline', paddingLeft: '5px'}}>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
+                  </div>
                   <hr/>
                   <p className="d-tot">Amount to Cause: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount - this.props.remainderAmount*0.30)}</span> </p>
                 </div>
