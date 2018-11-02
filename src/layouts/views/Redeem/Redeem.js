@@ -130,12 +130,12 @@ class Redeem extends Component {
         image = BlueImg
         pledge = this.state.charitiesAllocated[index]
       }
-
+      console.log(datum)
       return (
         <ProjectSkinnyCard
           key={index}
           cardCategory={datum.charityCategory}
-          cardOrgName={datum.charityName}
+          cardOrgName={datum.cuaseName}
           charityURL={datum.charityURL}
           cardPledged={pledge}
           charityImage={image}

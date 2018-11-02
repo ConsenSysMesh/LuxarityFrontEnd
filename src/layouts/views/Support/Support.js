@@ -343,7 +343,7 @@ class Support extends Component {
           cardOrientation={orientation}
           noAllocationleft={this.state.noAllocationleft}
           cardCategory={datum.charityCategory}
-          cardOrgName={datum.charityName}
+          cardOrgName={datum.cuaseName}
           cardSummary={datum.charitySummary}
           cardPledged={pledge}
           chooseDonation={this.handleSingleDonate}
