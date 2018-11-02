@@ -299,8 +299,8 @@ class Support extends Component {
       }
 
       //select image
-      let image;
-      let size;
+      let image
+      let size
       let pledge
       if (index === 0) {
         image = GreenImg
@@ -330,6 +330,7 @@ class Support extends Component {
       return (
         <ProjectCardComplex
           key={index}
+          charityURL={datum.charityURL}
           choosingDonationNow={this.props.choosingDonation}
           index={index}
           order={orderObject}

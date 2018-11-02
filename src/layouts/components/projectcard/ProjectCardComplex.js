@@ -81,13 +81,13 @@ class ProjectCardComplex extends Component {
       if (direction === 'right') {
         return (
           <div style={{float: 'right'}}>
-            <button className="p-btn-light" style={{marginRight: 0}}> Project details </button>
+            <button className="p-btn-light" style={{marginRight: 0}}> <a href={this.props.charityURL} style={{textDecoration: 'none', color: 'black'}} target="_blank">Project details </a></button>
           </div>
         )
       } else {
         return(
           <div>
-            <button className="p-btn-light"> Charity details </button>
+            <button className="p-btn-light" style={{marginRight: 0}}> <a href={this.props.charityURL} style={{textDecoration: 'none', color: 'black'}} target="_blank">Project details </a></button>
           </div>
         )
       }
@@ -96,14 +96,14 @@ class ProjectCardComplex extends Component {
         return (
           <div style={{float: 'right'}}>
             <button className="p-btn-dark" disabled={this.props.noAllocationleft} onClick={this.handleOpen}> Suppport this project </button>
-            <button className="p-btn-light"> Charity details </button>
+            <button className="p-btn-light" style={{marginRight: 0}}> <a href={this.props.charityURL} style={{textDecoration: 'none', color: 'black'}} target="_blank">Project details </a></button>
           </div>
         )
       } else {
         return (
           <div>
             <button className="p-btn-dark" disabled={this.props.noAllocationleft} onClick={this.handleOpen}> Suppport this project </button>
-            <button className="p-btn-light"> Charity details </button>
+            <button className="p-btn-light" style={{marginRight: 0}}> <a href={this.props.charityURL} style={{textDecoration: 'none', color: 'black'}} target="_blank">Project details </a></button>
           </div>
         )
       }

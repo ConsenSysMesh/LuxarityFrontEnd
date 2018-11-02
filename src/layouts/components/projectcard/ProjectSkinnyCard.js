@@ -78,7 +78,7 @@ class ProjectSkinnyCard extends Component {
             </div>
           </div>
           <div style={{display: 'flex', justifyContent: 'center', padding: '25px'}}>
-            <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}} onClick={this.handleDonate}>Project Details</button>
+            <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}}><a href={this.props.charityURL} style={{textDecoration: 'none', color: 'black'}} target="_blank">Project details </a></button>
           </div>
         </div>
       </Col>
