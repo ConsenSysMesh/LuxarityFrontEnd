@@ -21,11 +21,11 @@ class DonationCompleteModal extends Component {
             </Col>
             <Col md={7} style={{alignItems: 'center', justifyContent: 'center', backgroundColor: '#595A55', padding: '8%'}}>
               <div style={{alignItems: 'center', justifyContent: 'center'}}>
-                <div className="modal-title" style={{color: '#FCFCFA'}}>You&#39;re All Set!</div>
+                <div className="modal-title" style={{color: '#FCFCFA'}}>You are set!</div>
 
-                <div className="modal-text" style={{color: '#FCFCFA'}}><strong>Your donation choice has <a href={"https://rinkeby.etherscan.io/tx/" + this.props.transaction} target="_blank" style={{textDecoration: 'none', color: 'white'}}><u>been submitted</u></a>!</strong> We will send out a confirmation email and keep you notified as to when the final donation is made to the organization&#39;s of your choice.</div>
+                <div className="modal-text" style={{color: '#FCFCFA'}}><strong>Thank you for completing the R.A.W. donation journey with us. You have just made a positive impact to help raise awareness about responsible consumption.</strong></div>
 
-                <div className="modal-text" style={{color: '#FCFCFA'}}>In the meantime, learn how you can redeem your own Luxarity token for your charitable efforts.</div>
+                <div className="modal-text" style={{color: '#FCFCFA'}}>We will keep you updated about the project in the coming months.</div>
 
                 <div style={{display: 'flex', justifyContent: 'center'}}>
 

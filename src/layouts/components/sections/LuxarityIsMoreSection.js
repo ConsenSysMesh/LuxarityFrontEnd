@@ -10,7 +10,11 @@ class LuxarityIsMoreSection extends Component {
         <div style={{backgroundColor: '#585A56', width: '100%', minHeight: 280, padding: '5%'}}>
           <Row style={{alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 30}}>
             <Col style={{textAlign: 'center', letterSpacing: 4}}>
+<<<<<<< HEAD
               <div>TO INSPIRE CONSCIOUS</div>
+=======
+              <div>TO INSPIRE A CONSCIOUS</div>
+>>>>>>> 1f4297aab3e4fea868803637a1aaa2dec10d6a84
               <div>LIVING FOR ALL</div>
             </Col>
           </Row>
