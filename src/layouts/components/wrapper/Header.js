@@ -27,7 +27,7 @@ export default class Header extends React.Component {
   render() {
 
     return (
-      <div style={{paddingLeft: '75px', paddingRight: '75px', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', paddingTop: 15, paddingBottom: 15, position: 'relative'}}>
+      <div className="top-nav" style={{paddingLeft: '75px', paddingRight: '75px', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', paddingTop: 15, paddingBottom: 15, position: 'relative'}}>
         <Row style={{alignItems: 'center', justifyContent: 'space-between', paddingTop: 2}}>
             <Row style={{paddingLeft: 5, justifyContent: 'center', alignItems: 'center'}}>
               <LogoRow SiteTitle={'Luxarity Popup'} />

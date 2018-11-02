@@ -415,3 +415,8 @@ div.inputbox button {
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+/* NAV */
+.top-nav a {
+  line-height: 2;
+}
