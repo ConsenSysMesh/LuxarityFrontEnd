@@ -77,6 +77,9 @@ class Redeem extends Component {
       }
     })
 
+    charitiesAllocated[0] -= 206792
+    charitiesAllocated[2] -= 88113
+
     //update state
     await this.setState({
       contract: contract,

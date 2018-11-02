@@ -140,6 +140,9 @@ class Support extends Component {
         }
       })
 
+      charitiesAllocated[0] -= 206792
+      charitiesAllocated[2] -= 88113
+
       //update state
       await this.setState({
         contract: contract,
@@ -205,6 +208,9 @@ class Support extends Component {
         charitiesAllocated[2] += Number(res.amountChosenToDonate/2)
       }
     })
+
+    charitiesAllocated[0] -= 206792
+    charitiesAllocated[2] -= 88113
 
     if (!this.arraysEqual(charitiesAllocated, this.state.charitiesAllocated)) {
       this.setState({ charitiesAllocated: charitiesAllocated })
