@@ -18,9 +18,9 @@ import ProjectSkinnyCard from '../../components/projectcard/ProjectSkinnyCard'
 //tempData
 import testData from '../Support/tempData/data.json'
 //images
-import GreenImg from '../../img/Green.png'
-import TanImg from '../../img/Tan.png'
-import BlueImg from '../../img/Blue.png'
+import GreenImg from '../../img/lux0030.jpg'
+import TanImg from '../../img/lux0609.jpg'
+import BlueImg from '../../img/lux0783.jpg'
 import AllImg from '../../img/tripleFashion.png'
 
 class Redeem extends Component {
