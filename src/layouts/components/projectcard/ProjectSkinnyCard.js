@@ -58,7 +58,7 @@ class ProjectSkinnyCard extends Component {
 
   render() {
     return(
-      <Col sm={12} md={5.5} lg={3.5} style={{width: 300, paddingLeft: '5%'}}>
+      <div sm={12} md={5.5} lg={3.5} style={{width: 300, padding: '0 50px'}}>
         <div>
           <div style={{backgroundColor: 'f1f2f3'}}></div>
           <img alt="LUXARITY" style={{width: 300, height: 440}} src={this.props.charityImage} />
@@ -81,7 +81,7 @@ class ProjectSkinnyCard extends Component {
             <button className="p-btn-light-small" style={{display: "inline-block", border: 'solid rgb(210,210,210)'}}><a href={this.props.charityURL} style={{textDecoration: 'none', color: 'black'}} target="_blank">Project details </a></button>
           </div>
         </div>
-      </Col>
+      </div>
     )
   }
 }
