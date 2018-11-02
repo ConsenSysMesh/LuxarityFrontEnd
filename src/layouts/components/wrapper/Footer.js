@@ -27,7 +27,7 @@ export default class Footer extends React.Component {
 
     return (
       <div>
-        <Row style={{backgroundColor: 'white', minHeight: 60, borderTop: '1px solid #F1F2F3', alignItems: 'center', justifyContent: 'center', paddingLeft: '15%', paddingRight: '15%', margin: 0}}>
+        {/* <Row style={{backgroundColor: 'white', minHeight: 60, borderTop: '1px solid #F1F2F3', alignItems: 'center', justifyContent: 'center', paddingLeft: '15%', paddingRight: '15%', margin: 0}}>
           <div style={{fontSize: 20, color: '#111112', textAlign: 'center', display: 'inline-block', paddingRight: 20}}>Keep up with our latest updates</div>
           <div className="inputbox" >
             <input type="text" placeholder="Email" name="email" onChange={this.updateEmail} value={this.state.email}/>
@@ -36,7 +36,7 @@ export default class Footer extends React.Component {
         </Row>
         <Row style={{backgroundColor: '#F1F2F3', minHeight: 300, padding: 0, margin: 0}}>
           <span></span>
-        </Row>
+        </Row> */}
       </div>
     );
   }
