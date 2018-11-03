@@ -49,7 +49,7 @@ class EnterPinSection extends Component {
           <Row style={{backgroundColor: '#333332', paddingBottom: 10}}>
             <Col style={{textAlign: 'left', fontSize: 30, minHeight:150, width: '100%', paddingRight: '15%', paddingLeft: '15%', paddingTop: '5%', paddingBottom: 10}}>
               <div style={{textTransform: 'uppercase', color: 'white'}}>{this.formatNum(this.props.totalRaised)}</div>
-              <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 10, paddingBottom: 20, textTransform: 'uppercase'}}>Total Sales Towards our HK$1,000,000 Goal</div>
+              <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 10, paddingBottom: 20, textTransform: 'uppercase'}}>Total Sales Towards our Fundraising Goal</div>
             </Col>
           </Row>
         </Col>
