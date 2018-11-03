@@ -32,7 +32,9 @@ class Redeem extends Component {
       pinValue: '',
       messageModal: false,
       contract: null,
-      charitiesAllocated: []
+      charitiesAllocated: [],
+      totalRaised: 0,
+      totalChosenDonatedAmount: 0,
     }
 
     //bind functions
@@ -80,10 +82,41 @@ class Redeem extends Component {
     charitiesAllocated[0] -= 206792
     charitiesAllocated[2] -= 88113
 
+    //get total raised
+    await this.props.getTotalRaised()
+
+    /*
+    let totalRaised
+    await contract.methods.totalRaised().call(function(err, res){
+      if (err) {
+        totalRaised = charitiesAllocated[0] + charitiesAllocated[1] + 150000
+      }
+      else {
+        console.log(res)
+        totalRaised = res - 206792 - 88113
+        console.log(totalRaised)
+      }
+    })
+
+
+    let totalChosenDonatedAmount
+    await contract.methods.totalChosenDonatedAmount().call(function(err, res){
+      if (err) {
+        totalChosenDonatedAmount = charitiesAllocated[0] + charitiesAllocated[1] + 150000
+      }
+      else {
+        console.log(res)
+        totalChosenDonatedAmount = res - 206792 - 88113
+        console.log(totalChosenDonatedAmount)
+      }
+    })
+    */
+
     //update state
     await this.setState({
       contract: contract,
       charitiesAllocated: charitiesAllocated,
+      //totalChosenDonatedAmount: totalChosenDonatedAmount,
     })
   }
 
@@ -91,6 +124,10 @@ class Redeem extends Component {
     //not as important to save to state so might change in the future 9/23/18
     if (prevProps.getOrderByRedemError.length === 0 && this.props.getOrderByRedemError.length > 0) {
       this.setState({ messageModal: true })
+    }
+
+    if (!prevProps.getTotalRaisedSuccess && this.props.getTotalRaisedSuccess) {
+      this.setState({ totalRaised: Number(this.props.gotTotalRaised[0].sum) + 2000 })
     }
   }
 
@@ -170,11 +207,14 @@ class Redeem extends Component {
         <Wrapper>
           <div>
             <Loadable
-              active={this.props.gettingOrderByRedem}
+              active={this.props.gettingOrderByRedem || this.props.gettingTotalRaised}
               spinner
-              text={"Checking for order..."}>
+              text={"Loading...Please wait."}>
               <Row style={{backgroundColor: '#F1F2F3', alignItems: 'center', justifyContent: 'center', paddingTop: 50, paddingBottom: '3%', paddingLeft: '3%', paddingRight: 5, margin: 0}}>
-                <EnterPinSection enterPin={this.enterPin} setPinValue={this.setPinValue} />
+                <EnterPinSection
+                  totalRaised={this.state.totalRaised}
+                  enterPin={this.enterPin}
+                  setPinValue={this.setPinValue} />
               </Row>
             </Loadable>
 

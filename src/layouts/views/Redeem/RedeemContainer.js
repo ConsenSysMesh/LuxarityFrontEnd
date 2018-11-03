@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { drizzleConnect } from 'drizzle-react'
 //redux actions
 import { getOrderByRedemptionHash } from '../../../redux/ordersByRedemptionHash/actions'
+import { getTotalRaised } from '../../../redux/getTotalRaised/actions'
+
 
 // connectors for API
 const mapStateToProps = state => ({
@@ -12,10 +14,16 @@ const mapStateToProps = state => ({
   gotOrderByRedem: state.getOrderByRedemptionHash.response,
   getOrderByRedemError: state.getOrderByRedemptionHash.error,
   getOrderByRedemSuccess: state.getOrderByRedemptionHash.success,
+
+  gettingTotalRaised: state.getTotalRaised.running,
+  gotTotalRaised: state.getTotalRaised.response,
+  getTotalRaisedError: state.getTotalRaised.error,
+  getTotalRaisedSuccess: state.getTotalRaised.success,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getOrderByRedemptionHash: getOrderByRedemptionHash,
+  getTotalRaised: getTotalRaised
 }, dispatch)
 
 // May still need this even with data function to refresh component on updates for this contract.

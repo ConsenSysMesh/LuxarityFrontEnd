@@ -23,13 +23,17 @@ import getDonationsByCause from './redux/donationsByCause/request'
 import { GET_ORDER_BY_REDEMPTION_HASH } from './redux/ordersByRedemptionHash/actions'
 import getOrderByRedemptionHash from './redux/ordersByRedemptionHash/request'
 
+import { GET_TOTAL_RAISED } from './redux/getTotalRaised/actions'
+import getTotalRaised from './redux/getTotalRaised/request'
+
 export default function* root() {
   yield takeLatest(CHOOSE_DONATION, chooseDonation),
   yield takeLatest(MAKE_DONATION, makeDonation),
   yield takeLatest(REDEEM_ORDER, redeemOrder),
   yield takeLatest(SAFE_REDEEM_ORDER, safeRedeemOrder),
   yield takeLatest(GET_DONATION_BY_CAUSE, getDonationsByCause),
-  yield takeLatest(GET_ORDER_BY_REDEMPTION_HASH, getOrderByRedemptionHash)
+  yield takeLatest(GET_ORDER_BY_REDEMPTION_HASH, getOrderByRedemptionHash),
+  yield takeLatest(GET_TOTAL_RAISED, getTotalRaised)
   /*
   yield all(
     drizzleSagas.map(saga => fork(saga))

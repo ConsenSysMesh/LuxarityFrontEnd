@@ -14,6 +14,7 @@ import redeemOrder from './redux/redeemOrder/reducer'
 import safeRedeemOrder from './redux/safeRedeemOrder/reducer'
 import getDonationsByCause from './redux/donationsByCause/reducer'
 import getOrderByRedemptionHash from './redux/ordersByRedemptionHash/reducer'
+import getTotalRaised from './redux/getTotalRaised/reducer'
 
 //...drizzleReducers
 const reducer = combineReducers({
@@ -24,7 +25,8 @@ const reducer = combineReducers({
   redeemOrder,
   safeRedeemOrder,
   getDonationsByCause,
-  getOrderByRedemptionHash
+  getOrderByRedemptionHash,
+  getTotalRaised
 
 })
 
