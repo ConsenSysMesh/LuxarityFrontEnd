@@ -14,7 +14,7 @@ export default function* getTotalRaised(action) {
   yield put({ type: GET_TOTAL_RAISED_STARTED })
 
   try {
-    const response = yield call(api.get, '/totalDonations', action.payload)
+    const response = yield call(api.get, '/totalSales', action.payload)
     const data = yield call([response, response.json])
     if (data.status === 'success') {
       yield put({ type: GET_TOTAL_RAISED_SUCCEEDED, payload: data.data })
