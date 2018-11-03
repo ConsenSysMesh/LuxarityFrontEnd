@@ -45,7 +45,7 @@ class Redeem extends Component {
 
   async componentDidMount() {
     //get web3 instance
-    let web3 = await new Web3(new Web3.providers.HttpProvider("https://rinkeby.infura.io/v3/dafcac3faf174e009483337759967f85"))
+    let web3 = await new Web3(new Web3.providers.HttpProvider(process.env.INFURA_URL))
 
     //get abi information
     let abi = LuxOrder.abi
