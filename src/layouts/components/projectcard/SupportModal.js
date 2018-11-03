@@ -115,10 +115,10 @@ class SupportModal extends Component {
               <div style={{backgroundColor: '#cfdbd2', justifyContent: 'center', alignItems: 'center', height: 200, width: '100%'}}>
                 <div className="card-subsection">
                   <div className="card-subsection-title"><strong>You are donating {this.formatNum(this.props.donationAmount)}</strong></div>
-                  <div className="card-subsection-text" style={{fontSize: 14, color: '#595A55'}}>If you are sure you&#39;d like to donate {this.formatNum(this.props.donationAmount)}, please press the donate button.</div>
+                  <div className="card-subsection-text" style={{fontSize: 14, color: '#595A55'}}>If you are sure you&#39;d like to allocate {this.formatNum(this.props.donationAmount)}, please press the donate button.</div>
                 </div>
                 <div className="card-subsection" >
-                  <button className="p-btn-dark-small" style={{display: "inline-block", marginRight: 20}} onClick={this.props.onDonate}>Submit Donation</button>
+                  <button className="p-btn-dark-small" style={{display: "inline-block", marginRight: 20}} onClick={this.props.onDonate}>Submit Grant Choice</button>
                   <button className="p-btn-light-small" style={{display: "inline-block"}} onClick={this.props.handleClose}>Cancel</button>
                 </div>
               </div>
