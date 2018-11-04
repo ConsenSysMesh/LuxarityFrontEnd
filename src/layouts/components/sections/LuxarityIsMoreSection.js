@@ -15,7 +15,7 @@ class LuxarityIsMoreSection extends Component {
             </Col>
           </Row>
           <Row style={{alignItems: 'center', justifyContent: 'center', paddingTop: '4%', flexDirection: 'space around'}}>
-            <Col style={{alignItems: 'center', justifyContent:'center'}}>
+            <Col sm={12} md={6} lg={4} style={{paddingBottom: 20, alignItems: 'center', justifyContent:'center'}}>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
                 <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>GIVING</div>
               </Row>
@@ -23,7 +23,7 @@ class LuxarityIsMoreSection extends Component {
                 <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>Our network of community members donate their pre-loved luxury goods & show their support</div>
               </Row>
             </Col>
-            <Col style={{alignItems: 'center', justifyContent:'center'}}>
+            <Col sm={12} md={6} lg={4} style={{paddingBottom: 20, alignItems: 'center', justifyContent:'center'}}>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
                 <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>DISCOVERING</div>
               </Row>
@@ -31,7 +31,7 @@ class LuxarityIsMoreSection extends Component {
                 <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>Pop-up events of curated pre-loved luxury goods and a transparent donations process</div>
               </Row>
             </Col>
-            <Col style={{alignItems: 'center', justifyContent:'center'}}>
+            <Col sm={12} md={6} lg={4} style={{paddingBottom: 20, alignItems: 'center', justifyContent:'center'}}>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
                 <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>RECEIVING</div>
               </Row>

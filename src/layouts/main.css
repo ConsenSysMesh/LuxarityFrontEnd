@@ -123,11 +123,7 @@
   justify-content: center;
   padding: 25px;
 }
-@media (max-width: 520px) {
-  .dashboard-main-info{
-    padding: 0;
-  }
-}
+
 .dashboard-title {
   letter-spacing: 4px;
   font-size: 30px;
@@ -161,6 +157,17 @@
   color: white;
   font-weight: bold;
 }
+@media (max-width: 520px) {
+  .dashboard-main-info{
+    padding: 0;
+  }
+  .dashboard-main {
+    margin: 0;
+  }
+  .cause-donation {
+    padding: 20px;
+  }
+}
 /* DASHBOARD END */
 
 /* PROJECT CARD */
@@ -181,6 +188,19 @@
   padding: 20;
   /* max-height: 550px; */
 }
+
+@media (max-width: 599px) {
+  .p-card1, .p-card2 {
+    background-image: none !important;
+  }
+  .support-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: none !important;
+  }
+}
+
 .card-content {
   background-color: white;
   padding: 15px;
