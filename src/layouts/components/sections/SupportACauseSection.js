@@ -56,7 +56,7 @@ class SupportACauseSection extends Component {
     if (allocationStatus) {
       return (
         <div>
-          <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause!</strong> If you&#39;d like to contribute further, <strong><u><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></u></strong>.</p>
+          <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause! If you&#39;d like to contribute further, <u><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></u>.</strong></p>
         </div>
       )
     }
@@ -78,7 +78,7 @@ class SupportACauseSection extends Component {
             <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
-                <p className="dashboard-text">Choose to donate to one or all of the causes. 30% of funds raised will go towards LUXARITY&#39;s operational costs to continue making an impact.</p>
+                <p className="dashboard-text">30% of funds contributed will go towards LUXARITY&#39;s operational costs to continue making an impact.</p>
                 {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
