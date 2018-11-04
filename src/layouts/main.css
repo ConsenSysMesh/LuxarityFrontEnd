@@ -123,11 +123,7 @@
   justify-content: center;
   padding: 25px;
 }
-@media (max-width: 520px) {
-  .dashboard-main-info{
-    padding: 0;
-  }
-}
+
 .dashboard-title {
   letter-spacing: 4px;
   font-size: 30px;
@@ -160,6 +156,17 @@
 .d-tot-amt {
   color: white;
   font-weight: bold;
+}
+@media (max-width: 520px) {
+  .dashboard-main-info{
+    padding: 0;
+  }
+  .dashboard-main {
+    margin: 0;
+  }
+  .cause-donation {
+    padding: 20px;
+  }
 }
 /* DASHBOARD END */
 
