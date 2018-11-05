@@ -58,12 +58,12 @@ class ProjectSkinnyCard extends Component {
 
   render() {
     return(
-      <div sm={12} md={5.5} lg={3.5} style={{width: 298, padding: '0 30px'}}>
+      <div sm={12} md={5.5} lg={3.5} style={{width: 305, padding: '0 30px'}}>
         <div>
           <div style={{backgroundColor: 'f1f2f3'}}></div>
-          <img alt="LUXARITY" style={{width: 298, height: 440}} src={this.props.charityImage} />
+          <img alt="LUXARITY" style={{width: 305, height: 440}} src={this.props.charityImage} />
         </div>
-        <div style={{width: 298}}>
+        <div style={{width: 305}}>
           <div className="card-content-slim" style={{width: '100%', margin: 0}}>
             <p className="card-sub-title1" style={{paddingLeft: '0', color: this.getColor(this.props.cardCategory)}}>{this.props.cardCategory}</p>
             <p className="card-title-slim" style={{paddingLeft: '0', minHeight: '80px', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column'}}>{this.props.cardOrgName}</p>
