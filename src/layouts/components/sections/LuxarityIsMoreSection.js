@@ -9,7 +9,7 @@ class LuxarityIsMoreSection extends Component {
       <Row style={{backgroundColor: 'white', minHeight: 300, alignItems: 'center', justifyContent: 'center', margin: '3%'}}>
         <div style={{backgroundColor: '#585A56', width: '100%', minHeight: 280, padding: '5%'}}>
           <Row style={{alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: 30}}>
-            <Col style={{textAlign: 'center', letterSpacing: 4}}>
+            <Col style={{textAlign: 'center', letterSpacing: 4, fontFamily: 'Boysen Regular'}}>
               <div>TO INSPIRE CONSCIOUS</div>
               <div>LIVING FOR ALL</div>
             </Col>
@@ -17,7 +17,7 @@ class LuxarityIsMoreSection extends Component {
           <Row style={{alignItems: 'center', justifyContent: 'center', paddingTop: '4%', flexDirection: 'space around'}}>
             <Col sm={12} md={6} lg={4} style={{paddingBottom: 20, alignItems: 'center', justifyContent:'center'}}>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
-                <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>GIVING</div>
+                <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5, fontFamily: 'Boysen Regular'}}>GIVING</div>
               </Row>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
                 <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>Our network of community members donate their pre-loved luxury goods & show their support</div>
@@ -25,7 +25,7 @@ class LuxarityIsMoreSection extends Component {
             </Col>
             <Col sm={12} md={6} lg={4} style={{paddingBottom: 20, alignItems: 'center', justifyContent:'center'}}>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
-                <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>DISCOVERING</div>
+                <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5, fontFamily: 'Boysen Regular'}}>DISCOVERING</div>
               </Row>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
                 <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>Pop-up events of curated pre-loved luxury goods and a transparent donations process</div>
@@ -33,7 +33,7 @@ class LuxarityIsMoreSection extends Component {
             </Col>
             <Col sm={12} md={6} lg={4} style={{paddingBottom: 20, alignItems: 'center', justifyContent:'center'}}>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
-                <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5}}>RECEIVING</div>
+                <div style={{color: 'white', fontSize: 25, letterSpacing: 3, textAlign: 'center', padding: 5, fontFamily: 'Boysen Regular'}}>RECEIVING</div>
               </Row>
               <Row style={{alignItems: 'center', justifyContent:'center'}}>
                 <div style={{textAlign: 'center', color: '#D1D3D1', fontSize: 14, width: '60%', lineHeight: 1.6}}>All benefits raised support projects and educational grants focusing on the UN SDGs</div>

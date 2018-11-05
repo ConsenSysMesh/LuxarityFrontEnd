@@ -41,7 +41,7 @@ export default class Header extends React.Component {
               </div>
             </Row>
             <Row style={{paddingLeft: 5}}>
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}><a href="http://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white', backgroundColor: 'rgba(207,222,216,1)', padding: '10px 20px'}} target="_blank">DONATE</a>
+              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}><a href="http://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white', backgroundColor: 'black', padding: '10px 20px'}} target="_blank">DONATE</a>
               </div>
 
               <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', color: '#7F8081'}}><a href="mailto:info@luxarity.com" data-rel="external" target="_blank" style={{textDecoration: 'none', color: '#7F8081'}}>SUPPORT</a>

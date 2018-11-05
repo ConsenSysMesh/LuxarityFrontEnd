@@ -39,8 +39,8 @@ class EnterPinSection extends Component {
       <Row style={{backgroundColor: '#F1F2F3', justifyContent: 'center', margin: 0, width: '100%', padding: 0}}>
         <Col md={6} style={{backgroundColor: '#595956', margin: 0}}>
           <Row style={{textAlign: 'left', letterSpacing: 4, fontSize: 42, paddingRight: '15%', paddingLeft: '15%', paddingTop: '15%', paddingBottom: '8%', color: '#BEC0BE', lineHeight: 1.7}}>
-            <div style={{textTransform: 'uppercase', color: 'white'}}>THE FUTURE OF</div>
-            <div style={{textTransform: 'uppercase', color: 'white'}}>GIVING IS HERE</div>
+            <div style={{textTransform: 'uppercase', color: 'white', fontFamily: 'Boysen Regular'}}>THE FUTURE OF</div>
+            <div style={{textTransform: 'uppercase', color: 'white', fontFamily: 'Boysen Regular'}}>GIVING IS HERE</div>
             <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 10}}>Decide which cause to support and track where your money goes, when it is spent, and how it is spent.</div>
             <a href="http://luxarity.com" rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: '#585A56'}}>
               <button className="p-btn-light" style={{color: '#585A56', letterSpacing: 1, paddingLeft: '10%', paddingRight: '10%'}}> Learn More </button>
@@ -55,8 +55,8 @@ class EnterPinSection extends Component {
         </Col>
         <Col md={6} style={{margin: 0}}>
           <Col style={{textAlign: 'left', alignItems: 'center', justifyContent: 'center', padding: '15%', color: 'black', lineHeight: 1.7}}>
-            <div style={{textTransform: 'uppercase', fontSize: 40}}><strong>ENTER YOUR PIN</strong></div>
-            <div style={{textTransform: 'uppercase', fontSize: 40}}><strong>NUMBER</strong></div>
+            <div style={{textTransform: 'uppercase', fontSize: 40, fontFamily: 'Boysen Regular'}}><strong>ENTER YOUR PIN</strong></div>
+            <div style={{textTransform: 'uppercase', fontSize: 40, fontFamily: 'Boysen Regular'}}><strong>NUMBER</strong></div>
             <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Please enter your pin to choose where the proceeds of your order goes toward. Your pin is located in your email receipt sent from LUXARITY.</div>
             <div className="inputbox">
               <input type="text" placeholder="0 • 0 • 0 • 0 • 0" name="password" style={{color: '#B2B2B2', width: '80%'}} value={this.state.pinValue} onChange={this.updatePin}/>

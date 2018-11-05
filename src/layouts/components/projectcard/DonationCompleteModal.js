@@ -28,9 +28,9 @@ class DonationCompleteModal extends Component {
                 <div className="modal-text" style={{color: '#FCFCFA'}}>We will keep you updated about the project in the coming months.</div>
 
                 <div style={{display: 'flex', justifyContent: 'center'}}>
-
-                  <button className="p-btn-light-medium" >Learn More</button>
-
+                  <a href="http://luxarity.com" rel="noopener noreferrer" target="_blank" style={{textDecoration: 'none', color: '#585A56'}}>
+                    <button className="p-btn-light-medium" >Learn More</button>
+                  </a>
                 </div>
               </div>
             </Col>

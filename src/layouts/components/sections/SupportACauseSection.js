@@ -78,7 +78,7 @@ class SupportACauseSection extends Component {
             <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
                 <p className="dashboard-title">Support a cause</p>
-                <p className="dashboard-text">30% of funds contributed will go towards LUXARITY&#39;s operational costs to continue making an impact.</p>
+                <p className="dashboard-text">To support the development of sustainable education and innovation in the lifestyle industry, LUXARITY is raising a total of $350,000 HKD to develop an open-sourced online course with SCAD HK ($150,000 HKD) & to support two designers from PARSONS SCHOOL OF DESIGN ($200,000 HKD) who are focused on sustainability & innovation.</p>
                 {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
