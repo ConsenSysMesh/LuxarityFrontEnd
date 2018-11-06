@@ -18,9 +18,9 @@ import LuxarityIsMoreSection from '../../components/sections/LuxarityIsMoreSecti
 //tempData
 import testData from './tempData/data.json'
 //images
-import GreenImg from '../../img/Green.png'
-import TanImg from '../../img/Tan.png'
-import BlueImg from '../../img/Blue.png'
+import GreenImg from '../../img/lux0030.jpg'
+import TanImg from '../../img/lux0609.jpg'
+import BlueImg from '../../img/lux0783.jpg'
 import AllImg from '../../img/tripleFashion.png'
 
 class Support extends Component {
@@ -310,15 +310,15 @@ class Support extends Component {
       let pledge
       if (index === 0) {
         image = GreenImg
-        size = '45% 100%'
+        size = '30% 100%'
         pledge = this.state.charitiesAllocated[index]
       } else if (index === 1) {
         image = TanImg
-        size = '40% 100%'
+        size = '30% 100%'
         pledge = testData[index].charityPledge
       } else if (index === 2) {
         image = BlueImg
-        size = '45% 100%'
+        size = '30% 100%'
         pledge = this.state.charitiesAllocated[index]
       }
 
