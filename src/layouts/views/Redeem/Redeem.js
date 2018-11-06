@@ -223,7 +223,7 @@ class Redeem extends Component {
               spinner
               text={"Loading charities..."}>
               <div style={{alignItems: 'center', justifyContent: 'center'}}>
-                <div id="raw" style={{fontSize: 40, textAlign: 'center', paddingTop:100, paddingBottom: 20, color: "rgb(190, 192, 190)"}}>R.A.W. Grant Partners</div>
+                <div id="raw" style={{fontSize: 40, textAlign: 'center', paddingTop:100, paddingBottom: 20, color: "rgb(190, 192, 190)", fontFamily: 'Boysen Regular'}}>R.A.W. Grant Partners</div>
                 <p style={{fontSize: 20, textAlign: 'center', paddingLeft: '15%', paddingRight: '15%', paddingBottom: 40, color: "rgb(190, 192, 190)"}}>We are raising grants that address social and environmental challenges across the United Nation’s Sustainable Development Goals of: #12 Responsible Consumption & Production, #3 Health & Well-being & #4 Quality Education, aligning with our mission to build a community that shares the R.A.W. values.</p>
                 {this.mapSections(testData)}
               </div>

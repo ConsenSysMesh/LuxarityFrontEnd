@@ -56,7 +56,7 @@ class SupportACauseSection extends Component {
     if (allocationStatus) {
       return (
         <div>
-          <p className="dashboard-text" style={{color: 'white'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause! If you&#39;d like to contribute further, <u><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></u>.</strong></p>
+          <p className="dashboard-text" style={{color: 'white', fontFamily: 'Boysen Regular'}}><strong>The following order&#39;s proceeds have already been allocated to a good cause! If you&#39;d like to contribute further, <u><a href="https://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white'}} target="_blank">please donate here</a></u>.</strong></p>
         </div>
       )
     }
@@ -77,8 +77,8 @@ class SupportACauseSection extends Component {
           <Grid container>
             <Grid item xs={12} sm={12} md={6} lg={6} className="dashboard-main-info">
               <div className="dashboard-main-info-l">
-                <p className="dashboard-title">Support a cause</p>
-                <p className="dashboard-text">To support the development of sustainable education and innovation in the lifestyle industry, LUXARITY is raising a total of $350,000 HKD to develop an open-sourced online course with SCAD HK ($150,000 HKD) & to support two designers from PARSONS SCHOOL OF DESIGN ($200,000 HKD) who are focused on sustainability & innovation.</p>
+                <p className="dashboard-title" style={{fontFamily: 'Boysen Regular'}}>Support a cause</p>
+                <p className="dashboard-text" style={{fontFamily: 'Boysen Regular'}}>To support the development of sustainable education and innovation in the lifestyle industry, LUXARITY is raising a total of $350,000 HKD to develop an open-sourced online course with SCAD HK ($150,000 HKD) & to support two designers from PARSONS SCHOOL OF DESIGN ($200,000 HKD) who are focused on sustainability & innovation.</p>
                 {this.getAllocationStatus(this.props.noAllocationleft)}
               </div>
             </Grid>
@@ -90,7 +90,7 @@ class SupportACauseSection extends Component {
                     <div class="tooltip">?
                       <span class="tooltiptext">30% of funds raised will go towards LUXARITY&#39;s operational costs to continue making an impact.</span>
                     </div>
-                    <p style={{display: 'inline', paddingLeft: '5px'}}>Operational Cost: <span className="lux-fee">{this.formatExpense(this.props.remainderAmount)}</span> </p>
+                    <p style={{display: 'inline', paddingLeft: '5px'}}>Operational Cost: <span className="lux-fee" style={{color: 'white'}}>{this.formatExpense(this.props.remainderAmount)}</span> </p>
                   </div>
                   <hr/>
                   <p className="d-tot">Amount to Cause: <span className="d-tot-amt">{this.formatNum(this.props.remainderAmount - this.props.remainderAmount*0.30)}</span> </p>

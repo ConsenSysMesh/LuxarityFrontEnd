@@ -28,23 +28,23 @@ export default class Header extends React.Component {
 
     return (
       <div className="top-nav" style={{paddingLeft: '75px', paddingRight: '75px', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', paddingTop: 15, paddingBottom: 15, position: 'relative'}}>
-        <Row style={{alignItems: 'center', justifyContent: 'space-between', paddingTop: 2}}>
+        <Row style={{alignItems: 'center', justifyContent: 'space-between', paddingTop: 2, fontFamily: 'Boysen Regular'}}>
             <Row style={{paddingLeft: 5, justifyContent: 'center', alignItems: 'center'}}>
               <LogoRow SiteTitle={'Luxarity Popup'} />
-              <div style={{paddingLeft: 40, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{paddingLeft: 40, fontSize: 14, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <a href='/' style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>HOME</a>
               </div>
-              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
+              <div style={{paddingLeft: 20, fontSize: 14, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}>
                 <a href='http://luxarity.com/about' target='_blank' style={{textDecoration: 'none', color: '#7F8081', float:'left'}}>ABOUT</a>
               </div>
-              <div style={{paddingLeft: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center',textDecoration: 'none', color: '#7F8081', float:'left'}}><a href="http://luxarity.com/pop-up-events/" target='_blank' style={{textDecoration: 'none', color: '#7F8081'}}>POPUP</a>
+              <div style={{paddingLeft: 20, fontSize: 14, display: 'inline-block', alignItems: 'center', justifyContent: 'center',textDecoration: 'none', color: '#7F8081', float:'left'}}><a href="http://luxarity.com/pop-up-events/" target='_blank' style={{textDecoration: 'none', color: '#7F8081'}}>POPUP</a>
               </div>
             </Row>
             <Row style={{paddingLeft: 5}}>
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}><a href="http://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white', backgroundColor: 'black', padding: '10px 20px'}} target="_blank">DONATE</a>
+              <div style={{paddingRight: 20, fontSize: 14, display: 'inline-block', alignItems: 'center', justifyContent: 'center'}}><a href="http://luxarity-popup-2016.myshopify.com/" style={{textDecoration: 'none', color: 'white', backgroundColor: 'black', padding: '10px 20px'}} target="_blank">DONATE</a>
               </div>
 
-              <div style={{paddingRight: 20, fontSize: 12, display: 'inline-block', alignItems: 'center', justifyContent: 'center', color: '#7F8081'}}><a href="mailto:info@luxarity.com" data-rel="external" target="_blank" style={{textDecoration: 'none', color: '#7F8081'}}>SUPPORT</a>
+              <div style={{paddingRight: 20, fontSize: 14, display: 'inline-block', alignItems: 'center', justifyContent: 'center', color: '#7F8081'}}><a href="mailto:info@luxarity.com" data-rel="external" target="_blank" style={{textDecoration: 'none', color: '#7F8081'}}>SUPPORT</a>
               </div>
             </Row>
         </Row>

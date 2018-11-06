@@ -54,7 +54,7 @@ class EnterPinSection extends Component {
           </Row>
         </Col>
         <Col md={6} style={{margin: 0}}>
-          <Col style={{textAlign: 'left', alignItems: 'center', justifyContent: 'center', padding: '15%', color: 'black', lineHeight: 1.7}}>
+          <Col style={{textAlign: 'left', alignItems: 'center', justifyContent: 'center', padding: '15%', color: 'black', lineHeight: 1.7, letterSpacing: 4}}>
             <div style={{textTransform: 'uppercase', fontSize: 40, fontFamily: 'Boysen Regular'}}><strong>ENTER YOUR PIN</strong></div>
             <div style={{textTransform: 'uppercase', fontSize: 40, fontFamily: 'Boysen Regular'}}><strong>NUMBER</strong></div>
             <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Please enter your pin to choose where the proceeds of your order goes toward. Your pin is located in your email receipt sent from LUXARITY.</div>
