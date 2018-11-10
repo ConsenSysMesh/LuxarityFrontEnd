@@ -235,8 +235,8 @@ class Redeem extends Component {
               handleClose={this.handleClose}
               overlayColor={'#bec0be'}
               messageImage={AllImg}
-              cardTitle={"Oops! Wrong Pin!"}
-              cardSubtitle={"Please try again."}
+              cardTitle={"Please Try Again"}
+              cardSubtitle={"Mistaken Pin Entry"}
               cardMessage={"This doesn't quite match any pin codes on record. Please try again and make sure there aren't any rogue spaces or letters in your entry."} />
           </div>
         </Wrapper>
