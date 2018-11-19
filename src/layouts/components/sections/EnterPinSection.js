@@ -57,7 +57,8 @@ class EnterPinSection extends Component {
           <Col style={{textAlign: 'left', alignItems: 'center', justifyContent: 'center', padding: '15%', color: 'black', lineHeight: 1.7, letterSpacing: 4}}>
             <div style={{textTransform: 'uppercase', fontSize: 40, fontFamily: 'Boysen Regular'}}><strong>ENTER YOUR PIN</strong></div>
             <div style={{textTransform: 'uppercase', fontSize: 40, fontFamily: 'Boysen Regular'}}><strong>NUMBER</strong></div>
-            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Please enter your pin to choose where the proceeds of your order goes toward. Your pin is located in your email receipt sent from LUXARITY.</div>
+            <div style={{color: '#BEC0BE', fontSize: 14, letterSpacing: 1, lineHeight: 1.7, paddingTop: 20, paddingBottom: 20}}>Please enter your pin to choose where the proceeds of your order goes toward. Your pin is located in your order/donation receipt sent from LUXARITY 2018 Pop-up.
+            </div>
             <div className="inputbox">
               <input type="text" placeholder="0 • 0 • 0 • 0 • 0" name="password" style={{color: '#B2B2B2', width: '80%'}} value={this.state.pinValue} onChange={this.updatePin}/>
               <button onClick={this.props.enterPin}>
@@ -65,7 +66,7 @@ class EnterPinSection extends Component {
               </button>
             </div>
             <div style={{justifyContent: 'center', alignItems: 'center'}}>
-              <button className="p-btn-dark" style={{color: 'white', letterSpacing: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}><a style={{textDecoration: 'none', color: 'white'}} href="https://luxarity-popup-2016.myshopify.com/" target="_blank">Make Additional Donation</a></button>
+              <button className="p-btn-dark" style={{color: 'white', letterSpacing: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}><a style={{textDecoration: 'none', color: 'white'}} href="https://luxarity-popup-2016.myshopify.com/" target="_blank">Make a Donation</a></button>
             </div>
           </Col>
         </Col>
