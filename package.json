@@ -1,5 +1,15 @@
 {
   "name": "drizzle-box",
+  "contributors": [
+    {
+      "name": "Robert Greenfield",
+      "email": "robby.greenfield@consensys.net"
+    },
+    {
+      "name": "Scott Fronsdahl",
+      "email": "scott.fronsdahl@consensys.net"
+    }
+  ],
   "version": "1.0.0",
   "devDependencies": {
     "ganache-cli": "^6.1.6",
