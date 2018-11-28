@@ -1,1 +1,1 @@
-# Luxarity Front End Repository
+# Luxarity Pop-up DApp
