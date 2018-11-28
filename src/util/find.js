@@ -6,7 +6,7 @@ const LuxOrder = require('../../build/contracts/LuxOrders.json')
 const csv = require('csvtojson')
 const ObjectsToCsv = require('objects-to-csv');
 //files
-const csvFilePath = './files/orders_export.csv'
+const csvFilePath = './files/dB_Orders.csv'
 
 //starting process
 console.log("Creating empty object...")
@@ -33,6 +33,7 @@ async function start() {
   let contract = await new web3.eth.Contract(abi, "0xa4c69450f2dea4a10a7e799674feda99c9af9732")
 
   //iterate through tokens
+  /*
   for (let x = 190; x < 743; x++) {
 
     console.log("Processing Token #" + x)
@@ -55,9 +56,10 @@ async function start() {
       buyerHash: tokenData.buyerHash
     })
   }
+  */
 
-  let csvToken = new ObjectsToCsv(tokenObject)
-  await csvToken.toDisk('./tokenData.csv')
+  //let csvToken = new ObjectsToCsv(tokenObject)
+  //await csvToken.toDisk('./tokenData.csv')
 
   //iterate through json object and create new object
   for (let i = 0; i < jsonArray.length; i++) {
@@ -70,19 +72,19 @@ async function start() {
     let finalHash = web3Utils.keccak256(emailHash.toUpperCase())
 
     let buyerData = await getBuyerData(contract, finalHash)
-    let donationData = await getDonationData(contract, jsonArray[i].Name.substring(1, jsonArray[i].Name.length))
+    let donationData = await getDonationData(contract, Number(jsonArray[i].OrderNumber))
 
     donorObject.push({
       email: jsonArray[i].Email,
-      orderNumber: jsonArray[i].Name.substring(1, jsonArray[i].Name.length),
-      purchaseDate: jsonArray[i].Paidat,
-      billingName: jsonArray[i].BillingName,
+      orderNumber: jsonArray[i].OrderNumber,
       chosenCharity: donationData.charityName,
       amountAllocated: donationData.amountAllocated,
       totalAmountSpent: jsonArray[i].Total,
       orderId: jsonArray[i].Id,
+      tokenId: jsonArray[i].TokenId,
     })
 
+    /*
     buyerObject.push({
       email: jsonArray[i].Email,
       orderNumber: jsonArray[i].Name.substring(1, jsonArray[i].Name.length),
@@ -92,15 +94,16 @@ async function start() {
       totalAmountSpent: jsonArray[i].Total,
       orderId: jsonArray[i].Id,
     })
+    */
   }
 
   //create new file with new data
   let csvDonor = new ObjectsToCsv(donorObject)
-  let csvBuyer = new ObjectsToCsv(buyerObject)
+  //let csvBuyer = new ObjectsToCsv(buyerObject)
 
   // Save to file:
   await csvDonor.toDisk('./choseDonationsData.csv')
-  await csvBuyer.toDisk('./buyersData.csv')
+  //await csvBuyer.toDisk('./buyersData.csv')
 
 }
 
