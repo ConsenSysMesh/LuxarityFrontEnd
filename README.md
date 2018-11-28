@@ -1,1 +1,1 @@
-# LuxarityFrontEnd
+# Luxarity Front End Repository
