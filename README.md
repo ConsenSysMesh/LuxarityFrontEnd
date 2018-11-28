@@ -2,7 +2,8 @@
 The purpose of this application is to track the resale of donated luxury goods from the point of sale to grant disbursement. In addition, the project serves as a proof-of-concept looking to develop a tokenized market place of retail products to incentivize the creation of a prosumer economy, where consumers are rewarded for selling and buying second hand goods. 
 
 As an overview, the PoC LUXARITY DApp has the following architectural specs: 
-![Explore View](https://github.com/ConsenSys/LuxarityFrontEnd/blob/master/ReadMeImgs/Architecture/LuxArch.png)
+
+![Architecture View](https://github.com/ConsenSys/LuxarityFrontEnd/blob/master/ReadMeImgs/Architecture/LuxArch.png)
 
 To better understand the architecture of the build, please review the following document: 
 - LUXARITY Architecture: https://drive.google.com/a/consensys.net/file/d/1d0Rcb3DFzxKAiHnq154MQPTBoBKbu0W-/view?usp=sharing
