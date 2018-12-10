@@ -54,12 +54,13 @@ The entirety of the application's front end views and components can be found wi
 
 The two most important folders within the 'layouts' folder are the 'components' folder and the 'views' folder. The Components folder holds all of the application's re-usable front-end components (buttons, modals, etc.), and the Views folder holds all of the application's pages (home page, about page, etc.). 
 
-The Components folder can be broken down into the following resources
+### Components 
+The Components folder can be broken down into the following resources:
 
-### Project Card 
+#### Project Card 
 The project card folder holds components that are either modals or cards on the front end. There are four components within the project card folder, and each have their own parameters and use. Let's review each: 
 
-*Donation Complete Modal*
+##### Donation Complete Modal
 The donation complete modal is a modal that should show once the user has successfully allocated their order proceeds to a cause of their choice. The modal should only show if the smart contract transaction that allocated order proceeds to a cuase has not failed. The component has the following parameters: 
 
     .
@@ -68,7 +69,7 @@ The donation complete modal is a modal that should show once the user has succes
     ├── handleClose        # Function that toggles the boolean value provided to the 'open' parameter (function)               
     └── ...
 
-*Project Card Complex*
+##### Project Card Complex
 Project Card Complex is a 'card,' which is a rectangular component that typically shows an image, paired with information about that image. Cards typically have background shadowing to differentiate its flat style from the background of the view. The Project Card Complex component shows only on the Support view, where users choose which causes to allocate their order proceeds. The component has the following parameters: 
 
     .
@@ -87,11 +88,120 @@ Project Card Complex is a 'card,' which is a rectangular component that typicall
     ├── charityImage      # brand image used by luxarity 
     └── ...
 
-### Sections
+##### Project Card Simple
+Project Card Simple is a 'card,' which is a rectangular component that typically shows an image, paired with information about that image. Cards typically have background shadowing to differentiate its flat style from the background of the view. The Project Card Simple component is not currently used in the project, and it was replaced by the Project Skinny Card. The component has the following parameters: 
 
-### User Feedback  
+    .
+    ├── charityURL        # A string that indicates the url link to the cause or charity shown in the component 
+    ├── cardCategory      # String, indicating which brand value the cause represents (responsibility, awareness, or wonder)
+    ├── cardOrgName       # String, the organizational name of the cause being supported
+    ├── cardSummary       # String, the summary of the cause being supported 
+    ├── cardGoal          # Number, the fundraise goal for the cause being supported 
+    ├── cardPledged       # Number, the amount pledged for the cause being supported
+    ├── charityImage      # brand image used by luxarity 
+    └── ...
 
-### Wrapper 
+##### Project Skinny Card
+Project Skinny Card is a 'card,' which is a rectangular component that typically shows an image, paired with information about that image. Cards typically have background shadowing to differentiate its flat style from the background of the view. The Project Skinny Card component shows only on the Home page (Redeem) view, where users enter their reciept pin to 'redeem' their unallocated order proceeds, so that they use them to support a cause of their choice. The component has the following parameters: 
+
+    .
+    ├── charityURL        # A string that indicates the url link to the cause or charity shown in the component 
+    ├── cardCategory      # String, indicating which brand value the cause represents (responsibility, awareness, or wonder)
+    ├── cardOrgName       # String, the organizational name of the cause being supported
+    ├── cardSummary       # String, the summary of the cause being supported 
+    ├── cardGoal          # Number, the fundraise goal for the cause being supported 
+    ├── cardPledged       # Number, the amount pledged for the cause being supported
+    ├── charityImage      # image for cause (brand image pre-selected by LUXARITY)
+    └── ...
+
+##### Support Modal
+The support modal is a modal that should show once the user has clicked on the support button on the Project Complex Card component. Clicking on the support button (when a user wants to allocate their order proceeds to a cuase), will toggle the Support Modal and ask the user to confirm their choice. The component has the following parameters: 
+
+    .
+    ├── orgs              # Only for use when splitting a user's allocation over multiple causes (array of strings)
+    ├── cardCategory      # String, indicating which brand value the cause represents (responsibility, awareness, or wonder)
+    ├── cardOrgName       # String, the organizational name of the cause being supported
+    ├── open              # Open, which determines whether the modal is open to view or not (boolean)
+    ├── handleclose       # Function that toggles the boolean value provided to the 'open' parameter (function) 
+    ├── overlayColor      # String, hex color code to change overlay backrgound of modal
+    ├── donationImage     # image for cause (brand image pre-selected by LUXARITY)
+    ├── type              # brand image used by luxarity
+    ├── donationAmount    # Number, the amount pledged for the cause being supported
+    ├── onDonate          # Function, triggers smart contract API call via redux
+    └── ...
+
+#### Sections
+Sections are larger components that are typically comprised of smaller components. Sections reoccur throughout the application, and thus, are still considered components themselves. The component sections of this application are outlined below: 
+
+##### All Fashion Section 
+The component is fixed and utilized a provisioned image provided by LUXARITY. 
+    
+##### Enter Pin Section  
+The Enter Pin Section is shown on the home page of the applciation (on the Redeem view). It is the first component after the header of the application. The component has the following parameters: 
+
+    .
+    ├── totalRaised        # Number, total sales of the LUXARITY popup 
+    ├── enterPin           # Function, calls redux API call that checks if pin is correct for any existing order               
+    └── ...
+
+##### Luxarity is More Section  
+The component is fixed and utilized a provisioned image provided by LUXARITY. 
+
+    
+##### Support a Cause Section   
+The support a cause section is the top section of the Support view. It shows the user how much their order was (proceeds they have to allocate), how much LUXARITY fees will take from that total, and what the remainding allocation amount is. If the order's proceeds has already been allocated, the section will tell the user so. The component has the following parameters: 
+
+    .
+    ├── remainderAmount    # Number, remainding amount to be allocated to a cause from the order's proceeds 
+    ├── noAllocationleft   # Boolean, if no allocation left, show a message to user that order's proceeds are spent
+    ├── totalOrder         # Number, total order amount   
+    ├── splitDonation      # Function, calls smart contract function (API Call to smart contract via redux)
+    ├── supportOpen        # Boolean, triggers open of modal to confirm support for cause 
+    ├── handleClose        # Function that toggles the boolean value provided to the 'supportOpen' parameter (function)
+    ├── orgs               # Only for use when splitting a user's allocation over multiple causes (array of strings)
+    └── ...
+
+#### User Feedback 
+Components that show in direct causation of an event that requires user feedback (modals, warnings, etc.):
+
+##### Message Modal  
+The message modal is a modal that should shown once the user has clicked on the support button on the Project Complex Card component and an error has occured. The component has the following parameters:  
+
+    .
+    ├── cardMessage        # String, message for error 
+    ├── overlayColor       # String, hex color code for background overlay for modal
+    ├── supportOpen        # Boolean, triggers open of modal to confirm support for cause 
+    ├── handleClose        # Function that toggles the boolean value provided to the 'supportOpen' parameter (function)
+    ├── messageImage       # String, image for modal to use 
+    ├── cardTitle          # String, title for modal to use 
+    ├── cardSubtitle       # String, sub-title for modal to use 
+    ├── noAllocationleft   # Boolean, if no allocation left, show a message to user that order's proceeds are spent
+    ├── orderIncomplete    # Boolean, check if status is an error 
+    └── ...
+
+#### Wrapper 
+The application wrapper includes the footer and header of the app - which is persistent across all pages. 
+
+### Views 
+The Views folder can be broken down into the following resources:
+
+#### Dashboard 
+DEPRECATED - will be removed
+
+#### Home 
+DEPRECATED - will be removed
+
+#### Progress 
+DEPRECATED - will be removed
+
+#### Redeem 
+Home page where users enter their receipt pin number and redeem their unallocated proceeds from their order to allocate them to a cause.  
+
+#### Support
+Support page where users select a cause and allocate their order proceeds to a cause. 
+
+#### Test
+Test page where developers can see all the components front end components for iteration purposes. 
 
 ## Application Testing
 The majority of testing resources can be found in the Luxarity Smart Contract repository (see below in the Additional Repositories section). The main test can be found in the 'Tests' folder within the LuxOrders.js file. The tests ensure that the smart contract for the application is secure, well-functioning given edge use cases, and accounts for future functionality (or parameters) that may be needed. 
