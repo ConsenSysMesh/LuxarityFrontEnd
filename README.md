@@ -1,6 +1,9 @@
 # LUXARITY Pop-up DApp
 The purpose of this application is to track the resale of donated luxury goods from the point of sale to grant disbursement. In addition, the project serves as a proof-of-concept looking to develop a tokenized market place of retail products to incentivize the creation of a prosumer economy, where consumers are rewarded for selling and buying second hand goods. 
 
+A full report on the performance, shortfalls, and overall next steps for the proof-of-concept can be found here: 
+https://docs.google.com/document/d/1sdZvbkZ835qVS34oggHoaaXXHPtfy9l7uJPxKCBVp7w/edit#
+
 As an overview, the PoC LUXARITY DApp has the following architectural specs: 
 
 ![Architecture View](https://github.com/ConsenSys/LuxarityFrontEnd/blob/master/ReadMeImgs/Architecture/LuxArch.png)
@@ -39,5 +42,15 @@ The application has the following folder structure (for the purpose of consicene
     │   └── ...                
     └── ...
 
-## Application Views
-....
+
+## Application Testing
+The majority of testing resources can be found in the Luxarity Smart Contract repository (see below in the Additional Repositories section). The main test can be found in the 'Tests' folder within the LuxOrders.js file. The tests ensure that the smart contract for the application is secure, well-functioning given edge use cases, and accounts for future functionality (or parameters) that may be needed. 
+
+## Additional Repositories
+Additional repositories that are critical to the proof of concept can be found below: 
+
+- Front End Application: https://github.com/ConsenSys/LuxarityFrontEnd
+- Smart Contract API: https://github.com/ConsenSys/Luxarity-SensuiMod 
+- Shopify Event Watcher: https://github.com/ConsenSys/luxarity-shopify 
+- Off-Chain API: https://github.com/ConsenSys/luxarity-offchain 
+- Luxarity Smart Contracts & Tests: https://github.com/ConsenSys/LuxToken
